@@ -1,0 +1,214 @@
+/* ========================= NAVBAR (FINAL VERSION) ========================= */
+
+/* MAIN NAVBAR CONTAINER */
+.navbar {
+  width: 96%;
+  max-width: 1400px;
+  margin: 1rem auto 0 auto;
+  padding: 0.75rem 2rem; 
+
+  border-radius: 9999px;
+  background-color: rgba(170, 184, 192, 0.95);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+
+  z-index: 1000;
+
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  border: 1px solid rgba(156, 163, 175, 0.3);
+}
+
+/* LEFT SECTION */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  /* This gap creates the spacing between the hamburger and the logo */
+  gap: 1.5rem; 
+}
+
+/* MIDDLE SECTION */
+.nav-middle {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* RIGHT SECTION */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ========================= NAV LINKS & BUTTONS ========================= */
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  background-color: #a7b9c1;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 6px 14px;
+  border-radius: 10px;
+
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #9fb3bb;
+  transform: translateY(-2px);
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.profile-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #e5e5e5;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.profile-icon:hover {
+  transform: scale(1.05);
+}
+
+.nav-button {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: #d1d1d1;
+  color: #333;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ========================= HAMBURGER MENU (FIXED) ========================= */
+
+.hamburger-btn {
+  /* Box Dimensions */
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+
+  /* Flex Layout for Bars */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* Spreads bars evenly */
+  align-items: center;
+  
+  /* Ensure it's clickable and visible */
+  z-index: 1002;
+  flex-shrink: 0;
+  appearance: none; /* Removes default browser button styles */
+}
+
+.hamburger-bar {
+  display: block;
+  width: 28px; /* Fixed width for the lines */
+  height: 3px; /* Thickness */
+  min-height: 3px; /* Prevents collapsing */
+  background-color: #1A3342; /* Dark Blue color */
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn:hover .hamburger-bar {
+  background-color: #000; /* Darker on hover */
+  transform: scaleX(1.1);
+}
+
+/* Hamburger Icon (Lucide Menu) */
+.hamburger-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #1A3342;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.hamburger-icon:hover {
+  color: #000;
+}
+
+/* ========================= LOGO ========================= */
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #1A3342;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ========================= HAMBURGER ========================= */
+
+.hamburger-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px;
+}
+
+.hamburger-btn .bar {
+  width: 100%;
+  height: 4px;
+  background-color: #1A3342; /* dark theme color */
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+.hamburger-btn:hover .bar {
+  opacity: 0.85;
+  transform: scaleX(0.95);
+}

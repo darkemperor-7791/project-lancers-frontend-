@@ -1,0 +1,80 @@
+/* ====== PAGE BACKGROUND ====== */
+.app-container {
+  min-height: 100vh;
+  background-color: #1A3342;
+  padding-top: 120px; /* space under top bar */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ====== MAIN CARD ====== */
+.main-card {
+  width: 100%;
+  max-width: 56rem;
+  background-color: #1A3342;
+  border: 5px solid #D1DCE2;
+  border-radius: 0; /* 🔥 pill removed */
+  padding: 1rem;
+}
+
+/* ====== HEADER (NO PILL) ====== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent; /* 🔥 no palette */
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* ====== BUTTONS ====== */
+.btn-back {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #8DAAB9;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #C1D1D9;
+  padding: 0.3rem 1rem;
+  border-radius: 9999px;
+  border: none;
+}
+
+/* ====== NOTIFICATIONS ====== */
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: calc(100vh - 260px);
+  overflow-y: auto;
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #7F9BAA;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.notification-text {
+  color: white;
+  font-size: 1.25rem;
+}
+
+/* ====== DELETE ICON ====== */
+.btn-delete {
+  background: transparent;
+  border: none;
+}

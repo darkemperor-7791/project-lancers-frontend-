@@ -1,0 +1,354 @@
+/* --- Color Variables based on your palette --- */
+:root {
+    --color-bg-dark: #4d6b78;       /* The dark teal background */
+    --color-bg-light: #d4dfe3;      /* The light grey/blue for cards/bars */
+    --color-accent: #8fa5ae;        /* The medium grey/blue for borders/placeholders */
+    --color-text-dark: #2c4a58;     /* The very dark teal text */
+    --color-text-white: #ffffff;
+}
+
+/* Page Container */
+.fw-page-container {
+    background-color: var(--color-bg-dark);
+    min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+    padding: 2rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.fw-layout {
+    display: flex;
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- Sidebar Styles --- */
+.fw-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.fw-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-accent);
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.fw-category-section {
+    background-color: var(--color-bg-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    min-height: 400px; /* To match the long vertical look in design */
+}
+
+.fw-category-title {
+    text-transform: uppercase !important;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+    text-transform: lowercase; /* Matches "category" in design */
+}
+
+.fw-category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fw-category-list li {
+    padding: 0.5rem 0;
+    color: var(--color-text-dark);
+    opacity: 0.8;
+    cursor: pointer;
+    font-weight: 500;
+}
+.fw-category-list li:hover {
+    opacity: 1;
+    font-weight: 700;
+}
+
+/* --- Main Content Styles --- */
+.fw-main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Search Bar */
+.fw-search-bar-container {
+    background-color: var(--color-bg-light);
+    border-radius: 20px; /* Highly rounded as in design */
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fw-search-input-wrapper {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.fw-search-icon {
+    position: absolute;
+    left: 0;
+    color: var(--color-text-dark);
+}
+
+.fw-search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding-left: 2rem;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    outline: none;
+}
+
+.fw-sort-btn {
+    background-color: var(--color-accent);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    color: var(--color-text-dark);
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-sort:hover {
+  transform: translateY(-1px);                    /* same lift */
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.40);     /* same shadow */
+}
+
+/* Job Feed */
+.fw-job-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* --- Card Styles --- */
+.fw-card {
+    background-color: var(--color-bg-light);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Card Header */
+.fw-card-header {
+    background-color: var(--color-bg-dark);
+    border-radius: 12px; /* Inner rounding */
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fw-user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.fw-avatar-circle {
+    width: 28px;
+    height: 28px;
+    background-color: var(--color-bg-light);
+    border-radius: 50%;
+}
+
+.fw-username {
+    color: var(--color-text-white);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.fw-tags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.fw-tag {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.fw-tag-delivery {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+}
+
+.fw-tag-loyalty {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    /* In the design, this tag looks darker grey/white mix, simplified here */
+    background-color: #d4dfe3; 
+    border: 1px solid #fff;
+}
+
+/* Card Body */
+.fw-card-body {
+    padding: 0 0.5rem;
+}
+
+.fw-project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin: 0;
+}
+
+.fw-project-category {
+    font-size: 0.9rem;
+    color: var(--color-text-dark);
+    margin-top: 0.25rem;
+    opacity: 0.8;
+}
+
+/* Carousel */
+.fw-carousel-section {
+    position: relative;
+    background-color: #2c4a58; /* Dark framing for images */
+    border-radius: 12px;
+    padding: 1rem 3rem; /* Space for arrows */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fw-images-container {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.fw-image-box {
+    flex: 1;
+    height: 180px;
+    background-color: #d9d9d9; /* Grey placeholder */
+    border-radius: 8px;
+    position: relative;
+}
+
+.fw-arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.fw-arrow-left { left: 0.5rem; }
+.fw-arrow-right { right: 0.5rem; }
+
+/* Icons Overlay on Image */
+.fw-image-actions {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    background-color: var(--color-bg-dark);
+    padding: 0.4rem 0.6rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-dark); /* Icon color */
+}
+.fw-image-actions svg {
+    color: #000; /* As per design dark icons */
+}
+.fw-divider {
+    width: 1px;
+    height: 12px;
+    background-color: #000;
+}
+
+/* Card Footer */
+.fw-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.fw-footer-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.fw-btn-tokens, .fw-btn-apply {
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.fw-btn-tokens {
+    background-color: var(--color-bg-dark); /* Lighter dark */
+}
+
+.fw-btn-apply {
+    background-color: #383838; /* Darker button for Apply */
+}
+
+.fw-posted-time {
+    font-size: 0.85rem;
+    color: var(--color-text-dark);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .fw-layout {
+        flex-direction: column;
+    }
+    .fw-sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    .fw-category-section {
+        min-height: auto;
+    }
+    .fw-images-container {
+        flex-direction: column;
+    }
+    .fw-image-box {
+        width: 100%;
+    }
+}
