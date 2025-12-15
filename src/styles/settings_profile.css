@@ -244,8 +244,19 @@
 .bio-box {
   background: var(--inner-bg);
   margin-top: 60px;
-  padding: 5rem;
+  padding: 16px;
   border-radius: 0.5rem;
+  width: 100%;
+  min-height: 180px;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-left : -15px;
+
+  font-size: 25px;
+  font-family: inherit;
+
+  overflow : hidden;
+  resize: none;
 }
 
 /* SKILLS */
@@ -280,10 +291,23 @@
 
 /* EXPERIENCE */
 .project-box {
-  margin-top: 16px;
-  background: var(--inner-bg);
-  padding: 2rem;
+ background: var(--inner-bg);
+  margin-top: 60px;
+  padding: 16px;
   border-radius: 0.5rem;
+  width: 100%;
+  min-height: 180px;
+
+  border: 1px solid #ccc;
+  outline: none;
+
+  margin-left : -10px;
+
+  font-size: 25px;
+  font-family: inherit;
+
+  overflow : hidden;
+  resize: none;
 }
 
 /* HIDDEN SIDEBAR */

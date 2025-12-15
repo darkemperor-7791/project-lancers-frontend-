@@ -1,11 +1,18 @@
 import React from "react";
 import "../styles/settings_profile.css";
 import { Pencil } from "lucide-react";
+import useAutoResizeTextarea from "../hooks/useAutoResizeTextarea"; // ✅ ADDED
 
 export default function SettingsProfile({ isSidebarOpen }) {
+
+  // ✅ ADDED: call the hook
+  const { textareaRef, handleInput } = useAutoResizeTextarea();
+
   return (
     <div
-      className={`app-container settings-profile-page ${isSidebarOpen ? "settings-sidebar-open" : "settings-sidebar-closed"}`}
+      className={`app-container settings-profile-page ${
+        isSidebarOpen ? "settings-sidebar-open" : "settings-sidebar-closed"
+      }`}
       style={{ paddingTop: "130px" }}
     >
       {/* Removed internal header — global NavBar handles everything */}
@@ -48,13 +55,18 @@ export default function SettingsProfile({ isSidebarOpen }) {
                   <p>Date of Birth : 14 / 03 / 1998</p>
                   <p>Country : Russia</p>
                   <p><strong>Time since joined :</strong> 3 years</p>
-
-                  </div>
                 </div>
               </div>
+            </div>
 
-            <div className="bio-box">
-              <p>Tell us about yourself......</p>
+            {/* ✅ ONLY THIS TEXTAREA WAS TOUCHED */}
+            <div>
+              <textarea
+                ref={textareaRef}          // ✅ ADDED
+                onInput={handleInput}      // ✅ ADDED
+                className="bio-box"
+                placeholder="Tell us about yourself......"
+              />
             </div>
           </section>
 
@@ -83,12 +95,14 @@ export default function SettingsProfile({ isSidebarOpen }) {
           <section className="card experience-layout">
             <span className="skills-label">Experience :</span>
             <span className="Add Projects +"></span>
-            
+
             <div className="project-box">
-              <h4 className="project-title">Project 1</h4>
-              <p className="project-desc">
-                ..........................................................................................................................................
-              </p>
+              <textarea
+                ref={textareaRef}          // ✅ ADDED
+                onInput={handleInput}      // ✅ ADDED
+                className="bio-box"
+                placeholder = "Project 1 : ................ "
+              />
             </div>
           </section>
 
