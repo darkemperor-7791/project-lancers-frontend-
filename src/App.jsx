@@ -8,6 +8,8 @@ import {
   useNavigate
 } from "react-router-dom";
 
+import { Bell, Heart } from "lucide-react";
+
 import AuthPages from "./Pages/AuthPages";
 import FindWorkPage from "./Pages/FindWorkPage";
 import Notifications from "./Pages/notifications";
@@ -54,20 +56,24 @@ function NavBar({ onHamburgerClick }) {
       </div>
 
       <div className="navbar-right">
-        {/* Favorites */}
-        <Link to="/fl" className="icon-btn" aria-label="Freelancers">
-          
-        </Link>
+        {/* Favorites - Hide on login page */}
+        {!isLoginPage && (
+          <Link to="/fl" className="icon-btn" aria-label="Freelancers">
+            <Heart size={20} />
+          </Link>
+        )}
 
-        {/* Notifications */}
-        <Link
-          to="/notif"
-          state={{ background: location }}
-          className="icon-btn"
-          aria-label="Notifications"
-        >
-          
-        </Link>
+        {/* Notifications - Hide on login page */}
+        {!isLoginPage && (
+          <Link
+            to="/notif"
+            state={{ background: location }}
+            className="icon-btn"
+            aria-label="Notifications"
+          >
+            <Bell size={20} />
+          </Link>
+        )}
 
         {/* Profile Settings */}
         <Link to="/setpf" className="profile-icon" title="Settings"></Link>
