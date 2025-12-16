@@ -15,6 +15,8 @@ import FindWorkPage from "./Pages/FindWorkPage";
 import Notifications from "./Pages/notifications";
 import Freelancers_list from "./Pages/Freelancers_list";
 import SettingsProfile from "./Pages/settings_profile";
+import SettingsAccount from "./Pages/settings_account";
+
 
 import "./components/Navbar.css";
 
@@ -45,12 +47,17 @@ function NavBar({ onHamburgerClick }) {
           <span className="bar"></span>
         </button>
 
+
+
         <button
-          className="icon-btn"
+          className={`icon-btn home-btn ${isLoginPage ? "disabled" : ""}`}
           aria-label="Home"
-          onClick={() => navigate("/find-work")}
-        >
-          <Home size={20} />
+          onClick={() => {
+            if (!isLoginPage) navigate("/find-work");
+          }}
+          disabled = {isLoginPage}
+          >
+          <Home size={20}/>
         </button>
 
         {(isLoginPage || isFindWorkPage) && (
@@ -59,7 +66,6 @@ function NavBar({ onHamburgerClick }) {
           </button>
         )}
       </div>
-
       {/* RIGHT */}
       <div className="navbar-right">
         {!isLoginPage && (
@@ -95,6 +101,7 @@ export default function App() {
         <Route path="/notif" element={<Notifications />} />
         <Route path="/fl" element={<Freelancers_list />} />
         <Route path="/setpf" element={<SettingsProfile isSidebarOpen={isSidebarOpen} />} />
+        <Route path="/setac" element={<SettingsAccount isSidebarOpen={isSidebarOpen} />} />
       </Routes>
     </Router>
   );

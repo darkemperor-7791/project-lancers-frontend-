@@ -94,6 +94,14 @@
   transform: scale(1.1);
 }
 
+/* Disabled home button (login page) */
+.icon-btn.disabled {
+  opacity: 0;
+  cursor: not-allowed;
+  pointer-events: none; /* extra safety */
+}
+
+
 /* ========================= HAMBURGER MENU (PIXEL PERFECT) ========================= */
 
 .hamburger-btn {

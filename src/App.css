@@ -45,3 +45,8 @@
 .page-content {
   padding-top: 80px; /* navbar height + small buffer */
 }
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}

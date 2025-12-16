@@ -32,13 +32,13 @@ const AuthPages = () => {
                   className="input-field"
                   placeholder="password"
                 />
-                <span
-                  className="input-icon"
+                <button
+                  className="input-icon reveal-btn"
                   style={{ cursor: 'pointer' }}
                   onClick={() => setShowLoginPassword(!showLoginPassword)}
                 >
                   👁
-                </span>
+                </button>
               </div>
 
               <div className="forgot-password">

@@ -1,0 +1,129 @@
+/* ================= ACCOUNT PAGE LAYOUT ================= */
+
+.account-container {
+  width: 96%;
+  max-width: 1400px;          /* matches navbar max width */
+  margin: 0 auto;             /* center container like navbar */
+  padding: 2.5rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ================= DROPDOWN BLOCK ================= */
+
+.account-block {
+  width: 100%;                /* stretch fully inside container */
+  background: #0f2e3d;
+  border-radius: 18px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+/* ================= HEADER BUTTON ================= */
+
+.account-header {
+  width: 100%;
+  padding: 1.6rem 1.8rem;
+
+  background: #547f97;
+  color: white;
+
+  font-size: 1.35rem;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: none;
+  cursor: pointer;
+
+  transition: background-color 0.25s ease;
+}
+
+.account-header:hover {
+  background: #5f8fa8;
+}
+
+/* Chevron animation */
+.account-header svg {
+  transition: transform 0.35s ease;
+}
+
+.account-header svg.rotate {
+  transform: rotate(180deg);
+}
+
+/* ================= DROPDOWN CONTENT ================= */
+
+/* wrapper for smooth animation */
+.account-list {
+  background: #d1d6da;
+  margin: 1rem;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  /* animation */
+  animation: dropdownFade 0.35s ease;
+}
+
+/* smooth appearance */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= LIST ITEMS ================= */
+
+.account-item {
+  padding: 1.05rem 1.4rem;
+
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2d3436;
+
+  background: #cfd4d7;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.account-item:last-child {
+  border-bottom: none;
+}
+
+/* hover feels calm */
+.account-item:hover {
+  background: #bcc2c6;
+  padding-left: 1.7rem;
+}
+
+/* destructive actions */
+.account-item.danger {
+  color: #b30000;
+  font-weight: 600;
+}
+
+/* ================= MOBILE FRIENDLY ================= */
+
+@media (max-width: 768px) {
+  .account-header {
+    font-size: 1.15rem;
+    padding: 1.3rem 1.4rem;
+  }
+
+  .account-item {
+    font-size: 0.95rem;
+  }
+}

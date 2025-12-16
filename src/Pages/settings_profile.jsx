@@ -36,12 +36,12 @@ footer={
 }
 
 >
-  <a href="#" className="sidebar-link active">Profile</a>
-  <a href="#" className="sidebar-link">Billing and Payments</a>
-  <a href="#" className="sidebar-link">Account</a>
+  <a href="/setpf" className="sidebar-link active">Profile</a>
+  <a href="/setac" className="sidebar-link">Account Security</a>
+  <a href="#" className="sidebar-link">Billing & Payments</a>
   <a href="#" className="sidebar-link">Notification Settings</a>
   <a href="#" className="sidebar-link">Appearance</a>
-  <a href="#" className="sidebar-link">Account Analytics</a>
+  <a href="#" className="sidebar-link">User Analytics</a>
   <a href="#" className="sidebar-link">Support</a>
 </Sidebar>
 
