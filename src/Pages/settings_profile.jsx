@@ -1,12 +1,17 @@
 import React from "react";
 import "../styles/settings_profile.css";
 import { Pencil } from "lucide-react";
-import useAutoResizeTextarea from "../hooks/useAutoResizeTextarea"; // ✅ ADDED
+import { useNavigate } from "react-router-dom";
+
+import Sidebar from "../components/Sidebar";
+import useAutoResizeTextarea from "../hooks/useAutoResizeTextarea";
 
 export default function SettingsProfile({ isSidebarOpen }) {
 
-  // ✅ ADDED: call the hook
-  const { textareaRef, handleInput } = useAutoResizeTextarea();
+  // auto-resize hooks
+  const bio = useAutoResizeTextarea();
+  const project = useAutoResizeTextarea();
+  const navigate = useNavigate();
 
   return (
     <div
@@ -15,33 +20,40 @@ export default function SettingsProfile({ isSidebarOpen }) {
       }`}
       style={{ paddingTop: "130px" }}
     >
-      {/* Removed internal header — global NavBar handles everything */}
-
       <main className="main-content">
 
-        {/* SIDEBAR */}
-        <aside className={`sidebar ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-          <h2 className="sidebar-title">Settings</h2>
+        {/* ✅ UNIVERSAL SIDEBAR */}
+        <Sidebar
+  isOpen={isSidebarOpen}
+  title="Settings"
+footer={
+  <button
+    className="btn-logout"
+    onClick={() => navigate("/")}
+  >
+    Log out
+  </button>
+}
 
-          <ul className="sidebar-menu">
-            <li className="menu-item active">Profile</li>
-            <li className="menu-item">Billing and Payments</li>
-            <li className="menu-item">Account</li>
-            <li className="menu-item">Notification Settings</li>
-            <li className="menu-item">Appearance</li>
-            <li className="menu-item">Account Analytics</li>
-            <li className="menu-item">Support</li>
-          </ul>
+>
+  <a href="#" className="sidebar-link active">Profile</a>
+  <a href="#" className="sidebar-link">Billing and Payments</a>
+  <a href="#" className="sidebar-link">Account</a>
+  <a href="#" className="sidebar-link">Notification Settings</a>
+  <a href="#" className="sidebar-link">Appearance</a>
+  <a href="#" className="sidebar-link">Account Analytics</a>
+  <a href="#" className="sidebar-link">Support</a>
+</Sidebar>
 
-          <div className="logout-container">
-            <button className="btn-logout">Log out</button>
-          </div>
-        </aside>
 
         {/* RIGHT CONTENT */}
         <div className="content-area">
+
+          {/* PROFILE CARD */}
           <section className="card">
-            <Pencil className="edit-icon" />
+            <button className="edit-icon">
+              <Pencil />
+            </button>
 
             <div className="profile-header">
               <div className="profile-avatar"></div>
@@ -59,21 +71,21 @@ export default function SettingsProfile({ isSidebarOpen }) {
               </div>
             </div>
 
-            {/* ✅ ONLY THIS TEXTAREA WAS TOUCHED */}
+            {/* BIO */}
             <div>
               <textarea
-                ref={textareaRef}          // ✅ ADDED
-                onInput={handleInput}      // ✅ ADDED
+                ref={bio.textareaRef}
+                onInput={bio.handleInput}
                 className="bio-box"
                 placeholder="Tell us about yourself......"
               />
             </div>
           </section>
 
+          {/* SKILLS */}
           <section className="card skills-container">
             <div className="skills-row">
               <span className="skills-label">Skills :</span>
-
               <div className="tags-wrapper">
                 {["Python", "JavaScript", "C++", "Java"].map(skill => (
                   <span key={skill} className="tag">{skill}</span>
@@ -83,7 +95,6 @@ export default function SettingsProfile({ isSidebarOpen }) {
 
             <div className="skills-row">
               <span className="skills-label">Domains :</span>
-
               <div className="tags-wrapper">
                 {["Data Science", "Web Development"].map(domain => (
                   <span key={domain} className="tag">{domain}</span>
@@ -92,16 +103,17 @@ export default function SettingsProfile({ isSidebarOpen }) {
             </div>
           </section>
 
+          {/* EXPERIENCE */}
           <section className="card experience-layout">
             <span className="skills-label">Experience :</span>
             <span className="Add Projects +"></span>
 
-            <div className="project-box">
+            <div>
               <textarea
-                ref={textareaRef}          // ✅ ADDED
-                onInput={handleInput}      // ✅ ADDED
-                className="bio-box"
-                placeholder = "Project 1 : ................ "
+                ref={project.textareaRef}
+                onInput={project.handleInput}
+                className="project-box"
+                placeholder="Project 1 : ................ "
               />
             </div>
           </section>

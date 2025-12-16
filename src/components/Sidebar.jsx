@@ -1,115 +1,31 @@
-import React from 'react';
+import "./Sidebar.css";
 
-export default function Sidebar({ isOpen }) {
-  const styles = `
-    /* Sidebar Container */
-    .sidebar-component {
-      background-color: #BCC6CC;
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-      overflow: hidden; /* Hides content when width shrinks */
-      white-space: nowrap; /* Prevents text wrapping during transition */
-      
-      /* Transition Logic */
-      transition: width 0.3s ease-in-out, padding 0.3s ease-in-out, opacity 0.2s ease-in-out;
-    }
+import React from "react";
 
-    /* State: Open */
-    .sidebar-component.open {
-      width: 280px;
-      padding: 2rem 1.5rem;
-      opacity: 1;
-    }
-
-    /* State: Closed */
-    .sidebar-component.closed {
-      width: 0px;
-      padding: 0;
-      opacity: 0;
-    }
-
-    /* Title */
-    .sidebar-title {
-      font-size: 2.25rem;
-      font-family: serif; 
-      margin-bottom: 2rem;
-      color: #000;
-      font-weight: 500;
-    }
-
-    /* Menu Layout */
-    .sidebar-menu {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      flex: 1;
-    }
-
-    /* Links */
-    .sidebar-link {
-      text-decoration: none;
-      color: #111;
-      font-size: 1.1rem;
-      font-weight: 400;
-      transition: transform 0.2s;
-      display: inline-block;
-    }
-
-    .sidebar-link:hover {
-      transform: translateX(4px);
-    }
-
-    .sidebar-link.active {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    /* Footer */
-    .sidebar-footer {
-      margin-top: auto;
-      border-top: 1px solid rgba(255,255,255,0.5);
-      padding-top: 1rem;
-    }
-
-    /* Logout Button */
-    .logout-btn {
-      background: none;
-      border: none;
-      font-size: 1.1rem;
-      color: #111;
-      cursor: pointer;
-      width: 100%;
-      text-align: center;
-      padding: 0.5rem;
-      transition: background-color 0.2s;
-    }
-
-    .logout-btn:hover {
-      background-color: rgba(0,0,0,0.05);
-    }
-  `;
-
+/**
+ * Universal Sidebar Component
+ *
+ * Props:
+ * - isOpen (boolean): controls open / closed state
+ * - title (string): sidebar heading
+ * - children (JSX): sidebar menu items (links / buttons)
+ * - footer (JSX): optional footer content (e.g., logout)
+ */
+export default function Sidebar({ isOpen, title, children, footer }) {
   return (
-    <>
-      <style dangerouslySetInnerHTML={{ __html: styles }} />
-      <aside className={`sidebar-component ${isOpen ? 'open' : 'closed'}`}>
-        <h1 className="sidebar-title">Settings</h1>
-        
-        <nav className="sidebar-menu">
-          <a href="#" className="sidebar-link active">Profile</a>
-          <a href="#" className="sidebar-link">Billing and Payments</a>
-          <a href="#" className="sidebar-link">Account</a>
-          <a href="#" className="sidebar-link">Notification Settings</a>
-          <a href="#" className="sidebar-link">Appearance</a>
-          <a href="#" className="sidebar-link">Account Analytics</a>
-          <a href="#" className="sidebar-link">Support</a>
-        </nav>
+    <aside className={`sidebar ${isOpen ? "sidebar-open" : "sidebar-closed"}`}>
+      
+      {title && <h2 className="sidebar-title">{title}</h2>}
 
-        <div className="sidebar-footer">
-          <button className="logout-btn">Log out</button>
+      <nav className="sidebar-menu">
+        {children}
+      </nav>
+
+      {footer && (
+        <div className="logout-container">
+          {footer}
         </div>
-      </aside>
-    </>
+      )}
+    </aside>
   );
 }

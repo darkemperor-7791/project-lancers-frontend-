@@ -1,0 +1,131 @@
+/* SIDEBAR CONTAINER */
+.sidebar {
+  background: var(--element-bg);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: var(--settings-sidebar-width);
+
+  position: fixed;
+  left: 0;
+  top: 130px;
+
+  height: calc(100vh - 130px);
+  height: calc(100dvh - 130px);
+  max-height: calc(100vh - 130px);
+  max-height: calc(100dvh - 130px);
+
+  z-index: 1100;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* OPEN / CLOSED STATES */
+.sidebar-open {
+  transform: translateX(0);
+  
+}
+
+.sidebar-closed {
+  transform: translateX(-100%);
+}
+
+/* SIDEBAR TITLE */
+.sidebar-title {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-family: serif;
+  font-weight: 600;
+}
+
+/* MENU CONTAINER */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  
+  scrollbar-width: none;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+/* WEBKIT SCROLLBAR */
+.sidebar-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+}
+
+.sidebar-menu:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* SIDEBAR LINKS */
+.sidebar-link {
+  background: none;
+  border: none;
+
+  text-decoration: none;
+  color: #111;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+
+  display: inline-block;
+  text-align: left;
+}
+
+.sidebar-link:hover {
+  transform: translateX(4px);
+  color: rgb(78, 83, 255);
+  cursor: pointer;
+}
+
+.sidebar-link.active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* FOOTER (LOGOUT CONTAINER) */
+.logout-container {
+  margin-top: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding-top: 1rem;
+}
+
+/* LOGOUT BUTTON */
+.btn-logout {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: #111;
+
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.btn-logout:hover {
+  color: #ea0000;
+}
+

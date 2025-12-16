@@ -121,77 +121,6 @@
   }
 }
 
-/* SIDEBAR */
-.settings-profile-page .sidebar {
-  background: var(--element-bg);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  width: var(--settings-sidebar-width);
-  position: fixed;
-  left: 0;
-  top: 130px;
-  height: calc(100vh - 130px);
-  height: calc(100dvh - 130px);
-  max-height: calc(100vh - 130px);
-  max-height: calc(100dvh - 130px);
-  z-index: 999;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
-}
-
-.settings-profile-page .sidebar-open {
-  transform: translateX(0);
-}
-
-.settings-profile-page .sidebar-closed {
-  transform: translateX(-100%);
-}
-
-.settings-profile-page .sidebar-title {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-}
-
-.settings-profile-page .sidebar-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  flex: 1;
-  overflow-y: auto;
-  min-height: 0;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
-}
-
-.settings-profile-page .sidebar-menu::-webkit-scrollbar {
-  width: 6px;
-}
-
-.settings-profile-page .sidebar-menu::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.settings-profile-page .sidebar-menu::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.25);
-  border-radius: 9999px;
-}
-
-.settings-profile-page .sidebar-menu:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-.settings-profile-page .sidebar-menu .menu-item {
-  font-weight: 700;
-}
-
-.settings-profile-page .menu-item.active {
-  text-decoration: underline;
-}
-
 /* RIGHT SIDE CONTENT */
 .content-area {
   margin-right: 30px;
@@ -213,6 +142,13 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
+  border: none;
+  background: rgba(255, 255, 255, 0.0);
+}
+
+.edit-icon:hover {
+  transform: translateY(-2px);
+  cursor: pointer;
 }
 
 /* PROFILE */
@@ -241,6 +177,7 @@
   line-height: 2;
 }
 
+/* BIO */
 .bio-box {
   background: var(--inner-bg);
   margin-top: 60px;
@@ -250,12 +187,11 @@
   min-height: 180px;
   border: 1px solid #ccc;
   outline: none;
-  margin-left : -15px;
-
+  margin-left: -15px;
+  text-align: left;
   font-size: 25px;
   font-family: inherit;
-
-  overflow : hidden;
+  overflow: hidden;
   resize: none;
 }
 
@@ -268,7 +204,6 @@
 }
 
 .skills-label {
-
   color: #1A3342;
   font-weight: 700;
   margin-bottom: 10px;
@@ -291,50 +226,17 @@
 
 /* EXPERIENCE */
 .project-box {
- background: var(--inner-bg);
-  margin-top: 60px;
+  background: var(--inner-bg);
+  margin-top: 40px;
   padding: 16px;
   border-radius: 0.5rem;
   width: 100%;
   min-height: 180px;
-
   border: 1px solid #ccc;
   outline: none;
-
-  margin-left : -10px;
-
   font-size: 25px;
   font-family: inherit;
-
-  overflow : hidden;
+  text-align: left;
+  overflow: hidden;
   resize: none;
-}
-
-/* HIDDEN SIDEBAR */
-.sidebar-hidden {
-  display: none;
-}
-
-/* LOGOUT CONTAINER & BUTTON */
-.settings-profile-page .logout-container {
-  margin-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  padding-top: 1rem;
-}
-
-.settings-profile-page .btn-logout {
-  background: none;
-  border: none;
-  font-size: 1.1rem;
-  color: #111;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-  padding: 1rem 0;
-  transition: color 0.2s;
-  font-weight: 500;
-}
-
-.settings-profile-page .btn-logout:hover {
-  color: #000;
 }
