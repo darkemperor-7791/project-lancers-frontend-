@@ -1,10 +1,10 @@
 import React from "react";
-import "../styles/settings_profile.css";
+import "../../styles/settings/Profile.css";
 import { Pencil } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import Sidebar from "../components/Sidebar";
-import useAutoResizeTextarea from "../hooks/useAutoResizeTextarea";
+import Sidebar from "../../components/Sidebar";
+import useAutoResizeTextarea from "../../hooks/useAutoResizeTextarea";
 
 export default function SettingsProfile({ isSidebarOpen }) {
 

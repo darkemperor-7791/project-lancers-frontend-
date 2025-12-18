@@ -1,3 +1,14 @@
+/* ========================= GLOBAL BACKGROUND FIX ========================= */
+
+/* Ensure the whole app has ONE consistent dark background */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background-color: #1a1a1a; /* same dark as wallet-page */
+}
+
 /* ========================= NAVBAR ========================= */
 
 .navbar {
@@ -16,10 +27,10 @@
 
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 70px;
+  left: 50%;
+  transform: translateX(-50%); /* ✅ centers navbar perfectly */
 
+  height: 70px;
   z-index: 1000;
 
   box-shadow:
@@ -29,22 +40,9 @@
   border: 1px solid rgba(156,163,175,0.3);
 }
 
-/* LEFT */
-.navbar-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
+/* ========================= NAVBAR LAYOUT ========================= */
 
-/* CENTER */
-.nav-middle {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* RIGHT */
+.navbar-left,
 .navbar-right {
   display: flex;
   align-items: center;
@@ -94,15 +92,12 @@
   transform: scale(1.1);
 }
 
-/* Disabled home button (login page) */
 .icon-btn.disabled {
   opacity: 0;
-  cursor: not-allowed;
-  pointer-events: none; /* extra safety */
+  pointer-events: none;
 }
 
-
-/* ========================= HAMBURGER MENU (PIXEL PERFECT) ========================= */
+/* ========================= HAMBURGER ========================= */
 
 .hamburger-btn {
   width: 40px;
@@ -117,29 +112,21 @@
   justify-content: center;
   align-items: center;
   gap: 6px;
-
-  flex-shrink: 0;
 }
 
-/* PERFECT BARS */
 .hamburger-btn .bar {
-  width: 26px;              /* ✅ EVEN number */
-  height: 4px;              /* ✅ EVEN number */
+  width: 26px;
+  height: 4px;
   background-color: #1A3342;
-
-  border-radius: 2px;       /* ✅ NOT pill-shaped */
-  box-sizing: border-box;
-
-  transform: translateZ(0); /* ✅ forces GPU crisp rendering */
+  border-radius: 2px;
 }
 
-/* Hover — NO distortion */
 .hamburger-btn:hover .bar {
   background-color: #000;
 }
 
+/* ========================= PROFILE ========================= */
 
-/* PROFILE */
 .profile-icon {
   width: 46px;
   height: 46px;

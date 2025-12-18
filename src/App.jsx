@@ -14,9 +14,11 @@ import AuthPages from "./Pages/AuthPages";
 import FindWorkPage from "./Pages/FindWorkPage";
 import Notifications from "./Pages/notifications";
 import Freelancers_list from "./Pages/Freelancers_list";
-import SettingsProfile from "./Pages/settings_profile";
-import SettingsAccount from "./Pages/settings_account";
-
+import SettingsProfile from "./Pages/Settings/Profile";
+import SettingsAccount from "./Pages/Settings/Account";
+import UPIIDsPage from "./Pages/Settings/Account_upi";
+import BankAccounts from "./Pages/Settings/Account_bank";
+import WalletsPage from "./Pages/Settings/Account_wallet";
 
 import "./components/Navbar.css";
 
@@ -102,6 +104,9 @@ export default function App() {
         <Route path="/fl" element={<Freelancers_list />} />
         <Route path="/setpf" element={<SettingsProfile isSidebarOpen={isSidebarOpen} />} />
         <Route path="/setac" element={<SettingsAccount isSidebarOpen={isSidebarOpen} />} />
+        <Route path="/acupi" element={<UPIIDsPage isSidebarOpen={isSidebarOpen}/>} />
+        <Route path="/acbank" element={<BankAccounts isSidebarOpen={isSidebarOpen}/>} />
+        <Route path="/acwallet" element={<WalletsPage isSidebarOpen={isSidebarOpen}/>} />
       </Routes>
     </Router>
   );

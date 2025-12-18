@@ -1,0 +1,192 @@
+/* src/styles/settings/Account_upi.css */
+
+:root {
+  --settings-sidebar-width: 250px;
+}
+
+.settings-page {
+  margin-right: 10px;
+  background: #1a1a1a;
+  color: #2d2d2d;
+  min-height: 100vh;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  overflow-x: hidden;
+  padding-left: 0;
+  transition: padding-left 0.3s ease-in-out;
+}
+
+.settings-page.settings-sidebar-open {
+  padding-left: var(--settings-sidebar-width);
+}
+
+.settings-page.settings-sidebar-closed {
+  padding-left: 0;
+}
+
+/* ===== GLOBAL SCROLLBAR REMOVAL ===== */
+
+html,
+body {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== PAGE WRAPPER ===== */
+
+.upi-page {
+  min-height: calc(100vh - 90px);
+  margin-top: 90px;
+  background: #1a1a1a;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 24px;
+}
+
+/* ===== OUTER CONTAINER ===== */
+
+.upi-outer {
+  width: 100%;
+  max-width: 1100px;
+  background: #2d5160;
+  padding: 28px;
+  border-radius: 28px;
+}
+
+/* ===== INNER CONTAINER ===== */
+
+.upi-inner {
+  background: #a3b2b5;
+  border-radius: 24px;
+  padding: 42px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+
+.upi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.upi-title {
+  font-size: 38px;
+  font-weight:600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.upi-title-underline {
+  width: 150px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 2px;
+  margin-top: 6px;
+}
+
+.add-upi-btn {
+  background: #2d4f5c;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.add-upi-btn:hover {
+  background-color: #386477;
+  box-shadow: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* ===== UPI LIST (AUTO-EXPANDS) ===== */
+
+.upi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+/* ===== UPI CARD ===== */
+
+.upi-card {
+  background: #5a7b8c;
+  padding: 24px 32px;
+  border-radius: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===== LEFT INFO ===== */
+
+.upi-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.upi-label {
+  font-size: 14px;
+  color: #e6ecef;
+}
+
+.upi-value {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+/* ===== ACTIONS ===== */
+
+.upi-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.upi-set-default {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.upi-set-default:hover{
+  transform: translateY(-2px);
+}
+
+.upi-default {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.upi-delete-btn {
+  background: none;
+  border: none;
+  color: #000000;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.upi-delete-btn:hover{
+  transform: translateY(-2px);
+}

@@ -1,0 +1,157 @@
+:root {
+  --settings-sidebar-width: 250px;
+}
+
+.settings-page {
+  margin-right: 10px;
+  color: #2d2d2d;
+  min-height: 100vh;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  overflow-x: hidden;
+  padding-left: 0;
+  transition: padding-left 0.3s ease-in-out;
+}
+
+.settings-page.settings-sidebar-open {
+  padding-left: var(--settings-sidebar-width);
+}
+
+.settings-page.settings-sidebar-closed {
+  padding-left: 0;
+}
+
+/* ===== GLOBAL SCROLLBAR REMOVAL ===== */
+
+html,
+body {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== PAGE ===== */
+
+.wallet-page {
+  min-height: calc(100vh - 90px);
+  margin-top: 90px;
+  background: #1a1a1a;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 24px;
+}
+
+/* ===== CONTAINERS ===== */
+
+.wallet-outer {
+  width: 100%;
+  max-width: 1100px;
+  background: #2c4f5e;
+  padding: 28px;
+  border-radius: 28px;
+}
+
+.wallet-inner {
+  background: #9fb3b3;
+  padding: 42px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+
+.wallet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.wallet-title {
+  font-size: 38px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.wallet-title-underline {
+  width: 140px;
+  height: 3px;
+  background: white;
+  margin-top: 1px;
+}
+
+.wallet-add-btn {
+  background: #2c4f5e;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wallet-add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ===== WALLET LIST ===== */
+
+.wallet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===== WALLET CARD ===== */
+
+.wallet-card {
+  background: #4d6f7e;
+  padding: 24px 28px;
+  border-radius: 16px;
+  border: 2px solid #5a8aa3;
+}
+
+.wallet-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.wallet-row:last-child {
+  margin-bottom: 0;
+}
+.radio-row input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+  cursor: pointer;
+  accent-color: #7fbbff; /* green */
+}
+
+/* ===== STATUS ICONS ===== */
+
+.checkmark {
+  color: #4ade80;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.crossmark {
+  color: #ef4444;
+  font-size: 22px;
+  font-weight: bold;
+}

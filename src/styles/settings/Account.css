@@ -1,5 +1,55 @@
 /* ================= ACCOUNT PAGE LAYOUT ================= */
 
+:root {
+  --settings-sidebar-width: 250px;
+}
+
+.settings-profile-page {
+  margin-right: 10px;
+  background: #1A3342;
+  color: #2d2d2d;
+  min-height: 100vh;
+  width: 100%;
+  font-family: system-ui, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  overflow-x: hidden;
+  padding-left: 0;
+  transition: padding-left 0.3s ease-in-out;
+}
+
+.settings-profile-page.settings-sidebar-open {
+  padding-left: var(--settings-sidebar-width);
+}
+
+.settings-profile-page.settings-sidebar-closed {
+  padding-left: 0;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  width: 95%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+  }
+}
+
+.content-area {
+  margin-right: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .account-container {
   width: 96%;
   max-width: 1400px;          /* matches navbar max width */
@@ -59,44 +109,66 @@
 
 /* ================= DROPDOWN CONTENT ================= */
 
-/* wrapper for smooth animation */
 .account-list {
-  background: #d1d6da;
-  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  background: #1a3a4a;
+}
+
+/* ===== ACCOUNT MANAGEMENT LIST ===== */
+
+.account-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 20px;
+  background: #d9dee1;
   border-radius: 14px;
-
-  overflow: hidden;
-
-  /* animation */
-  animation: dropdownFade 0.35s ease;
 }
 
-/* smooth appearance */
-@keyframes dropdownFade {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.account-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #1f2f38;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
+
+.account-option:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.account-option.active {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.account-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 2px 0;
+}
+
 
 /* ================= LIST ITEMS ================= */
 
 .account-item {
-  padding: 1.05rem 1.4rem;
+  padding: 1.5rem 1.4rem;
 
   font-size: 1rem;
   font-weight: 500;
-  color: #2d3436;
+  color: #ffffff;
 
-  background: #cfd4d7;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  background: #a4bcc7ea;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   cursor: pointer;
   transition: background-color 0.2s ease, padding-left 0.2s ease;
+  text-decoration: none;
 }
 
 .account-item:last-child {
@@ -105,7 +177,7 @@
 
 /* hover feels calm */
 .account-item:hover {
-  background: #bcc2c6;
+  background: #54585a;
   padding-left: 1.7rem;
 }
 

@@ -9,7 +9,7 @@
 
 /* Page Container */
 .fw-page-container {
-    background-color: var(--color-bg-dark);
+    background-color: #1b3038;
     min-height: calc(100vh - 80px); /* Adjust based on navbar height */
     padding: 2rem;
     font-family: 'Inter', sans-serif;

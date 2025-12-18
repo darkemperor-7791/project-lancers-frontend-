@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-import Sidebar from "../components/Sidebar";
-import "../styles/settings_account.css";
+import { Link } from "react-router-dom";
+import Sidebar from "../../components/Sidebar";
+import "../../styles/settings/Account.css";
 
 export default function SettingsAccount({ isSidebarOpen }) {
   const navigate = useNavigate();
@@ -83,9 +83,9 @@ export default function SettingsAccount({ isSidebarOpen }) {
 
               {openSection === "account" && (
                 <div className="account-list">
-                  <div className="account-item">Bank Accounts</div>
-                  <div className="account-item">UPI IDs</div>
-                  <div className="account-item">Saved Wallets</div>
+                  <Link to = "/acbank" className="account-item">Bank Accounts</Link>
+                  <Link to = "/acupi" className="account-item">UPI IDs</Link>
+                  <Link to = "#" className="account-item">Saved Wallets</Link>
                 </div>
               )}
             </section>

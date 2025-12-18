@@ -50,3 +50,8 @@ body {
   height: 100%;
   overflow: hidden;
 }
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a; /* SAME as wallet-page */
+}
