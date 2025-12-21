@@ -35,13 +35,13 @@ export default function TwoFactorAuth({ isSidebarOpen }) {
                         </button>
                       }
                     >
-                      <a href="/setpf" className="sidebar-link">Profile</a>
-                      <a href="/setac" className="sidebar-link active">Account Security</a>
-                      <a href="#" className="sidebar-link">Billing & Payments</a>
-                      <a href="#" className="sidebar-link">Notification Settings</a>
-                      <a href="#" className="sidebar-link">Appearance</a>
-                      <a href="#" className="sidebar-link">User Analytics</a>
-                      <a href="#" className="sidebar-link">Support</a>
+                        <a href="/setpf" className="sidebar-link">Profile</a>
+                        <a href="/setac" className="sidebar-link active">Account Security</a>
+                        <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
+                        <a href="/notiset" className="sidebar-link">Notification Settings</a>
+                        <a href="/appear" className="sidebar-link">Appearance</a>
+                        <a href="/useranal" className="sidebar-link">User Analytics</a>
+                        <a href="/support" className="sidebar-link">Support</a>
                     </Sidebar>
       <div className="tfa-wrapper">
         <div className="tfa-outer">

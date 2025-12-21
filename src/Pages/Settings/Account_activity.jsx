@@ -19,13 +19,13 @@ export default function AccountActivity({ isSidebarOpen }) {
           </button>
         }
       >
-        <Link to="/setpf" className="sidebar-link">Profile</Link>
-        <Link to="/setac" className="sidebar-link active">Account Security</Link>
-        <Link to="#" className="sidebar-link">Billing & Payments</Link>
-        <Link to="#" className="sidebar-link">Notification Settings</Link>
-        <Link to="#" className="sidebar-link">Appearance</Link>
-        <Link to="#" className="sidebar-link">User Analytics</Link>
-        <Link to="#" className="sidebar-link">Support</Link>
+          <a href="/setpf" className="sidebar-link">Profile</a>
+          <a href="/setac" className="sidebar-link active">Account Security</a>
+          <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
+          <a href="/notiset" className="sidebar-link">Notification Settings</a>
+          <a href="/appear" className="sidebar-link">Appearance</a>
+          <a href="/useranal" className="sidebar-link">User Analytics</a>
+          <a href="/support" className="sidebar-link">Support</a>
       </Sidebar>
 
       {/* ===== PAGE WRAPPER (ONLY SHIFTS) ===== */}

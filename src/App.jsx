@@ -28,6 +28,7 @@ import AccountActivity from "./Pages/Settings/Account_activity";
 import TwoFactorAuth from "./Pages/Settings/Account_twofa";
 import DeactivateAccount from "./Pages/Settings/Account_deactivate";
 import PermanentlyDeleteAccount from "./Pages/Settings/Account_delete";
+import NotificationSettings from "./Pages/Settings/Notification_settings";
 
 /* ===================== STYLES ===================== */
 import "./components/Navbar.css";
@@ -132,6 +133,7 @@ export default function App() {
           <Route path="/actwofa" element={<TwoFactorAuth isSidebarOpen={isSidebarOpen} />}/>
           <Route path="/acdvt" element={<DeactivateAccount isSidebarOpen={isSidebarOpen} />}/>
           <Route path="/acdlt" element={<PermanentlyDeleteAccount isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/notiset" element={<NotificationSettings isSidebarOpen={isSidebarOpen} />}/>
         </Routes>
       </div>
     </Router>
