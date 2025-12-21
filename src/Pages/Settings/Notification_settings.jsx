@@ -81,19 +81,19 @@ export default function NotificationSettings({ isSidebarOpen }) {
                 <div className="account-list">
                   <label className="account-item checkbox-item">
                     <input type="checkbox" />
-                    <span>Payment Received</span>
+                    <span>Payment Received — Tokens or money added to wallet</span>
                   </label>
                   <label className="account-item checkbox-item">
                     <input type="checkbox" />
-                    <span>Withdrawal Status Updates</span>
+                    <span>Withdrawal Status Updates  — Withdrawal success or failure</span>
                   </label>
                   <label className="account-item checkbox-item">
                     <input type="checkbox" />
-                    <span>Token Purchase Confirmation</span>
+                    <span>Token Purchase Confirmation  — when tokens are bought successfully</span>
                   </label>
                   <label className="account-item checkbox-item">
                     <input type="checkbox" />
-                    <span>Billing or Invoice Alerts</span>
+                    <span>Billing or Invoice Alerts  — when a new invoice is generated</span>
                   </label>
                 </div>
               )}
@@ -110,19 +110,19 @@ export default function NotificationSettings({ isSidebarOpen }) {
                 <div className="account-list">
                   <label className="account-item checkbox-item">
                     <input type="checkbox" />
-                    <span>Password Change Confirmation</span>
+                    <span>Password Change Confirmation — Confirmation of password update</span>
                   </label>
                   <label className="account-item checkbox-item">
                     <input type="checkbox" />
-                    <span>Security Alerts (New device, login)</span>
+                    <span>Security Alerts — login from new device, password change, etc.(New device, login)</span>
                   </label>
                   <label className="account-item checkbox-item">
                     <input type="checkbox" />
-                    <span>Promotional Offers</span>
+                    <span>Promotional Offers — token discounts or feature trials</span>
                   </label>
                   <label className="account-item checkbox-item">
                     <input type="checkbox" />
-                    <span>Weekly Summary Emails</span>
+                    <span>Weekly Summary Emails — short recap of activity and earnings</span>
                   </label>
                 </div>
               )}
