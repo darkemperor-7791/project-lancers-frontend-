@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Filter, Trash2 } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
+import "../styles/Notifications.css";
 
 export default function Notifications() {
   const navigate = useNavigate();

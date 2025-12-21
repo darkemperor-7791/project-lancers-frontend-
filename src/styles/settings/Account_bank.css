@@ -7,7 +7,7 @@
 /* PAGE WRAPPER */
 .settings-bank-page {
   min-height: 100vh;
-  background: #2a5169;
+  background: #1c1c1d;
   width: 100%;
   overflow-x: hidden;
   transition: padding-left 0.3s ease-in-out;

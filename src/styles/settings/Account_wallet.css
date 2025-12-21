@@ -2,54 +2,34 @@
   --settings-sidebar-width: 250px;
 }
 
-.settings-page {
-  margin-right: 10px;
-  color: #2d2d2d;
+/* PAGE WRAPPER (THIS WAS WRONG BEFORE) */
+.settings-wallet-page {
   min-height: 100vh;
+  background: #1a1a1a;
   width: 100%;
-  font-family: system-ui, sans-serif;
-  box-sizing: border-box;
-  display: block;
   overflow-x: hidden;
-  padding-left: 0;
   transition: padding-left 0.3s ease-in-out;
 }
 
-.settings-page.settings-sidebar-open {
+.settings-wallet-page.settings-sidebar-open {
   padding-left: var(--settings-sidebar-width);
 }
 
-.settings-page.settings-sidebar-closed {
+.settings-wallet-page.settings-sidebar-closed {
   padding-left: 0;
 }
 
-/* ===== GLOBAL SCROLLBAR REMOVAL ===== */
-
-html,
-body {
-  scrollbar-width: none;
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
-}
-
-/* ===== PAGE ===== */
-
+/* MAIN PAGE */
 .wallet-page {
   min-height: calc(100vh - 90px);
   margin-top: 90px;
-  background: #1a1a1a;
-
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding: 40px 24px;
 }
 
-/* ===== CONTAINERS ===== */
-
+/* CONTAINERS */
 .wallet-outer {
   width: 100%;
   max-width: 1100px;
@@ -66,8 +46,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
 }
 
-/* ===== HEADER ===== */
-
+/* HEADER */
 .wallet-header {
   display: flex;
   justify-content: space-between;
@@ -86,7 +65,7 @@ body::-webkit-scrollbar {
   width: 140px;
   height: 3px;
   background: white;
-  margin-top: 1px;
+  margin-top: 6px;
 }
 
 .wallet-add-btn {
@@ -105,16 +84,14 @@ body::-webkit-scrollbar {
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* ===== WALLET LIST ===== */
-
+/* WALLET LIST */
 .wallet-list {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-/* ===== WALLET CARD ===== */
-
+/* WALLET CARD */
 .wallet-card {
   background: #4d6f7e;
   padding: 24px 28px;
@@ -125,7 +102,7 @@ body::-webkit-scrollbar {
 .wallet-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-size: 18px;
   color: white;
   margin-bottom: 10px;
@@ -134,24 +111,11 @@ body::-webkit-scrollbar {
 .wallet-row:last-child {
   margin-bottom: 0;
 }
+
+/* RADIO */
 .radio-row input[type="radio"] {
   width: 18px;
   height: 18px;
-  margin-top: 5px;
   cursor: pointer;
-  accent-color: #7fbbff; /* green */
-}
-
-/* ===== STATUS ICONS ===== */
-
-.checkmark {
-  color: #4ade80;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.crossmark {
-  color: #ef4444;
-  font-size: 22px;
-  font-weight: bold;
+  accent-color: #7fbbff;
 }

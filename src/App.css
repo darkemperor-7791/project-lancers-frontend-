@@ -43,8 +43,17 @@
 }
 /* Every page gets auto spacing, so content never hides behind navbar */
 .page-content {
-  padding-top: 80px; /* navbar height + small buffer */
+  position: fixed;
+  top: 0px;   /* 🔥 MATCH ACTUAL NAVBAR HEIGHT */
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  overflow-y: auto;
 }
+
+
+
 html,
 body {
   height: 100%;

@@ -10,23 +10,38 @@ import {
 
 import { Bell, Heart, Home } from "lucide-react";
 
+/* ===================== PAGES ===================== */
 import AuthPages from "./Pages/AuthPages";
 import FindWorkPage from "./Pages/FindWorkPage";
 import Notifications from "./Pages/notifications";
 import Freelancers_list from "./Pages/Freelancers_list";
+
+/* ===================== SETTINGS ===================== */
 import SettingsProfile from "./Pages/Settings/Profile";
 import SettingsAccount from "./Pages/Settings/Account";
 import UPIIDsPage from "./Pages/Settings/Account_upi";
 import BankAccounts from "./Pages/Settings/Account_bank";
 import WalletsPage from "./Pages/Settings/Account_wallet";
+import ChangePasswordForm from "./Pages/Settings/Account_changepass";
+import BackupContactsForm from "./Pages/Settings/Account_backup";
+import AccountActivity from "./Pages/Settings/Account_activity";
+import TwoFactorAuth from "./Pages/Settings/Account_twofa";
+import DeactivateAccount from "./Pages/Settings/Account_deactivate";
+import PermanentlyDeleteAccount from "./Pages/Settings/Account_delete";
 
+/* ===================== STYLES ===================== */
 import "./components/Navbar.css";
+import "./App.css";
 
+/* ==================================================
+   NAVBAR
+================================================== */
 function NavBar({ onHamburgerClick }) {
   const location = useLocation();
   const navigate = useNavigate();
   const path = location.pathname;
 
+  // Hide navbar on specific routes
   const hideNavbarOn = ["/notif", "/fl"];
   if (hideNavbarOn.includes(path)) return null;
 
@@ -40,26 +55,21 @@ function NavBar({ onHamburgerClick }) {
 
   return (
     <nav className="navbar">
-
       {/* LEFT */}
       <div className="navbar-left">
         <button className="hamburger-btn" onClick={onHamburgerClick}>
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
+          <span className="bar" />
+          <span className="bar" />
+          <span className="bar" />
         </button>
-
-
 
         <button
           className={`icon-btn home-btn ${isLoginPage ? "disabled" : ""}`}
           aria-label="Home"
-          onClick={() => {
-            if (!isLoginPage) navigate("/find-work");
-          }}
-          disabled = {isLoginPage}
-          >
-          <Home size={20}/>
+          onClick={() => !isLoginPage && navigate("/find-work")}
+          disabled={isLoginPage}
+        >
+          <Home size={20} />
         </button>
 
         {(isLoginPage || isFindWorkPage) && (
@@ -68,6 +78,7 @@ function NavBar({ onHamburgerClick }) {
           </button>
         )}
       </div>
+
       {/* RIGHT */}
       <div className="navbar-right">
         {!isLoginPage && (
@@ -81,33 +92,48 @@ function NavBar({ onHamburgerClick }) {
             <Bell size={20} />
           </Link>
         )}
+
         {!isLoginPage && (
           <Link to="/setpf" className="profile-icon" title="Settings" />
         )}
-
       </div>
     </nav>
   );
 }
 
+/* ==================================================
+   APP (LAYOUT + ROUTES)
+================================================== */
 export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <Router>
+      {/* FIXED NAVBAR */}
       <NavBar onHamburgerClick={() => setIsSidebarOpen(!isSidebarOpen)} />
 
-      <Routes>
-        <Route path="/" element={<AuthPages />} />
-        <Route path="/find-work" element={<FindWorkPage />} />
-        <Route path="/notif" element={<Notifications />} />
-        <Route path="/fl" element={<Freelancers_list />} />
-        <Route path="/setpf" element={<SettingsProfile isSidebarOpen={isSidebarOpen} />} />
-        <Route path="/setac" element={<SettingsAccount isSidebarOpen={isSidebarOpen} />} />
-        <Route path="/acupi" element={<UPIIDsPage isSidebarOpen={isSidebarOpen}/>} />
-        <Route path="/acbank" element={<BankAccounts isSidebarOpen={isSidebarOpen}/>} />
-        <Route path="/acwallet" element={<WalletsPage isSidebarOpen={isSidebarOpen}/>} />
-      </Routes>
+      {/* 🔥 SCROLLABLE CONTENT AREA (CLIPPED UNDER NAVBAR) */}
+      <div className="page-content">
+        <Routes>
+          <Route path="/" element={<AuthPages />} />
+          <Route path="/find-work" element={<FindWorkPage />} />
+          <Route path="/notif" element={<Notifications />} />
+          <Route path="/fl" element={<Freelancers_list />} />
+
+          {/* SETTINGS */}
+          <Route path="/setpf" element={<SettingsProfile isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/setac" element={<SettingsAccount isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/acupi" element={<UPIIDsPage isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/acbank" element={<BankAccounts isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/acwallet" element={<WalletsPage isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/acchangepass" element={<ChangePasswordForm isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/acbackup" element={<BackupContactsForm isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/acactivity" element={<AccountActivity isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/actwofa" element={<TwoFactorAuth isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/acdvt" element={<DeactivateAccount isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/acdlt" element={<PermanentlyDeleteAccount isSidebarOpen={isSidebarOpen} />}/>
+        </Routes>
+      </div>
     </Router>
   );
 }

@@ -61,10 +61,10 @@ export default function SettingsAccount({ isSidebarOpen }) {
 
               {openSection === "security" && (
                 <div className="account-list">
-                  <div className="account-item">Change Password</div>
-                  <div className="account-item">Add backup phone / e-mail</div>
-                  <div className="account-item">Session & Login Activity</div>
-                  <div className="account-item">2-Factor Authentication</div>
+                  <Link to =  "/acchangepass" className="account-item">Change Password</Link>
+                  <Link to = "/acbackup" className="account-item">Add backup phone / e-mail</Link>
+                  <Link to = "/acactivity" className="account-item">Session & Login Activity</Link>
+                  <Link to = "/actwofa" className="account-item">2-Factor Authentication</Link>
                 </div>
               )}
             </section>
@@ -75,7 +75,7 @@ export default function SettingsAccount({ isSidebarOpen }) {
                 className="account-header"
                 onClick={() => toggleSection("account")}
               >
-                <span>Account Management</span>
+                <span>Your Payment Methods</span>
                 <ChevronDown
                   className={openSection === "account" ? "rotate" : ""}
                 />
@@ -85,7 +85,7 @@ export default function SettingsAccount({ isSidebarOpen }) {
                 <div className="account-list">
                   <Link to = "/acbank" className="account-item">Bank Accounts</Link>
                   <Link to = "/acupi" className="account-item">UPI IDs</Link>
-                  <Link to = "#" className="account-item">Saved Wallets</Link>
+                  <Link to = "/acwallet" className="account-item">Saved Wallets</Link>
                 </div>
               )}
             </section>
@@ -96,7 +96,7 @@ export default function SettingsAccount({ isSidebarOpen }) {
                 className="account-header"
                 onClick={() => toggleSection("payment")}
               >
-                <span>Your Payment Methods</span>
+                <span>Account Management</span>
                 <ChevronDown
                   className={openSection === "payment" ? "rotate" : ""}
                 />
@@ -104,8 +104,8 @@ export default function SettingsAccount({ isSidebarOpen }) {
 
               {openSection === "payment" && (
                 <div className="account-list">
-                  <div className="account-item danger">Deactivate Account</div>
-                  <div className="account-item danger">Delete Account</div>
+                  <Link to = "/acdvt" className="account-item danger">Deactivate Account</Link>
+                  <Link to = "/acdlt" className="account-item danger">Delete Account</Link>
                   <div className="account-item">Download Account Data</div>
                 </div>
               )}

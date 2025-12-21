@@ -1,0 +1,338 @@
+/* src/styles/settings/Account_bank.css */
+
+:root {
+  --settings-sidebar-width: 250px;
+}
+
+/* PAGE WRAPPER */
+.settings-bank-page {
+  min-height: 100vh;
+  background: #1c1c1d;
+  width: 100%;
+  overflow-x: hidden;
+  transition: padding-left 0.3s ease-in-out;
+}
+
+.settings-bank-page.settings-sidebar-open {
+  padding-left: var(--settings-sidebar-width);
+}
+
+.settings-bank-page.settings-sidebar-closed {
+  padding-left: 0;
+}
+
+/*======================================PAGE CSS========================================*/
+.tfa-page {
+  min-height: 100vh;
+  background-color: #131313;
+  transition: padding-left 70ms ease 120ms;
+}
+
+.tfa-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 24px 80px;
+  margin-left: 60px;
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* =========================
+   OUTER / INNER
+========================= */
+.tfa-outer {
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 1300px;
+  background-color: #3d5a68;
+  padding: 20px;
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+}
+
+.tfa-inner {
+  background-color: #8ba5af;
+  padding: 48px 60px;
+  border-radius: 16px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.tfa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  text-decoration-color: white;
+  text-underline-offset: 5px;
+}
+
+.tfa-header h1 {
+  font-size: 45px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.tfa-date {
+  background-color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #2a4a58;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+.tfa-description {
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  color: #1a3a47;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+.tfa-section {
+  background-color: #2d4a57;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.tfa-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.tfa-section-header h3 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tfa-section-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #ffffff;
+}
+
+.arrow {
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+/* =========================
+   SECTION BODY
+========================= */
+.tfa-section-body {
+  padding: 32px 28px;
+  background-color: #3d5a68;
+  color: #ffffff;
+}
+
+/* =========================
+   QR BLOCK (FIXED)
+========================= */
+.qr-block {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.qr-box {
+  width: 160px;
+  height: 160px;
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 🔥 THIS IS THE FIX 🔥 */
+.tfa-section-body .qr-guide {
+  color: #ffffff;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* =========================
+   INPUT ROWS
+========================= */
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.input-row label {
+  min-width: 220px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: #c5d5db;
+  font-weight: 500;
+  outline: none;
+}
+
+.input-row button {
+  padding: 12px 32px;
+  background-color: #4a85a3;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================
+   RECOVERY
+========================= */
+.recovery-block {
+  text-align: center;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #4a9eff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.recovery-code {
+  background: #ffffff;
+  width:20rem;
+  margin-left: 17rem;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* =========================
+   VERIFIED
+========================= */
+.verified-box {
+  background-color: #c5d5db;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.verified-banner {
+  background-color: #4ade80;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 800;
+}
+/* =========================
+   BUTTON HOVER STATES
+   (ONLY ADDITIONS – NO CHANGES)
+========================= */
+
+/* Main action buttons */
+.input-row button:hover {
+  background-color: #3a6583;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.25s ease,
+              transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+/* Recovery / link-style button */
+.link-btn:hover {
+  color: #7dbbff;
+  transform: translateY(-1px);
+  transition: color 0.2s ease,
+              transform 0.2s ease;
+}
+
+/* Verified success banner (subtle hover feedback) */
+.verified-banner:hover {
+  filter: brightness(0.95);
+  transition: filter 0.2s ease;
+}
+
+/* =========================
+   ANDROID STYLE TOGGLE
+========================= */
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.android-switch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+}
+
+.android-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.android-switch .slider {
+  position: absolute;
+  inset: 0;
+  background-color: #6b8893;
+  border-radius: 28px;
+  transition: background-color 0.3s ease;
+}
+
+.android-switch .slider::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.android-switch input:checked + .slider {
+  background-color: #4a9eff;
+}
+
+.android-switch input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* Arrow rotation */
+.arrow.open {
+  transform: rotate(180deg);
+}

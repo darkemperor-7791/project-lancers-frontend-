@@ -12,11 +12,18 @@ body,
 /* ========================= NAVBAR ========================= */
 
 .navbar {
-  width: 96%;
+  /* SIZE & POSITION */
+  position: fixed;
+  top: 0;                         /* 🔥 must be zero */
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: calc(100% - 2rem);       /* replaces width + margin */
   max-width: 1400px;
-  margin: 1rem auto 0;
+
   padding: 0.75rem 2rem;
 
+  /* VISUALS */
   border-radius: 9999px;
   background-color: rgba(170, 184, 192, 0.95);
   backdrop-filter: blur(6px);
@@ -25,12 +32,6 @@ body,
   align-items: center;
   justify-content: space-between;
 
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%); /* ✅ centers navbar perfectly */
-
-  height: 70px;
   z-index: 1000;
 
   box-shadow:
@@ -39,6 +40,7 @@ body,
 
   border: 1px solid rgba(156,163,175,0.3);
 }
+
 
 /* ========================= NAVBAR LAYOUT ========================= */
 
