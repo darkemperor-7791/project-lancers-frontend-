@@ -1,29 +1,73 @@
+.lance-logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #1A3342;
+  margin-left: 0.75rem;
+  margin-right: 0.5rem;
+  user-select: none;
+  font-family: 'Arial Black', sans-serif;
+}
+
+/* ========================= LOGIN/FIND WORK BUTTON SHIFT (NEW) ========================= */
+
+.login-findwork-btn {
+  margin-left: 0.5rem; /* Shifts slightly right for spacing */
+}
+
+/* ========================= COIN DISPLAY (NEW) ========================= */
+
+.coin-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(26, 51, 66, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+}
+
+.coin-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.coin-count {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1A3342;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* ========================= SHOPPING CART (NEW) ========================= */
+
+
+
+
 /* ========================= GLOBAL BACKGROUND FIX ========================= */
 
-/* Ensure the whole app has ONE consistent dark background */
 html,
 body,
 #root {
   height: 100%;
   margin: 0;
-  background-color: #1a1a1a; /* same dark as wallet-page */
+  background-color: #1a1a1a;
 }
 
 /* ========================= NAVBAR ========================= */
 
 .navbar {
-  /* SIZE & POSITION */
   position: fixed;
-  top: 0;                         /* 🔥 must be zero */
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
 
-  width: calc(100% - 2rem);       /* replaces width + margin */
+  width: calc(100% - 2rem);
   max-width: 1400px;
 
   padding: 0.75rem 2rem;
 
-  /* VISUALS */
   border-radius: 9999px;
   background-color: rgba(170, 184, 192, 0.95);
   backdrop-filter: blur(6px);
@@ -41,7 +85,6 @@ body,
   border: 1px solid rgba(156,163,175,0.3);
 }
 
-
 /* ========================= NAVBAR LAYOUT ========================= */
 
 .navbar-left,
@@ -49,6 +92,25 @@ body,
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+/* ========================= LANCE LOGO (NEW) ========================= */
+
+.lance-logo {
+  font-size: 37px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin-left: 0.75rem;
+  margin-right: 0.5rem;
+  user-select: none;
+  font-family: 'Jersey 25', sans-serif;
+}
+
+/* ========================= LOGIN/FIND WORK BUTTON SHIFT (NEW) ========================= */
+
+.login-findwork-btn {
+  margin-left: 0.5rem;
 }
 
 /* ========================= BUTTONS ========================= */
@@ -99,6 +161,31 @@ body,
   pointer-events: none;
 }
 
+/* ========================= COIN DISPLAY (NEW) ========================= */
+
+.coin-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(26, 51, 66, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+}
+
+.coin-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.coin-count {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1A3342;
+  min-width: 20px;
+  text-align: center;
+}
+
 /* ========================= HAMBURGER ========================= */
 
 .hamburger-btn {
@@ -141,4 +228,12 @@ body,
 
 .profile-icon:hover {
   transform: scale(1.05);
+}
+
+.coin-logo {
+  width: 30px;
+  height: 30px;
+}
+.coin-count {
+  font-size: 22px;
 }

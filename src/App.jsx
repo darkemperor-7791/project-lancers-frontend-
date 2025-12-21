@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import coin from "./assets/coin.png";
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,7 +9,7 @@ import {
   useNavigate
 } from "react-router-dom";
 
-import { Bell, Heart, Home } from "lucide-react";
+import { Bell, Heart, Home, ShoppingCart } from "lucide-react";
 
 /* ===================== PAGES ===================== */
 import AuthPages from "./Pages/AuthPages";
@@ -29,14 +30,15 @@ import TwoFactorAuth from "./Pages/Settings/Account_twofa";
 import DeactivateAccount from "./Pages/Settings/Account_deactivate";
 import PermanentlyDeleteAccount from "./Pages/Settings/Account_delete";
 import NotificationSettings from "./Pages/Settings/Notification_settings";
+import AppearanceSettings from "./Pages/Settings/Appearance";
 
 /* ===================== STYLES ===================== */
 import "./components/Navbar.css";
 import "./App.css";
 
-/* ==================================================
-   NAVBAR
-================================================== */
+/* ==================================
+   NAVBAR (UPDATED VERSION)
+================================== */
 function NavBar({ onHamburgerClick }) {
   const location = useLocation();
   const navigate = useNavigate();
@@ -50,8 +52,7 @@ function NavBar({ onHamburgerClick }) {
   const isFindWorkPage = path === "/find-work";
 
   const handleSwitch = () => {
-    if (isLoginPage) navigate("/find-work");
-    else navigate("/");
+    navigate(isLoginPage ? "/find-work" : "/");
   };
 
   return (
@@ -64,6 +65,9 @@ function NavBar({ onHamburgerClick }) {
           <span className="bar" />
         </button>
 
+        {/* LANCE LOGO */}
+        <div className="lance-logo">LANCE</div>
+
         <button
           className={`icon-btn home-btn ${isLoginPage ? "disabled" : ""}`}
           aria-label="Home"
@@ -74,7 +78,7 @@ function NavBar({ onHamburgerClick }) {
         </button>
 
         {(isLoginPage || isFindWorkPage) && (
-          <button className="nav-link" onClick={handleSwitch}>
+          <button className="nav-link login-findwork-btn" onClick={handleSwitch}>
             {isLoginPage ? "Find Work" : "Login"}
           </button>
         )}
@@ -82,6 +86,22 @@ function NavBar({ onHamburgerClick }) {
 
       {/* RIGHT */}
       <div className="navbar-right">
+        {!isLoginPage && (
+          <div className="coin-display">
+            <span className="coin-count">2500</span>
+            <img className = "coin-logo" src={coin} />
+          </div>
+        )}
+
+        {!isLoginPage && (
+          <button
+            className="icon-btn cart-btn"
+            onClick={() => navigate("/bilpay")}
+          >
+            <ShoppingCart size={20} />
+          </button>
+        )}
+
         {!isLoginPage && (
           <Link to="/fl" className="icon-btn">
             <Heart size={20} />
@@ -102,18 +122,16 @@ function NavBar({ onHamburgerClick }) {
   );
 }
 
-/* ==================================================
-   APP (LAYOUT + ROUTES)
-================================================== */
+/* ==================================
+   APP (ROUTER OWNER)
+================================== */
 export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <Router>
-      {/* FIXED NAVBAR */}
-      <NavBar onHamburgerClick={() => setIsSidebarOpen(!isSidebarOpen)} />
+      <NavBar onHamburgerClick={() => setIsSidebarOpen(v => !v)} />
 
-      {/* 🔥 SCROLLABLE CONTENT AREA (CLIPPED UNDER NAVBAR) */}
       <div className="page-content">
         <Routes>
           <Route path="/" element={<AuthPages />} />
@@ -122,18 +140,19 @@ export default function App() {
           <Route path="/fl" element={<Freelancers_list />} />
 
           {/* SETTINGS */}
-          <Route path="/setpf" element={<SettingsProfile isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/setac" element={<SettingsAccount isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/acupi" element={<UPIIDsPage isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/acbank" element={<BankAccounts isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/acwallet" element={<WalletsPage isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/acchangepass" element={<ChangePasswordForm isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/acbackup" element={<BackupContactsForm isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/acactivity" element={<AccountActivity isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/actwofa" element={<TwoFactorAuth isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/acdvt" element={<DeactivateAccount isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/acdlt" element={<PermanentlyDeleteAccount isSidebarOpen={isSidebarOpen} />}/>
-          <Route path="/notiset" element={<NotificationSettings isSidebarOpen={isSidebarOpen} />}/>
+          <Route path="/setpf" element={<SettingsProfile isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/setac" element={<SettingsAccount isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/acupi" element={<UPIIDsPage isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/acbank" element={<BankAccounts isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/acwallet" element={<WalletsPage isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/acchangepass" element={<ChangePasswordForm isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/acbackup" element={<BackupContactsForm isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/acactivity" element={<AccountActivity isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/actwofa" element={<TwoFactorAuth isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/acdvt" element={<DeactivateAccount isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/acdlt" element={<PermanentlyDeleteAccount isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/notiset" element={<NotificationSettings isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/appear" element={<AppearanceSettings isSidebarOpen={isSidebarOpen} />} />
         </Routes>
       </div>
     </Router>

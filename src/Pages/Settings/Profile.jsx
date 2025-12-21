@@ -38,11 +38,11 @@ footer={
 >
   <a href="/setpf" className="sidebar-link active">Profile</a>
   <a href="/setac" className="sidebar-link">Account Security</a>
-  <a href="#" className="sidebar-link">Billing & Payments</a>
-  <a href="#" className="sidebar-link">Notification Settings</a>
-  <a href="#" className="sidebar-link">Appearance</a>
-  <a href="#" className="sidebar-link">User Analytics</a>
-  <a href="#" className="sidebar-link">Support</a>
+  <a href="bilpay" className="sidebar-link">Billing & Payments</a>
+  <a href="/notiset" className="sidebar-link">Notification Settings</a>
+  <a href="/appear" className="sidebar-link">Appearance</a>
+  <a href="/useranal" className="sidebar-link">User Analytics</a>
+  <a href="/support" className="sidebar-link">Support</a>
 </Sidebar>
 
 
@@ -106,7 +106,6 @@ footer={
           {/* EXPERIENCE */}
           <section className="card experience-layout">
             <span className="skills-label">Experience :</span>
-            <span className="Add Projects +"></span>
 
             <div>
               <textarea

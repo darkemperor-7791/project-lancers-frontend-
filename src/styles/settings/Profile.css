@@ -170,6 +170,7 @@
 }
 
 .profile-details {
+  text-align: left;
   font-family: var(--font-main);
   margin-top: 40px; 
   font-size: 1.0rem;
@@ -204,6 +205,7 @@
 }
 
 .skills-label {
+  text-align: left;
   color: #1A3342;
   font-weight: 700;
   margin-bottom: 10px;
