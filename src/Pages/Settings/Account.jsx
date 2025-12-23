@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import "../../styles/settings/Account.css";
 
 export default function SettingsAccount({ isSidebarOpen }) {
   const navigate = useNavigate();
-
-  // simple state: which section is open
   const [openSection, setOpenSection] = useState(null);
 
   const toggleSection = (sectionName) => {
@@ -17,12 +14,12 @@ export default function SettingsAccount({ isSidebarOpen }) {
 
   return (
     <div
-      className={`settings-profile-page ${
-        isSidebarOpen ? "settings-sidebar-open" : "settings-sidebar-closed"
+      className={`accpg-page ${
+        isSidebarOpen ? "accpg-sidebar-open" : "accpg-sidebar-closed"
       }`}
       style={{ paddingTop: "130px" }}
     >
-      <main className="main-content">
+      <main className="accpg-main">
 
         {/* ===== SIDEBAR ===== */}
         <Sidebar
@@ -44,69 +41,69 @@ export default function SettingsAccount({ isSidebarOpen }) {
         </Sidebar>
 
         {/* ===== RIGHT CONTENT ===== */}
-        <div className="content-area">
-          <div className="account-container">
+        <div className="accpg-content">
+          <div className="accpg-container">
 
             {/* ================= SECURITY ================= */}
-            <section className="account-block">
+            <section className="accpg-block">
               <button
-                className="account-header"
+                className="accpg-header"
                 onClick={() => toggleSection("security")}
               >
                 <span>Security and Privacy</span>
                 <ChevronDown
-                  className={openSection === "security" ? "rotate" : ""}
+                  className={openSection === "security" ? "accpg-rotate" : ""}
                 />
               </button>
 
               {openSection === "security" && (
-                <div className="account-list">
-                  <Link to =  "/acchangepass" className="account-item">Change Password</Link>
-                  <Link to = "/acbackup" className="account-item">Add backup phone / e-mail</Link>
-                  <Link to = "/acactivity" className="account-item">Session & Login Activity</Link>
-                  <Link to = "/actwofa" className="account-item">2-Factor Authentication</Link>
+                <div className="accpg-list">
+                  <Link to="/acchangepass" className="accpg-item">Change Password</Link>
+                  <Link to="/acbackup" className="accpg-item">Add backup phone / e-mail</Link>
+                  <Link to="/acactivity" className="accpg-item">Session & Login Activity</Link>
+                  <Link to="/actwofa" className="accpg-item">2-Factor Authentication</Link>
                 </div>
               )}
             </section>
 
             {/* ================= ACCOUNT ================= */}
-            <section className="account-block">
+            <section className="accpg-block">
               <button
-                className="account-header"
+                className="accpg-header"
                 onClick={() => toggleSection("account")}
               >
                 <span>Your Payment Methods</span>
                 <ChevronDown
-                  className={openSection === "account" ? "rotate" : ""}
+                  className={openSection === "account" ? "accpg-rotate" : ""}
                 />
               </button>
 
               {openSection === "account" && (
-                <div className="account-list">
-                  <Link to = "/acbank" className="account-item">Bank Accounts</Link>
-                  <Link to = "/acupi" className="account-item">UPI IDs</Link>
-                  <Link to = "/acwallet" className="account-item">Saved Wallets</Link>
+                <div className="accpg-list">
+                  <Link to="/acbank" className="accpg-item">Bank Accounts</Link>
+                  <Link to="/acupi" className="accpg-item">UPI IDs</Link>
+                  <Link to="/acwallet" className="accpg-item">Saved Wallets</Link>
                 </div>
               )}
             </section>
 
             {/* ================= PAYMENTS ================= */}
-            <section className="account-block">
+            <section className="accpg-block">
               <button
-                className="account-header"
+                className="accpg-header"
                 onClick={() => toggleSection("payment")}
               >
                 <span>Account Management</span>
                 <ChevronDown
-                  className={openSection === "payment" ? "rotate" : ""}
+                  className={openSection === "payment" ? "accpg-rotate" : ""}
                 />
               </button>
 
               {openSection === "payment" && (
-                <div className="account-list">
-                  <Link to = "/acdvt" className="account-item danger">Deactivate Account</Link>
-                  <Link to = "/acdlt" className="account-item danger">Delete Account</Link>
-                  <div className="account-item">Download Account Data</div>
+                <div className="accpg-list">
+                  <Link to="/acdvt" className="accpg-item accpg-danger">Deactivate Account</Link>
+                  <Link to="/acdlt" className="accpg-item accpg-danger">Delete Account</Link>
+                  <div className="accpg-item">Download Account Data</div>
                 </div>
               )}
             </section>

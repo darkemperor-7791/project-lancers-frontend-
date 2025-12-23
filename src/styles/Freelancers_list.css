@@ -1,38 +1,27 @@
-/* Reset & Fonts */
-:root {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Outer Page Container - Dark Blue Background */
-.app-container {
+.frl-app-container {
   min-height: 100vh;
-  background-color: #162F3F; /* Deep Dark Blue from image edges */
+  background-color: #162F3F;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
 }
 
-/* Main Card Container */
-.main-card {
+/* Main Card */
+.frl-main-card {
   width: 100%;
   max-width: 50rem;
-  background-color: #E6EBEF; /* Light Grey background inside the card */
+  background-color: #d6dadd;
   border-radius: 30px;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border: 8px solid #162F3F; /* Matches outer bg to create the rounded "cutout" look if needed, or just relying on outer container */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 8px solid #162F3F;
   position: relative;
 }
 
-/* Header Section */
-.header {
+/* Header */
+.frl-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,10 +29,10 @@ body {
 }
 
 /* Back Button */
-.btn-back {
+.frl-btn-back {
   width: 3rem;
   height: 3rem;
-  background-color: #92B0BE; /* Muted Light Blue */
+  background-color: #92B0BE;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -54,12 +43,12 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.btn-back:hover {
+.frl-btn-back:hover {
   background-color: #A3C1D1;
   transform: scale(1.05);
 }
 
-.icon-back {
+.frl-icon-back {
   width: 1.75rem;
   height: 1.75rem;
   color: black;
@@ -67,11 +56,11 @@ body {
 }
 
 /* Filter Button */
-.btn-filter {
+.frl-btn-filter {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #D1DCE2; /* Very Light Grey/Blue */
+  background-color: #25536c;
   padding: 0.4rem 1.25rem;
   border-radius: 9999px;
   border: 1px solid #c0cdd6;
@@ -80,37 +69,37 @@ body {
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
-.btn-filter:hover {
-  background-color: #E1EFF5;
+.frl-btn-filter:hover {
+  background-color: #327193;
   transform: scale(1.05);
 }
 
-.icon-filter {
+.frl-icon-filter {
   width: 1rem;
   height: 1rem;
   fill: transparent;
-  color: #333;
+  color: #efefef;
 }
 
-.filter-text {
-  color: #333;
+.frl-filter-text {
+  color: #efefef;
   font-weight: 500;
   font-size: 1.1rem;
 }
 
-/* List Container */
-.freelancer-list {
+/* List */
+.frl-freelancer-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* List Item Card */
-.freelancer-item {
+/* Item */
+.frl-freelancer-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #7D9AA9; /* The Muted Blue-Grey Bar Color */
+  background-color: #7D9AA9;
   border-radius: 1.25rem;
   padding: 1.25rem 1.5rem;
   color: white;
@@ -119,78 +108,79 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.freelancer-item:hover {
+.frl-freelancer-item:hover {
   background-color: #8CA8B7;
-  transform: scale(1.01) translateX(4px); /* Mild hovering effect */
+  transform: scale(1.01) translateX(4px);
 }
 
-/* Left Side: Avatar + Info */
-.item-left {
+/* Left */
+.frl-item-left {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.avatar {
+.frl-avatar {
   width: 3.5rem;
   height: 3.5rem;
-  background-color: #D9D9D9; /* Light grey placeholder */
+  background-color: #D9D9D9;
   border-radius: 50%;
   flex-shrink: 0;
 }
 
-.info-block {
+.frl-info-block {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.name-text {
+.frl-name-text {
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.2;
 }
 
-.skills-text {
+.frl-skills-text {
   font-size: 0.9rem;
   opacity: 0.9;
   font-weight: 400;
 }
 
-/* Right Side: Stats + Action */
-.item-right {
+/* Right */
+.frl-item-right {
   display: flex;
   align-items: flex-end;
   gap: 1.5rem;
   text-align: right;
 }
 
-.stats-block {
+.frl-stats-block {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   align-items: flex-end;
 }
 
-.rating-row {
+.frl-rating-row {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 1.1rem;
 }
 
-.star-icon {
+.frl-star-icon {
   width: 1rem;
   height: 1rem;
   fill: black;
   color: black;
 }
 
-.projects-text {
+.frl-projects-text {
   font-size: 1.1rem;
 }
 
-.btn-delete {
+/* Delete */
+.frl-btn-delete {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -202,13 +192,13 @@ body {
   transition: background-color 0.2s;
 }
 
-.btn-delete:hover {
+.frl-btn-delete:hover {
   background-color: rgba(0,0,0,0.1);
 }
 
-.icon-trash {
+.frl-icon-trash {
   width: 1.75rem;
   height: 1.75rem;
-  color: #1F2937; /* Dark charcoal */
+  color: #1F2937;
   opacity: 0.8;
 }

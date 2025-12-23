@@ -31,20 +31,20 @@ import DeactivateAccount from "./Pages/Settings/Account_deactivate";
 import PermanentlyDeleteAccount from "./Pages/Settings/Account_delete";
 import NotificationSettings from "./Pages/Settings/Notification_settings";
 import AppearanceSettings from "./Pages/Settings/Appearance";
+import BillingPayments from "./Pages/Settings/Billing_payments";
 
 /* ===================== STYLES ===================== */
 import "./components/Navbar.css";
 import "./App.css";
 
 /* ==================================
-   NAVBAR (UPDATED VERSION)
+   NAVBAR
 ================================== */
 function NavBar({ onHamburgerClick }) {
   const location = useLocation();
   const navigate = useNavigate();
   const path = location.pathname;
 
-  // Hide navbar on specific routes
   const hideNavbarOn = ["/notif", "/fl"];
   if (hideNavbarOn.includes(path)) return null;
 
@@ -57,7 +57,6 @@ function NavBar({ onHamburgerClick }) {
 
   return (
     <nav className="navbar">
-      {/* LEFT */}
       <div className="navbar-left">
         <button className="hamburger-btn" onClick={onHamburgerClick}>
           <span className="bar" />
@@ -65,12 +64,10 @@ function NavBar({ onHamburgerClick }) {
           <span className="bar" />
         </button>
 
-        {/* LANCE LOGO */}
         <div className="lance-logo">LANCE</div>
 
         <button
           className={`icon-btn home-btn ${isLoginPage ? "disabled" : ""}`}
-          aria-label="Home"
           onClick={() => !isLoginPage && navigate("/find-work")}
           disabled={isLoginPage}
         >
@@ -84,20 +81,16 @@ function NavBar({ onHamburgerClick }) {
         )}
       </div>
 
-      {/* RIGHT */}
       <div className="navbar-right">
         {!isLoginPage && (
           <div className="coin-display">
             <span className="coin-count">2500</span>
-            <img className = "coin-logo" src={coin} />
+            <img className="coin-logo" src={coin} />
           </div>
         )}
 
         {!isLoginPage && (
-          <button
-            className="icon-btn cart-btn"
-            onClick={() => navigate("/bilpay")}
-          >
+          <button className="icon-btn cart-btn" onClick={() => navigate("/bilpay")}>
             <ShoppingCart size={20} />
           </button>
         )}
@@ -115,7 +108,7 @@ function NavBar({ onHamburgerClick }) {
         )}
 
         {!isLoginPage && (
-          <Link to="/setpf" className="profile-icon" title="Settings" />
+          <Link to="/setpf" className="profile-icon" />
         )}
       </div>
     </nav>
@@ -123,23 +116,62 @@ function NavBar({ onHamburgerClick }) {
 }
 
 /* ==================================
-   APP (ROUTER OWNER)
+   APP SHELL (BACKGROUND FIX LIVES HERE)
 ================================== */
-export default function App() {
+function AppShell() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation();
+
+  /* 🔥 MANUAL STRIP COLOR MAP */
+  const stripColorMap = {
+    "/": "#1b3038",
+    "/find-work": "#1A3342",
+    "/setpf": "#1A3342",
+    "/setac": "#1A3342",
+    "/acbank": "#1a1a1a",        // ✅ Bank accounts FIX
+    "/acupi": "#1a1a1a",
+    "/acwallet": "#1a1a1a",
+    "/bilpay": "#1a1a1a",
+    "/acbackup": "#1a1a1a",
+    "/acchangepass": "#1a1a1a",
+    "/acactivity": "#1a1a1a",
+    "/actwofa": "#1a1a1a",
+    "/acdvt": "#1a1a1a",
+    "/acdlt": "#1a1a1a"
+    
+  };
+
+  const stripColor =
+    stripColorMap[location.pathname] || "#1A3342";
 
   return (
-    <Router>
-      <NavBar onHamburgerClick={() => setIsSidebarOpen(v => !v)} />
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: stripColor, // 🔥 behind navbar
+      }}
+    >
+      <NavBar
+        onHamburgerClick={() => setIsSidebarOpen(v => !v)}
+        bgColor={stripColor}
+      />
 
-      <div className="page-content">
+      <div
+        className="page-content"
+        style={{
+          marginTop: "90px",
+          height: "calc(100vh - 90px)",
+          overflowY: "auto",
+          overflowX: "hidden",
+          backgroundColor: stripColor, // 🔥 fake screen
+        }}
+      >
         <Routes>
           <Route path="/" element={<AuthPages />} />
           <Route path="/find-work" element={<FindWorkPage />} />
           <Route path="/notif" element={<Notifications />} />
           <Route path="/fl" element={<Freelancers_list />} />
 
-          {/* SETTINGS */}
           <Route path="/setpf" element={<SettingsProfile isSidebarOpen={isSidebarOpen} />} />
           <Route path="/setac" element={<SettingsAccount isSidebarOpen={isSidebarOpen} />} />
           <Route path="/acupi" element={<UPIIDsPage isSidebarOpen={isSidebarOpen} />} />
@@ -153,8 +185,20 @@ export default function App() {
           <Route path="/acdlt" element={<PermanentlyDeleteAccount isSidebarOpen={isSidebarOpen} />} />
           <Route path="/notiset" element={<NotificationSettings isSidebarOpen={isSidebarOpen} />} />
           <Route path="/appear" element={<AppearanceSettings isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/bilpay" element={<BillingPayments isSidebarOpen={isSidebarOpen} />} />
         </Routes>
       </div>
+    </div>
+  );
+}
+
+/* ==================================
+   ROOT
+================================== */
+export default function App() {
+  return (
+    <Router>
+      <AppShell />
     </Router>
   );
 }

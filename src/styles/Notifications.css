@@ -1,80 +1,64 @@
-/* ====== PAGE BACKGROUND ====== */
-.app-container {
-  min-height: 100vh;
-  background-color: #1A3342;
-  padding-top: 120px; /* space under top bar */
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
+/* ================= DELETE BUTTON HOVER ================= */
 
-/* ====== MAIN CARD ====== */
-.main-card {
-  width: 100%;
-  max-width: 56rem;
-  background-color: #1A3342;
-  border: 5px solid #D1DCE2;
-  border-radius: 0; /* 🔥 pill removed */
-  padding: 1rem;
-}
-
-/* ====== HEADER (NO PILL) ====== */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: transparent; /* 🔥 no palette */
-  padding: 0;
-  margin-bottom: 1.5rem;
-}
-
-/* ====== BUTTONS ====== */
-.btn-back {
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: #8DAAB9;
-  border-radius: 50%;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-filter {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: #C1D1D9;
-  padding: 0.3rem 1rem;
-  border-radius: 9999px;
-  border: none;
-}
-
-/* ====== NOTIFICATIONS ====== */
-.notification-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  max-height: calc(100vh - 260px);
-  overflow-y: auto;
-}
-
-.notification-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #7F9BAA;
-  border-radius: 1rem;
-  padding: 1rem 1.5rem;
-}
-
-.notification-text {
-  color: white;
-  font-size: 1.25rem;
-}
-
-/* ====== DELETE ICON ====== */
-.btn-delete {
+.ntf-btn-delete {
+  padding: 0.35rem;
+  border-radius: 8px;
   background: transparent;
   border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ntf-btn-delete:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+/* icon inside delete button */
+.ntf-icon-trash {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #364652;
+  opacity: 0.75;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    color 0.25s ease;
+}
+
+/* icon hover effect */
+.ntf-btn-delete:hover .ntf-icon-trash {
+  opacity: 1;
+  transform: scale(1.15);
+  color: #1f2933;
+}
+
+/* header buttons */
+.ntf-btn-back:hover {
+  background-color: #A3BFCF;
+  transform: scale(1.08);
+}
+
+.ntf-btn-filter:hover {
+  background-color: #D1E1E9;
+  transform: scale(1.06);
+}
+
+/* notification item hover */
+.ntf-notification-item:hover {
+  background-color: #8CA8B7;
+  transform: translateX(4px);
+}
+
+/* svg hover */
+.ntf-btn-delete:hover svg {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* global button transition */
+button {
+  transition: all 0.25s ease;
 }

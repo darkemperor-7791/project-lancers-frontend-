@@ -4,6 +4,7 @@
   --settings-sidebar-width: 250px;
 }
 
+/* GLOBAL — untouched */
 .settings-page {
   margin-right: 10px;
   background: #1a1a1a;
@@ -26,21 +27,9 @@
   padding-left: 0;
 }
 
-/* ===== GLOBAL SCROLLBAR REMOVAL ===== */
-
-html,
-body {
-  scrollbar-width: none;
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
-}
-
 /* ===== PAGE WRAPPER ===== */
 
-.upi-page {
+.aupi-page {
   min-height: calc(100vh - 90px);
   margin-top: 90px;
   background: #1a1a1a;
@@ -53,7 +42,7 @@ body::-webkit-scrollbar {
 
 /* ===== OUTER CONTAINER ===== */
 
-.upi-outer {
+.aupi-outer {
   width: 100%;
   max-width: 1100px;
   background: #2d5160;
@@ -63,7 +52,7 @@ body::-webkit-scrollbar {
 
 /* ===== INNER CONTAINER ===== */
 
-.upi-inner {
+.aupi-inner {
   background: #a3b2b5;
   border-radius: 24px;
   padding: 42px;
@@ -74,21 +63,21 @@ body::-webkit-scrollbar {
 
 /* ===== HEADER ===== */
 
-.upi-header {
+.aupi-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 32px;
 }
 
-.upi-title {
+.aupi-title {
   font-size: 38px;
   font-weight:600;
   color: #ffffff;
   margin: 0;
 }
 
-.upi-title-underline {
+.aupi-title-underline {
   width: 150px;
   height: 3px;
   background: #ffffff;
@@ -96,7 +85,7 @@ body::-webkit-scrollbar {
   margin-top: 6px;
 }
 
-.add-upi-btn {
+.aupi-add-btn {
   background: #2d4f5c;
   color: white;
   border: none;
@@ -107,25 +96,25 @@ body::-webkit-scrollbar {
   transition: 0.2s ease;
 }
 
-.add-upi-btn:hover {
+.aupi-add-btn:hover {
   background-color: #386477;
   box-shadow: #000000;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* ===== UPI LIST (AUTO-EXPANDS) ===== */
+/* ===== LIST ===== */
 
-.upi-list {
+.aupi-list {
   display: flex;
   flex-direction: column;
   gap: 18px;
   margin-top: 10px;
 }
 
-/* ===== UPI CARD ===== */
+/* ===== CARD ===== */
 
-.upi-card {
+.aupi-card {
   background: #5a7b8c;
   padding: 24px 32px;
   border-radius: 18px;
@@ -136,33 +125,33 @@ body::-webkit-scrollbar {
   width: 100%;
 }
 
-/* ===== LEFT INFO ===== */
+/* ===== INFO ===== */
 
-.upi-info {
+.aupi-info {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.upi-label {
+.aupi-label {
   font-size: 14px;
   color: #e6ecef;
 }
 
-.upi-value {
+.aupi-value {
   font-size: 20px;
   color: #ffffff;
 }
 
 /* ===== ACTIONS ===== */
 
-.upi-actions {
+.aupi-actions {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.upi-set-default {
+.aupi-set-default {
   background: none;
   border: none;
   color: #ffffff;
@@ -170,23 +159,25 @@ body::-webkit-scrollbar {
   cursor: pointer;
   transition: 0.2s;
 }
-.upi-set-default:hover{
+
+.aupi-set-default:hover {
   transform: translateY(-2px);
 }
 
-.upi-default {
+.aupi-default {
   font-size: 16px;
   font-weight: 500;
   color: #000000;
 }
 
-.upi-delete-btn {
+.aupi-delete-btn {
   background: none;
   border: none;
   color: #000000;
   cursor: pointer;
   transition: 0.2s ease;
 }
-.upi-delete-btn:hover{
+
+.aupi-delete-btn:hover {
   transform: translateY(-2px);
 }

@@ -59,7 +59,7 @@ body,
 
 .navbar {
   position: fixed;
-  top: 0;
+  MARGIN-top: 20PX;
   left: 50%;
   transform: translateX(-50%);
 

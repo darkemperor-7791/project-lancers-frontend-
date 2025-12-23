@@ -1,29 +1,22 @@
-/* =========================
-   SIDEBAR SHIFT
-========================= */
+/* SIDEBAR SHIFT */
 .settings-sidebar-open {
   padding-left: 240px;
 }
-
 .settings-sidebar-closed {
   padding-left: 0;
 }
 
-/* =========================
-   PAGE
-========================= */
-.deactivate-page {
+/* PAGE */
+.advt-deactivate-page {
   margin-top: 4rem;
   min-height: 100vh;
   width: 100%;
-  background-color: #131313;
+  background-color: #1a1a1a;
   overflow-x: hidden;
 }
 
-/* =========================
-   CONTAINER
-========================= */
-.deactivate-container {
+/* CONTAINER */
+.advt-deactivate-container {
   display: flex;
   justify-content: flex-start;
   width: 100%;
@@ -31,22 +24,18 @@
   box-sizing: border-box;
 }
 
-/* =========================
-   OUTER FRAME (PAGE CANVAS)
-========================= */
-.deactivate-outer-frame {
+/* OUTER FRAME */
+.advt-deactivate-outer-frame {
   width: 100%;
-  max-width: 1400px; /* matches Figma vs Chrome feel */
+  max-width: 1400px;
   background-color: #2d4f5f;
   padding: 26px;
   border-radius: 28px;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
 }
 
-/* =========================
-   INNER CONTENT
-========================= */
-.deactivate-content-box {
+/* INNER CONTENT */
+.advt-deactivate-content-box {
   background-color: #a5b8c0;
   border-radius: 20px;
   padding: 60px 80px;
@@ -55,309 +44,184 @@
   align-items: flex-start;
 }
 
-/* =========================
-   FLOW SECTIONS
-========================= */
-.flow-section {
+/* FLOW SECTIONS */
+.advt-flow-section {
   margin-top: 30px;
   width: 100%;
 }
 
-/* =========================
-   HEADER
-========================= */
-.deactivate-header {
+/* HEADER */
+.advt-deactivate-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
 }
 
-.deactivate-title {
+.advt-deactivate-title {
   font-size: 44px;
   font-weight: 700;
   color: #ff0000;
   margin: 0;
   text-decoration: underline;
   text-underline-offset: 12px;
-  text-align: left;
 }
 
-.mandatory-label {
+.advt-mandatory-label {
   font-size: 20px;
   font-style: italic;
   color: #1a1a1a;
-  text-align: right;
 }
 
-/* =========================
-   DESCRIPTION
-========================= */
-.deactivate-description {
+/* DESCRIPTION */
+.advt-deactivate-description {
   margin-top: 22px;
-  margin-right: 0;
-  margin-bottom: 0;
   font-size: 25px;
   line-height: 1.6;
   font-weight: 500;
   color: #1a1a1a;
-  text-align: left;
-  width: 100%;
   max-width: 85%;
 }
 
-/* =========================
-   SECTION TITLES
-========================= */
-.section-title {
+/* SECTION TITLES */
+.advt-section-title {
   font-size: 32px;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 14px;
-  margin-top: 0;
-  text-align: left;
-  width: 100%;
 }
 
-/* =========================
-   BULLET LIST
-========================= */
-.happens-list {
+/* BULLET LIST */
+.advt-happens-list {
   padding-left: 28px;
-  margin: 0;
-  margin-bottom: 20px;
-  width: 100%;
+  margin: 0 0 20px;
 }
 
-.happens-item {
-  text-align: left;
+.advt-happens-item {
   font-size: 21px;
   margin-bottom: 15px;
   color: #1a1a1a;
-  list-style-position: outside;
 }
 
-.happens-item-green {
+.advt-happens-item-green {
   font-weight: 700;
   color: #00a600;
 }
 
-/* =========================
-   REASONS (FIXED - LEFT ALIGNED COLUMN)
-========================= */
-.reasons-list {
+/* REASONS */
+.advt-reasons-list {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  align-items: flex-start;
 }
 
-/* Each checkbox row */
-.reason-row {
+.advt-reason-row {
   display: flex;
   align-items: center;
   gap: 16px;
   font-size: 24px;
   font-weight: 500;
   color: #1a1a1a;
-  cursor: pointer;
-  text-align: left;
-  margin: 0;
-  padding: 0;
 }
 
-/* Checkbox itself */
-.reason-checkbox {
+.advt-reason-checkbox {
   width: 22px;
   height: 22px;
-  margin: 0;
-  cursor: pointer;
-  flex-shrink: 0;
 }
 
-/* Text next to checkbox */
-.reason-text {
+.advt-reason-text {
   font-size: 22px;
-  font-weight: 500;
-  color: #1a1a1a;
-  line-height: 1.4;
 }
 
-/* Other row */
-.reason-other-row {
+.advt-reason-other-row {
   display: flex;
-  align-items: center;
   gap: 18px;
-  margin: 0;
-  padding: 0;
 }
 
-/* Other input */
-.other-input {
+.advt-other-input {
   flex: 0 0 450px;
   padding: 14px 18px;
   border-radius: 8px;
   border: none;
   font-size: 20px;
-  outline: none;
-  text-align: left;
 }
 
-/* =========================
-   WARNING
-========================= */
-.warning-box {
+/* WARNING */
+.advt-warning-box {
   display: flex;
-  align-items: flex-start;
   gap: 14px;
   padding: 18px 22px;
   border-radius: 12px;
   border: 2px solid #ffcc00;
   background-color: rgba(255, 255, 0, 0.15);
-  width: 100%;
-  box-sizing: border-box;
 }
 
-.warning-icon {
+.advt-warning-icon {
   font-size: 30px;
-  line-height: 1;
-  flex-shrink: 0;
 }
 
-.warning-text {
+.advt-warning-text {
   font-size: 19px;
   font-weight: 600;
   color: #ff0000;
-  margin: 0;
-  text-align: left;
 }
 
-/* =========================
-   FORM FIELDS
-========================= */
-.form-row {
-  width: 100%;
+/* FORM */
+.advt-form-row {
   margin-bottom: 22px;
 }
 
-.field-label {
-  display: block;
+.advt-field-label {
   font-size: 23px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #1a1a1a;
-  text-align: left;
 }
 
-.field-input {
+.advt-field-input {
   width: 100%;
   padding: 18px 22px;
   border-radius: 12px;
   border: none;
   font-size: 17px;
-  outline: none;
-  box-sizing: border-box;
-  text-align: left;
 }
 
-/* =========================
-   RADIO GROUP
-========================= */
-.radio-group {
+/* RADIO */
+.advt-radio-group {
   display: flex;
   gap: 36px;
   margin-top: 10px;
-  align-items: center;
-  justify-content: flex-start;
 }
 
-.radio-label {
+.advt-radio-label {
   display: flex;
-  align-items: center;
   gap: 10px;
   font-size: 20px;
-  font-weight: 500;
-  cursor: pointer;
-  text-align: left;
-  white-space: nowrap; 
 }
 
-/* =========================
-   BUTTONS
-========================= */
-.button-group {
-  margin-top: 28px;
+/* BUTTONS */
+.advt-button-group {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   gap: 16px;
-  width: 100%;
 }
 
-.deactivate-button {
+.advt-deactivate-button,
+.advt-cancel-button {
   width: 100%;
   padding: 18px;
   font-size: 20px;
   font-weight: 700;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.advt-deactivate-button {
   color: #ff0000;
   background-color: #e8e8e8;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-align: center;
 }
 
-.deactivate-button:hover {
-  background-color: #d8d8d8;
-  transform: translateY(-2px);
-}
-
-.cancel-button {
-  width: 100%;
-  padding: 18px;
-  font-size: 20px;
-  font-weight: 700;
+.advt-cancel-button {
   color: #1a1a1a;
   background-color: #e8e8e8;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  text-align: center;
-}
-
-.cancel-button:hover {
-  background-color: #d8d8d8;
-  transform: translateY(-2px);
-}
-
-/* =========================
-   RESPONSIVE SAFETY
-========================= */
-@media (max-width: 1200px) {
-  .deactivate-content-box {
-    padding: 48px 56px;
-  }
-}
-
-@media (max-width: 900px) {
-  .deactivate-content-box {
-    padding: 40px 36px;
-  }
-
-  .deactivate-title {
-    font-size: 34px;
-  }
-
-  .deactivate-description {
-    max-width: 100%;
-  }
-
-  .other-input {
-    flex: 1;
-  }
 }

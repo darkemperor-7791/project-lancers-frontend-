@@ -29,53 +29,53 @@ export default function WalletsPage({ isSidebarOpen }) {
           <a href="/appear" className="sidebar-link">Appearance</a>
           <a href="/useranal" className="sidebar-link">User Analytics</a>
           <a href="/support" className="sidebar-link">Support</a>
-            </Sidebar>
+      </Sidebar>
 
       {/* MAIN CONTENT */}
-      <main className="wallet-page">
-        <div className="wallet-outer">
-          <div className="wallet-inner">
+      <main className="awall-page">
+        <div className="awall-outer">
+          <div className="awall-inner">
 
             {/* HEADER */}
-            <div className="wallet-header">
+            <div className="awall-header">
               <div>
-                <h1 className="wallet-title">Wallets</h1>
-                <div className="wallet-title-underline"></div>
+                <h1 className="awall-title">Wallets</h1>
+                <div className="awall-title-underline"></div>
               </div>
 
-              <button className="wallet-add-btn">Add Wallet</button>
+              <button className="awall-add-btn">Add Wallet</button>
             </div>
 
             {/* WALLET LIST */}
-            <div className="wallet-list">
+            <div className="awall-list">
 
-              <div className="wallet-card">
-                <div className="wallet-row">
+              <div className="awall-card">
+                <div className="awall-row">
                   <span>Wallet Service : Paytm</span>
                 </div>
-                <div className="wallet-row">
+                <div className="awall-row">
                   <span>Wallet ID :</span>
                 </div>
-                <div className="wallet-row">
+                <div className="awall-row">
                   <span>Linked Mobile Number :</span>
                 </div>
-                <div className="wallet-row radio-row">
+                <div className="awall-row awall-radio-row">
                   <span>Default Wallet :</span>
                   <input type="radio" name="defaultWallet" />
                 </div>
               </div>
 
-              <div className="wallet-card">
-                <div className="wallet-row">
+              <div className="awall-card">
+                <div className="awall-row">
                   <span>Wallet Service : PhonePe</span>
                 </div>
-                <div className="wallet-row">
+                <div className="awall-row">
                   <span>Wallet ID :</span>
                 </div>
-                <div className="wallet-row">
+                <div className="awall-row">
                   <span>Linked Mobile Number :</span>
                 </div>
-                <div className="wallet-row radio-row">
+                <div className="awall-row awall-radio-row">
                   <span>Default Wallet :</span>
                   <input type="radio" name="defaultWallet" />
                 </div>

@@ -11,22 +11,22 @@ export default function AppearanceSettings({ isSidebarOpen }) {
 
   return (
     <div
-      className={`appearance-page coming-soon-wrapper ${
+      className={`appr-appearance-page appr-coming-soon-wrapper ${
         isSidebarOpen ? "settings-sidebar-open" : "settings-sidebar-closed"
       }`}
     >
       {/* 🔒 LOCK LAYER */}
-      <div className="coming-soon-lock">
-        <button className="coming-soon-label" onClick={() => navigate(-1)} >Coming Soon</button>
+      <div className="appr-coming-soon-lock">
+        <button className="appr-coming-soon-label" onClick={() => navigate(-1)} >Coming Soon</button>
       </div>
 
       {/* 🔓 BLURRED CONTENT */}
-      <div className="appearance-container">
+      <div className="appr-appearance-container">
         <Sidebar
           isOpen={isSidebarOpen}
           title="Settings"
           footer={
-            <button className="btn-logout" onClick={() => navigate("/")}>
+            <button className="appr-btn-logout" onClick={() => navigate("/")}>
               Log out
             </button>
           }
@@ -40,13 +40,13 @@ export default function AppearanceSettings({ isSidebarOpen }) {
           <a href="/support" className="sidebar-link">Support</a>
         </Sidebar>
 
-        <div className="appearance-content">
+        <div className="appr-appearance-content">
 
-          <section className="appearance-section">
-            <h3 className="section-title">Theme and Mode</h3>
+          <section className="appr-appearance-section">
+            <h3 className="appr-section-title">Theme and Mode</h3>
 
-            <div className="radio-options-row">
-              <label className="radio-option">
+            <div className="appr-radio-options-row">
+              <label className="appr-radio-option">
                 <input
                   type="radio"
                   name="theme"
@@ -56,7 +56,7 @@ export default function AppearanceSettings({ isSidebarOpen }) {
                 Light Mode
               </label>
 
-              <label className="radio-option">
+              <label className="appr-radio-option">
                 <input
                   type="radio"
                   name="theme"
@@ -66,7 +66,7 @@ export default function AppearanceSettings({ isSidebarOpen }) {
                 Dark Mode
               </label>
 
-              <label className="radio-option">
+              <label className="appr-radio-option">
                 <input
                   type="radio"
                   name="theme"
@@ -78,11 +78,11 @@ export default function AppearanceSettings({ isSidebarOpen }) {
             </div>
           </section>
 
-          <section className="appearance-section">
-            <h3 className="section-title">Accent Colour / Theme Colour</h3>
+          <section className="appr-appearance-section">
+            <h3 className="appr-section-title">Accent Colour / Theme Colour</h3>
 
-            <div className="radio-options-grid">
-              <label className="radio-option">
+            <div className="appr-radio-options-grid">
+              <label className="appr-radio-option">
                 <input
                   type="radio"
                   name="accent"
@@ -92,7 +92,7 @@ export default function AppearanceSettings({ isSidebarOpen }) {
                 Default
               </label>
 
-              <label className="radio-option">
+              <label className="appr-radio-option">
                 <input
                   type="radio"
                   name="accent"
@@ -102,7 +102,7 @@ export default function AppearanceSettings({ isSidebarOpen }) {
                 Red
               </label>
 
-              <label className="radio-option">
+              <label className="appr-radio-option">
                 <input
                   type="radio"
                   name="accent"
@@ -112,7 +112,7 @@ export default function AppearanceSettings({ isSidebarOpen }) {
                 Green
               </label>
 
-              <label className="radio-option">
+              <label className="appr-radio-option">
                 <input
                   type="radio"
                   name="accent"

@@ -20,7 +20,7 @@
 }
 
 /* MAIN PAGE */
-.wallet-page {
+.awall-page {
   min-height: calc(100vh - 90px);
   margin-top: 90px;
   display: flex;
@@ -30,7 +30,7 @@
 }
 
 /* CONTAINERS */
-.wallet-outer {
+.awall-outer {
   width: 100%;
   max-width: 1100px;
   background: #2c4f5e;
@@ -38,7 +38,7 @@
   border-radius: 28px;
 }
 
-.wallet-inner {
+.awall-inner {
   background: #9fb3b3;
   padding: 42px;
   border-radius: 24px;
@@ -47,28 +47,28 @@
 }
 
 /* HEADER */
-.wallet-header {
+.awall-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 32px;
 }
 
-.wallet-title {
+.awall-title {
   font-size: 38px;
   font-weight: 600;
   color: white;
   margin: 0;
 }
 
-.wallet-title-underline {
+.awall-title-underline {
   width: 140px;
   height: 3px;
   background: white;
   margin-top: 6px;
 }
 
-.wallet-add-btn {
+.awall-add-btn {
   background: #2c4f5e;
   color: white;
   border: none;
@@ -79,27 +79,27 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.wallet-add-btn:hover {
+.awall-add-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 /* WALLET LIST */
-.wallet-list {
+.awall-list {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
 /* WALLET CARD */
-.wallet-card {
+.awall-card {
   background: #4d6f7e;
   padding: 24px 28px;
   border-radius: 16px;
   border: 2px solid #5a8aa3;
 }
 
-.wallet-row {
+.awall-row {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -108,12 +108,12 @@
   margin-bottom: 10px;
 }
 
-.wallet-row:last-child {
+.awall-row:last-child {
   margin-bottom: 0;
 }
 
 /* RADIO */
-.radio-row input[type="radio"] {
+.awall-radio-row input[type="radio"] {
   width: 18px;
   height: 18px;
   cursor: pointer;

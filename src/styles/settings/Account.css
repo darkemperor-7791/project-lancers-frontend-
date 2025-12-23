@@ -1,34 +1,23 @@
-/* ================= ACCOUNT PAGE LAYOUT ================= */
+/* ================= ACCOUNT PAGE (ISOLATED) ================= */
 
-:root {
-  --settings-sidebar-width: 250px;
-}
-
-.settings-profile-page {
-  margin-right: 10px;
+.accpg-page {
   background: #1A3342;
-  color: #2d2d2d;
   min-height: 100vh;
   width: 100%;
-  font-family: system-ui, sans-serif;
-  box-sizing: border-box;
-  display: block;
   overflow-x: hidden;
-  padding-left: 0;
   transition: padding-left 0.3s ease-in-out;
 }
 
-.settings-profile-page.settings-sidebar-open {
+.accpg-sidebar-open {
   padding-left: var(--settings-sidebar-width);
 }
 
-.settings-profile-page.settings-sidebar-closed {
+.accpg-sidebar-closed {
   padding-left: 0;
 }
 
-.main-content {
+.accpg-main {
   display: flex;
-  flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;
   width: 95%;
@@ -36,51 +25,40 @@
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  .main-content {
-    flex-direction: row;
-  }
-}
-
-.content-area {
-  margin-right: 30px;
+.accpg-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
-.account-container {
-  width: 96%;
-  max-width: 1400px;          /* matches navbar max width */
-  margin: 0 auto;             /* center container like navbar */
-  padding: 2.5rem 1 rem;
+.accpg-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
 
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
 }
 
-/* ================= DROPDOWN BLOCK ================= */
+/* ================= BLOCK ================= */
 
-.account-block {
-  width: 100%;                /* stretch fully inside container */
+.accpg-block {
+  width: 100%;
   background: #0f2e3d;
   border-radius: 18px;
   overflow: hidden;
-
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
 }
 
-/* ================= HEADER BUTTON ================= */
+/* ================= HEADER ================= */
 
-.account-header {
+.accpg-header {
   width: 100%;
   padding: 1.6rem 1.8rem;
-
   background: #547f97;
-  color: white;
-
+  color: #ffffff;
   font-size: 1.35rem;
   font-weight: 600;
 
@@ -90,112 +68,78 @@
 
   border: none;
   cursor: pointer;
-
   transition: background-color 0.25s ease;
 }
 
-.account-header:hover {
+.accpg-header:hover {
   background: #5f8fa8;
 }
 
-/* Chevron animation */
-.account-header svg {
+.accpg-header svg {
   transition: transform 0.35s ease;
 }
 
-.account-header svg.rotate {
+.accpg-rotate {
   transform: rotate(180deg);
 }
 
-/* ================= DROPDOWN CONTENT ================= */
+/* ================= LIST ================= */
 
-.account-list {
+.accpg-list {
   display: flex;
   flex-direction: column;
   background: #1a3a4a;
+  padding: 0.75rem 1rem;
 }
 
-/* ===== ACCOUNT MANAGEMENT LIST ===== */
+/* ================= ITEMS ================= */
 
-.account-options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 16px 20px;
-  background: #d9dee1;
-  border-radius: 14px;
-}
-
-.account-option {
+.accpg-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-size: 18px;
-  color: #1f2f38;
-  padding: 10px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
 
-.account-option:hover {
-  background: rgba(0, 0, 0, 0.06);
-}
+  width: 100%;
+  padding: 1.2rem 2.2rem;
+  min-height: 56px;
 
-.account-option.active {
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.account-divider {
-  height: 1px;
-  background: rgba(0, 0, 0, 0.2);
-  margin: 2px 0;
-}
-
-
-/* ================= LIST ITEMS ================= */
-
-.account-item {
-  padding: 1.5rem 1.4rem;
-
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-weight: 500;
   color: #ffffff;
 
-  background: #a4bcc7c1;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(164, 188, 199, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 
   cursor: pointer;
-  transition: background-color 0.2s ease, padding-left 0.2s ease;
   text-decoration: none;
+
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
 }
 
-.account-item:last-child {
+.accpg-item:hover {
+  background: rgba(164, 188, 199, 1);
+  padding-left: 2.6rem;
+}
+
+.accpg-item:last-child {
   border-bottom: none;
 }
 
-/* hover feels calm */
-.account-item:hover {
-  background: #54585a;
-  padding-left: 1.7rem;
-}
-
-/* destructive actions */
-.account-item.danger {
-  color: #d91717;
+.accpg-danger {
+  color: #f62121;
   font-weight: 600;
 }
 
-/* ================= MOBILE FRIENDLY ================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
-  .account-header {
+  .accpg-header {
     font-size: 1.15rem;
     padding: 1.3rem 1.4rem;
   }
 
-  .account-item {
+  .accpg-item {
     font-size: 0.95rem;
+    padding: 1.1rem 1.6rem;
   }
 }

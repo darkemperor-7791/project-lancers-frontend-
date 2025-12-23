@@ -12,14 +12,14 @@
 }
 
 /* PAGE */
-.appearance-page {
+.appr-appearance-page {
   min-height: 100vh;
   background-color: #131313;
   transition: padding-left 150ms ease 120ms;
 }
 
 /* CONTAINER */
-.appearance-container {
+.appr-appearance-container {
   display: flex;
   justify-content: center;
   min-height: 100vh;
@@ -30,7 +30,7 @@
 }
 
 /* CONTENT */
-.appearance-content {
+.appr-appearance-content {
   margin-top: 3rem;
   width: 100%;
   max-width: 1300px;
@@ -40,7 +40,7 @@
 }
 
 /* SECTION */
-.appearance-section {
+.appr-appearance-section {
   background-color: #2d4a5a;
   border-radius: 20px;
   padding: 40px 50px;
@@ -49,7 +49,7 @@
 }
 
 /* TITLE */
-.section-title {
+.appr-section-title {
   font-size: 32px;
   font-weight: 600;
   color: #ffffff;
@@ -61,7 +61,7 @@
 }
 
 /* RADIO ROW */
-.radio-options-row {
+.appr-radio-options-row {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -69,7 +69,7 @@
 }
 
 /* RADIO GRID */
-.radio-options-grid {
+.appr-radio-options-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px 100px;
@@ -78,7 +78,7 @@
 }
 
 /* RADIO OPTION */
-.radio-option {
+.appr-radio-option {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -88,7 +88,7 @@
   font-weight: 500;
 }
 
-.radio-input {
+.appr-radio-input {
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -97,53 +97,54 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .appearance-container {
+  .appr-appearance-container {
     margin-left: 0;
     padding: 20px 12px;
   }
 
-  .appearance-content {
+  .appr-appearance-content {
     margin-top: 1rem;
   }
 
-  .appearance-section {
+  .appr-appearance-section {
     padding: 30px 25px;
   }
 
-  .radio-options-row {
+  .appr-radio-options-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
   }
 
-  .radio-options-grid {
+  .appr-radio-options-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .section-title {
+  .appr-section-title {
     font-size: 24px;
   }
 
-  .radio-option {
+  .appr-radio-option {
     font-size: 18px;
   }
 }
+
 /* ================= COMING SOON LOCK (WORKING) ================= */
 
-.coming-soon-wrapper {
+.appr-coming-soon-wrapper {
   position: relative;
 }
 
 /* blur + disable real page */
-.coming-soon-wrapper .appearance-container {
+.appr-coming-soon-wrapper .appr-appearance-container {
   filter: blur(6px) grayscale(40%);
   pointer-events: none;
   user-select: none;
 }
 
 /* full-page blocker */
-.coming-soon-lock {
+.appr-coming-soon-lock {
   position: absolute;
   inset: 0;
   z-index: 20;
@@ -157,7 +158,7 @@
 }
 
 /* label hidden by default */
-.coming-soon-label {
+.appr-coming-soon-label {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 0.25s ease, transform 0.25s ease;
@@ -174,9 +175,9 @@
 }
 
 /* show on hover */
-.coming-soon-lock:hover .coming-soon-label {
+.appr-coming-soon-lock:hover .appr-coming-soon-label {
   cursor: pointer;
-  transform: translateY(-2px), 
+  transform: translateY(-2px),
              scale(1);
   opacity: 1;
 }

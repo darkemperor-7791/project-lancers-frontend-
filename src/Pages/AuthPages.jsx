@@ -14,26 +14,25 @@ const AuthPages = () => {
 
   return (
     <>
-      {/* REMOVE old header — Global NavBar now handles this */}
-
-      <div className="main-container" style={{ paddingTop: "120px" }}>
+      <div className="aup-main-container" style={{ paddingTop: "120px" }}>
         {isLogin ? (
-          <div className="auth-box">
-            <h1 className="auth-title">Login</h1>
-            <div className="auth-form">
-              <div className="input-group">
-                <input type="text" className="input-field" placeholder="username" />
-                <span className="input-icon">👤</span>
+          <div className="aup-auth-box">
+            <h1 className="aup-auth-title">Login</h1>
+            <div className="aup-auth-form">
+
+              <div className="aup-input-group">
+                <input type="text" className="aup-input-field" placeholder="username" />
+                <span className="aup-input-icon">👤</span>
               </div>
 
-              <div className="input-group">
+              <div className="aup-input-group">
                 <input
                   type={showLoginPassword ? "text" : "password"}
-                  className="input-field"
+                  className="aup-input-field"
                   placeholder="password"
                 />
                 <button
-                  className="input-icon reveal-btn"
+                  className="aup-input-icon aup-reveal-btn"
                   style={{ cursor: 'pointer' }}
                   onClick={() => setShowLoginPassword(!showLoginPassword)}
                 >
@@ -41,44 +40,45 @@ const AuthPages = () => {
                 </button>
               </div>
 
-              <div className="forgot-password">
+              <div className="aup-forgot-password">
                 <a href="#">forget password?</a>
               </div>
 
-              <button className="btn-submit">Login</button>
+              <button className="aup-btn-submit">Login</button>
 
-              <div className="switch-text">
+              <div className="aup-switch-text">
                 dont have an account?{" "}
                 <a href="#" onClick={(e) => { e.preventDefault(); showRegister(); }}>
                   Register
                 </a>
               </div>
 
-              <button className="btn-submit" onClick={showRegister}>Register</button>
+              <button className="aup-btn-submit" onClick={showRegister}>Register</button>
 
-              <button className="btn-google">
+              <button className="aup-btn-google">
                 Login with Google
               </button>
             </div>
           </div>
         ) : (
-          <div className="auth-box">
-            <h1 className="auth-title">Register</h1>
+          <div className="aup-auth-box">
+            <h1 className="aup-auth-title">Register</h1>
 
-            <div className="auth-form">
-              <div className="input-group">
-                <input type="text" className="input-field" placeholder="username" />
-                <span className="input-icon">👤</span>
+            <div className="aup-auth-form">
+
+              <div className="aup-input-group">
+                <input type="text" className="aup-input-field" placeholder="username" />
+                <span className="aup-input-icon">👤</span>
               </div>
 
-              <div className="input-group">
+              <div className="aup-input-group">
                 <input
                   type={showRegisterPassword ? "text" : "password"}
-                  className="input-field"
+                  className="aup-input-field"
                   placeholder="password"
                 />
                 <span
-                  className="input-icon"
+                  className="aup-input-icon"
                   style={{ cursor: 'pointer' }}
                   onClick={() => setShowRegisterPassword(!showRegisterPassword)}
                 >
@@ -86,14 +86,14 @@ const AuthPages = () => {
                 </span>
               </div>
 
-              <div className="input-group">
+              <div className="aup-input-group">
                 <input
                   type={showConfirmPassword ? "text" : "password"}
-                  className="input-field"
+                  className="aup-input-field"
                   placeholder="confirm password"
                 />
                 <span
-                  className="input-icon"
+                  className="aup-input-icon"
                   style={{ cursor: 'pointer' }}
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 >
@@ -101,18 +101,18 @@ const AuthPages = () => {
                 </span>
               </div>
 
-              <button className="btn-submit">Register</button>
+              <button className="aup-btn-submit">Register</button>
 
-              <div className="switch-text">
+              <div className="aup-switch-text">
                 already have an account?{" "}
                 <a href="#" onClick={(e) => { e.preventDefault(); showLogin(); }}>
                   Login
                 </a>
               </div>
 
-              <button className="btn-submit" onClick={showLogin}>Login</button>
+              <button className="aup-btn-submit" onClick={showLogin}>Login</button>
 
-              <button className="btn-google">
+              <button className="aup-btn-google">
                 Login with Google
               </button>
             </div>

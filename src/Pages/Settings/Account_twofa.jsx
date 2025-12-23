@@ -5,7 +5,6 @@ import Sidebar from "../../components/Sidebar";
 
 export default function TwoFactorAuth({ isSidebarOpen }) {
 
-  /* 🔒 CLOSED BY DEFAULT */
   const [authAppExpanded, setAuthAppExpanded] = useState(false);
   const [smsExpanded, setSmsExpanded] = useState(false);
   const [emailExpanded, setEmailExpanded] = useState(false);
@@ -24,161 +23,174 @@ export default function TwoFactorAuth({ isSidebarOpen }) {
   const [emailVerified, setEmailVerified] = useState(false);
 
   return (
-    <div className="tfa-page" style={{ paddingLeft: isSidebarOpen ? '240px' : '0' }}>
-        {/* SIDEBAR */}
-              <Sidebar
+    <div className="a2fa-page" style={{ paddingLeft: isSidebarOpen ? '240px' : '0' }}>
+      <Sidebar
               isOpen={isSidebarOpen}
-                      title="Settings"
-                      footer={
-                        <button className="btn-logout" onClick={() => navigate("/")}>
-                          Log out
-                        </button>
-                      }
-                    >
-                        <a href="/setpf" className="sidebar-link">Profile</a>
-                        <a href="/setac" className="sidebar-link active">Account Security</a>
-                        <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
-                        <a href="/notiset" className="sidebar-link">Notification Settings</a>
-                        <a href="/appear" className="sidebar-link">Appearance</a>
-                        <a href="/useranal" className="sidebar-link">User Analytics</a>
-                        <a href="/support" className="sidebar-link">Support</a>
-                    </Sidebar>
-      <div className="tfa-wrapper">
-        <div className="tfa-outer">
-          <div className="tfa-inner">
+              title="Settings"
+              footer={
+                <button className="btn-logout" onClick={() => navigate("/")}>
+                  Log out
+                </button>
+              }
+            >
+              <a href="/setpf" className="sidebar-link">Profile</a>
+              <a href="/setac" className="sidebar-link active">Account Security</a>
+              <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
+              <a href="/notiset" className="sidebar-link">Notification Settings</a>
+              <a href="/appear" className="sidebar-link">Appearance</a>
+              <a href="/useranal" className="sidebar-link">User Analytics</a>
+              <a href="/support" className="sidebar-link">Support</a>
+            </Sidebar>
+        isOpen={isSidebarOpen}
+        title="Settings"
+        footer={<button className="btn-logout">Log out</button>}
+      
 
-            {/* HEADER */}
-            <div className="tfa-header">
-              <h1>2-Factor Authentication</h1>
-              <span className="tfa-date">Added on Aug 15, 2025</span>
+      <div className="a2fa-wrapper">
+        <div className="a2fa-outer">
+          <div className="a2fa-inner">
+
+            <div className="a2fa-header">
+              <h1 className="a2fa-title">2-Factor Authentication</h1>
+              <span className="a2fa-date">Added on Aug 15, 2025</span>
             </div>
 
-            <p className="tfa-description">
+            <p className="a2fa-description">
               Add a second layer of security to protect user accounts even if the password is compromised.
             </p>
 
-            {/* ================= AUTH APP ================= */}
-            <div className="tfa-section">
-              <div className="tfa-section-header" onClick={() => setAuthAppExpanded(!authAppExpanded)}>
-                <h3>Authenticator App</h3>
-                <ChevronDown className={`arrow ${authAppExpanded ? "open" : ""}`} />
+            {/* AUTH APP */}
+            <div className="a2fa-section">
+              <div
+                className="a2fa-section-header"
+                onClick={() => setAuthAppExpanded(!authAppExpanded)}
+              >
+                <h3 className="a2fa-section-title">Authenticator App</h3>
+                <ChevronDown className={`a2fa-arrow ${authAppExpanded ? "a2fa-arrow-open" : ""}`} />
               </div>
 
               {authAppExpanded && (
-                <div className="tfa-section-body">
+                <div className="a2fa-section-body">
 
-                  {/* ENABLE / DISABLE SWITCH */}
-                  <div className="toggle-row">
+                  <div className="a2fa-toggle-row">
                     <span>Enable Authenticator App</span>
-                    <label className="android-switch">
+                    <label className="a2fa-android-switch">
                       <input
                         type="checkbox"
                         checked={authAppStatus}
                         onChange={e => setAuthAppStatus(e.target.checked)}
                       />
-                      <span className="slider"></span>
+                      <span className="a2fa-slider"></span>
                     </label>
                   </div>
 
-                  <div className="qr-block">
-                    <div className="qr-box">(QR Code)</div>
-                    <p className="qr-guide">Scan the QR code using Authenticator App</p>
+                  <div className="a2fa-qr-block">
+                    <div className="a2fa-qr-box">(QR Code)</div>
+                    <p className="a2fa-qr-guide">
+                      Scan the QR code using Authenticator App
+                    </p>
                   </div>
 
-                  <div className="input-row">
+                  <div className="a2fa-input-row">
                     <label>Enter 6 digit verification code :</label>
                     <input type="number" value={authCode} onChange={e => setAuthCode(e.target.value)} />
                     <button>Verify and enable</button>
                   </div>
 
-                  <div className="recovery-block">
-                    <button className="link-btn">View/Make recovery code</button>
-                    <div className="recovery-code">XXXX-XXXX-XXXX-XXXX</div>
+                  <div className="a2fa-recovery-block">
+                    <button className="a2fa-link-btn">View/Make recovery code</button>
+                    <div className="a2fa-recovery-code">XXXX-XXXX-XXXX-XXXX</div>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* ================= SMS ================= */}
-            <div className="tfa-section">
-              <div className="tfa-section-header" onClick={() => setSmsExpanded(!smsExpanded)}>
-                <h3>SMS Verification</h3>
-                <ChevronDown className={`arrow ${smsExpanded ? "open" : ""}`} />
+            {/* SMS */}
+            <div className="a2fa-section">
+              <div
+                className="a2fa-section-header"
+                onClick={() => setSmsExpanded(!smsExpanded)}
+              >
+                <h3 className="a2fa-section-title">SMS Verification</h3>
+                <ChevronDown className={`a2fa-arrow ${smsExpanded ? "a2fa-arrow-open" : ""}`} />
               </div>
 
               {smsExpanded && (
-                <div className="tfa-section-body">
+                <div className="a2fa-section-body">
 
-                  <div className="toggle-row">
+                  <div className="a2fa-toggle-row">
                     <span>Enable SMS Verification</span>
-                    <label className="android-switch">
+                    <label className="a2fa-android-switch">
                       <input
                         type="checkbox"
                         checked={smsStatus}
                         onChange={e => setSmsStatus(e.target.checked)}
                       />
-                      <span className="slider"></span>
+                      <span className="a2fa-slider"></span>
                     </label>
                   </div>
 
-                  <div className="input-row">
+                  <div className="a2fa-input-row">
                     <label>Phone Number :</label>
                     <input type="number" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} />
                     <button>Verify</button>
                   </div>
 
-                  <div className="input-row">
+                  <div className="a2fa-input-row">
                     <label>Enter the OTP :</label>
                     <input type="number" value={otp} onChange={e => setOtp(e.target.value)} />
                     <button onClick={() => setSmsVerified(true)}>Submit OTP</button>
                   </div>
 
                   {smsVerified && (
-                    <div className="verified-box">
-                      <div className="verified-banner">VERIFICATION SUCCESSFUL</div>
+                    <div className="a2fa-verified-box">
+                      <div className="a2fa-verified-banner">VERIFICATION SUCCESSFUL</div>
                     </div>
                   )}
                 </div>
               )}
             </div>
 
-            {/* ================= EMAIL ================= */}
-            <div className="tfa-section">
-              <div className="tfa-section-header" onClick={() => setEmailExpanded(!emailExpanded)}>
-                <h3>Email Verification</h3>
-                <ChevronDown className={`arrow ${emailExpanded ? "open" : ""}`} />
+            {/* EMAIL */}
+            <div className="a2fa-section">
+              <div
+                className="a2fa-section-header"
+                onClick={() => setEmailExpanded(!emailExpanded)}
+              >
+                <h3 className="a2fa-section-title">Email Verification</h3>
+                <ChevronDown className={`a2fa-arrow ${emailExpanded ? "a2fa-arrow-open" : ""}`} />
               </div>
 
               {emailExpanded && (
-                <div className="tfa-section-body">
+                <div className="a2fa-section-body">
 
-                  <div className="toggle-row">
+                  <div className="a2fa-toggle-row">
                     <span>Enable Email Verification</span>
-                    <label className="android-switch">
+                    <label className="a2fa-android-switch">
                       <input
                         type="checkbox"
                         checked={emailStatus}
                         onChange={e => setEmailStatus(e.target.checked)}
                       />
-                      <span className="slider"></span>
+                      <span className="a2fa-slider"></span>
                     </label>
                   </div>
 
-                  <div className="input-row">
+                  <div className="a2fa-input-row">
                     <label>Email Id :</label>
                     <input type="email" value={emailId} onChange={e => setEmailId(e.target.value)} />
                     <button>Verify</button>
                   </div>
 
-                  <div className="input-row">
+                  <div className="a2fa-input-row">
                     <label>Enter the code :</label>
                     <input type="number" value={emailCode} onChange={e => setEmailCode(e.target.value)} />
                     <button onClick={() => setEmailVerified(true)}>Submit Code</button>
                   </div>
 
                   {emailVerified && (
-                    <div className="verified-box">
-                      <div className="verified-banner">VERIFICATION SUCCESSFUL</div>
+                    <div className="a2fa-verified-box">
+                      <div className="a2fa-verified-banner">VERIFICATION SUCCESSFUL</div>
                     </div>
                   )}
                 </div>

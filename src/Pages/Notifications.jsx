@@ -18,113 +18,54 @@ export default function Notifications() {
   ]);
 
   return (
-    <>
-      {/* ================= HOVER STYLES ================= */}
-      <style>{`
-      /* ================= DELETE BUTTON HOVER ================= */
+    <div style={styles.page}>
+      <div style={styles.card}>
 
-.btn-delete {
-  padding: 0.35rem;
-  border-radius: 8px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+        {/* HEADER */}
+        <div style={styles.header}>
+          <button
+            className="ntf-btn-back"
+            style={styles.backBtn}
+            onClick={goBack}
+          >
+            <ArrowLeft strokeWidth={3} />
+          </button>
 
-  transition:
-    background-color 0.25s ease,
-    transform 0.25s ease;
-}
-
-/* hover on the button */
-.btn-delete:hover {
-  background-color: rgba(0, 0, 0, 0.15);
-  transform: scale(1.05);
-}
-
-/* icon inside delete button */
-.icon-trash {
-  width: 1.75rem;
-  height: 1.75rem;
-  color: #364652;
-  opacity: 0.75;
-
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease,
-    color 0.25s ease;
-}
-
-/* icon hover effect */
-.btn-delete:hover .icon-trash {
-  opacity: 1;
-  transform: scale(1.15);
-  color: #1f2933;
-}
-
-        .btn-back:hover {
-          background-color: #A3BFCF;
-          transform: scale(1.08);
-        }
-
-        .btn-filter:hover {
-          background-color: #D1E1E9;
-          transform: scale(1.06);
-        }
-
-        .notification-item:hover {
-          background-color: #8CA8B7;
-          transform: translateX(4px);
-        }
-
-        .btn-delete:hover {
-          background-color: rgba(0,0,0,0.12);
-          border-radius: 6px;
-        }
-
-        .btn-delete:hover svg {
-          opacity: 1;
-          transform: scale(1.1);
-        }
-
-        button {
-          transition: all 0.25s ease;
-        }
-      `}</style>
-
-      <div style={styles.page}>
-        <div style={styles.card}>
-
-          {/* HEADER */}
-          <div style={styles.header}>
-            <button className="btn-back" style={styles.backBtn} onClick={goBack}>
-              <ArrowLeft strokeWidth={3} />
-            </button>
-
-            <button className="btn-filter" style={styles.filterBtn}>
-              <Filter size={16} />
-              <span>Filter</span>
-            </button>
-          </div>
-
-          {/* LIST */}
-          <div style={styles.list}>
-            {notifications.map(note => (
-              <div key={note.id} className="notification-item" style={styles.item}>
-                <span style={styles.text}>{note.text}</span>
-                <button className="btn-delete" style={styles.deleteBtn}>
-                  <Trash2 size={22} />
-                </button>
-              </div>
-            ))}
-          </div>
-
+          <button
+            className="ntf-btn-filter"
+            style={styles.filterBtn}
+          >
+            <Filter size={16} />
+            <span>Filter</span>
+          </button>
         </div>
+
+        {/* LIST */}
+        <div style={styles.list}>
+          {notifications.map(note => (
+            <div
+              key={note.id}
+              className="ntf-notification-item"
+              style={styles.item}
+            >
+              <span style={styles.text}>{note.text}</span>
+
+              <button
+                className="ntf-btn-delete"
+                style={styles.deleteBtn}
+              >
+                <Trash2 className="ntf-icon-trash" size={22} />
+              </button>
+            </div>
+          ))}
+        </div>
+
       </div>
-    </>
+    </div>
   );
 }
 
-/* ================== BASE STYLES ================== */
+/* ================== INLINE JS STYLES (INTENTIONALLY KEPT) ================== */
 
 const styles = {
   page: {

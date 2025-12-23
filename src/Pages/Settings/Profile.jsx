@@ -8,60 +8,54 @@ import useAutoResizeTextarea from "../../hooks/useAutoResizeTextarea";
 
 export default function SettingsProfile({ isSidebarOpen }) {
 
-  // auto-resize hooks
   const bio = useAutoResizeTextarea();
   const project = useAutoResizeTextarea();
   const navigate = useNavigate();
 
   return (
     <div
-      className={`app-container settings-profile-page ${
+      className={`app-container pf-settings-profile-page ${
         isSidebarOpen ? "settings-sidebar-open" : "settings-sidebar-closed"
       }`}
       style={{ paddingTop: "130px" }}
     >
-      <main className="main-content">
+      <main className="pf-main-content">
 
-        {/* ✅ UNIVERSAL SIDEBAR */}
         <Sidebar
-  isOpen={isSidebarOpen}
-  title="Settings"
-footer={
-  <button
-    className="btn-logout"
-    onClick={() => navigate("/")}
-  >
-    Log out
-  </button>
-}
+          isOpen={isSidebarOpen}
+          title="Settings"
+          footer={
+            <button
+              className="btn-logout"
+              onClick={() => navigate("/")}
+            >
+              Log out
+            </button>
+          }
+        >
+          <a href="/setpf" className="sidebar-link active">Profile</a>
+          <a href="/setac" className="sidebar-link">Account Security</a>
+          <a href="bilpay" className="sidebar-link">Billing & Payments</a>
+          <a href="/notiset" className="sidebar-link">Notification Settings</a>
+          <a href="/appear" className="sidebar-link">Appearance</a>
+          <a href="/useranal" className="sidebar-link">User Analytics</a>
+          <a href="/support" className="sidebar-link">Support</a>
+        </Sidebar>
 
->
-  <a href="/setpf" className="sidebar-link active">Profile</a>
-  <a href="/setac" className="sidebar-link">Account Security</a>
-  <a href="bilpay" className="sidebar-link">Billing & Payments</a>
-  <a href="/notiset" className="sidebar-link">Notification Settings</a>
-  <a href="/appear" className="sidebar-link">Appearance</a>
-  <a href="/useranal" className="sidebar-link">User Analytics</a>
-  <a href="/support" className="sidebar-link">Support</a>
-</Sidebar>
+        <div className="pf-content-area">
 
-
-        {/* RIGHT CONTENT */}
-        <div className="content-area">
-
-          {/* PROFILE CARD */}
-          <section className="card">
-            <button className="edit-icon">
+          <section className="pf-card">
+            <button className="pf-edit-icon">
               <Pencil />
             </button>
 
-            <div className="profile-header">
-              <div className="profile-avatar"></div>
+            <div className="pf-profile-header">
+              <div className="pf-profile-avatar"></div>
 
-              <div className="profile-info">
-                <h3 className="profile-name">Freelancer's Name</h3>
+              <div className="pf-profile-info">
+                <h3 className="pf-profile-name">Freelancer's Name</h3>
 
-                <div className="profile-details">
+                <div className="pf-profile-details">
                   <p>E-mail : gmail@putin.com</p>
                   <p>Phone No. : +2 9352462176</p>
                   <p>Date of Birth : 14 / 03 / 1998</p>
@@ -71,47 +65,44 @@ footer={
               </div>
             </div>
 
-            {/* BIO */}
             <div>
               <textarea
                 ref={bio.textareaRef}
                 onInput={bio.handleInput}
-                className="bio-box"
+                className="pf-bio-box"
                 placeholder="Tell us about yourself......"
               />
             </div>
           </section>
 
-          {/* SKILLS */}
-          <section className="card skills-container">
-            <div className="skills-row">
-              <span className="skills-label">Skills :</span>
-              <div className="tags-wrapper">
+          <section className="pf-card pf-skills-container">
+            <div className="pf-skills-row">
+              <span className="pf-skills-label">Skills :</span>
+              <div className="pf-tags-wrapper">
                 {["Python", "JavaScript", "C++", "Java"].map(skill => (
-                  <span key={skill} className="tag">{skill}</span>
+                  <span key={skill} className="pf-tag">{skill}</span>
                 ))}
               </div>
             </div>
 
-            <div className="skills-row">
-              <span className="skills-label">Domains :</span>
-              <div className="tags-wrapper">
+            <div className="pf-skills-row">
+              <span className="pf-skills-label">Domains :</span>
+              <div className="pf-tags-wrapper">
                 {["Data Science", "Web Development"].map(domain => (
-                  <span key={domain} className="tag">{domain}</span>
+                  <span key={domain} className="pf-tag">{domain}</span>
                 ))}
               </div>
             </div>
           </section>
 
-          {/* EXPERIENCE */}
-          <section className="card experience-layout">
-            <span className="skills-label">Experience :</span>
+          <section className="pf-card pf-experience-layout">
+            <span className="pf-skills-label">Experience :</span>
 
             <div>
               <textarea
                 ref={project.textareaRef}
                 onInput={project.handleInput}
-                className="project-box"
+                className="pf-project-box"
                 placeholder="Project 1 : ................ "
               />
             </div>

@@ -1,28 +1,16 @@
-/* =========================
-   SIDEBAR SHIFT
-========================= */
-.settings-sidebar-open {
-  padding-left: 240px;
-}
+.settings-sidebar-open { padding-left: 240px; }
+.settings-sidebar-closed { padding-left: 0; }
 
-.settings-sidebar-closed {
-  padding-left: 0;
-}
-
-/* =========================
-   PAGE
-========================= */
-.delete-page {
+/* PAGE */
+.adlt-delete-page {
   min-height: 100vh;
   width: 100%;
   background-color: #131313;
   overflow-x: hidden;
 }
 
-/* =========================
-   CONTAINER
-========================= */
-.delete-container {
+/* CONTAINER */
+.adlt-delete-container {
   display: flex;
   justify-content: flex-start;
   width: 100%;
@@ -30,22 +18,18 @@
   box-sizing: border-box;
 }
 
-/* =========================
-   OUTER FRAME (WIDENED)
-========================= */
-.delete-outer {
+/* OUTER FRAME */
+.adlt-delete-outer {
   width: 100%;
-  max-width: 1400px;              /* 🔥 landscape width */
+  max-width: 1400px;
   background-color: #2d4f5f;
   padding: 26px;
   border-radius: 28px;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
 }
 
-/* =========================
-   INNER CONTENT
-========================= */
-.delete-inner {
+/* INNER */
+.adlt-delete-inner {
   background-color: #9fb3bb;
   border-radius: 20px;
   padding: 60px 80px;
@@ -54,16 +38,14 @@
   align-items: flex-start;
 }
 
-/* =========================
-   HEADER
-========================= */
-.delete-header {
+/* HEADER */
+.adlt-delete-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.delete-header h1 {
+.adlt-delete-header h1 {
   font-size: 44px;
   font-weight: 700;
   color: #ff0000;
@@ -72,27 +54,21 @@
   text-underline-offset: 12px;
 }
 
-.delete-header span {
+.adlt-delete-header span {
   font-size: 20px;
   font-style: italic;
   color: #1a1a1a;
 }
 
-/* =========================
-   WARNING TEXT
-========================= */
-.delete-danger-text {
+/* TEXT */
+.adlt-delete-danger-text {
   color: #ff0000;
   font-weight: 700;
   font-size: 22px;
   margin: 18px 0 12px;
 }
 
-/* =========================
-   DESCRIPTION
-========================= */
-.delete-description {
-    text-align: left;
+.adlt-delete-description {
   font-size: 22px;
   line-height: 1.6;
   font-weight: 500;
@@ -101,36 +77,42 @@
   margin-bottom: 28px;
 }
 
-/* =========================
-   SECTION HEADERS
-========================= */
-.delete-inner h3 {
+/* LISTS */
+.adlt-delete-inner h3 {
   font-size: 26px;
   color: #ffffff;
   font-weight: 700;
   margin: 30px 0 12px;
 }
 
-/* =========================
-   LISTS
-========================= */
-.delete-inner ul {
+.adlt-delete-inner ul {
   padding-left: 28px;
   margin: 0;
   max-width: 900px;
 }
 
-.delete-inner li {
-  font-size: 20px;
-  margin-bottom: 12px;
+.adlt-delete-inner label {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 26px;
   color: #1a1a1a;
-  font-weight: 500;
 }
 
-/* =========================
-   WARNING BOX
-========================= */
-.delete-warning {
+.adlt-delete-inner input,
+.adlt-delete-inner textarea {
+  width: 50%;
+  padding: 18px 22px;
+  border-radius: 12px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+  margin-top: 10px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* WARNING */
+.adlt-delete-warning {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -145,50 +127,54 @@
   margin: 32px 0;
 }
 
-/* =========================
-   FORM ELEMENTS
-========================= */
-label {
-  font-size: 22px;
-  font-weight: 600;
-  margin-top: 26px;
-  color: #1a1a1a;
-}
-
-input,
-textarea {
-  width: 50%;
-  padding: 18px 22px;
-  border-radius: 12px;
-  border: none;
-  font-size: 18px;
-  outline: none;
-  margin-top: 10px;
-  box-sizing: border-box;
-}
-
-/* =========================
-   RADIO GROUP
-========================= */
-.radio-group {
+/* FORM */
+.adlt-radio-group {
   display: flex;
   gap: 36px;
   margin-top: 14px;
-}
-
-.radio-group label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 20px;
-  font-weight: 500;
   white-space: nowrap;
 }
 
-/* =========================
-   CONFIRMATION CHECKBOX
-========================= */
-.checkbox-label {
+.adlt-radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.adlt-radio-button {
+  transform: scale(1.4);
+  accent-color: #ff0000;
+}
+
+.adlt-email {
+  margin-top: 10px;
+  pointer-events: none;
+}
+
+
+.adlt-send-otp {
+  padding: 10px 20px;
+  align-self: center;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  background-color: #2d4f5f;
+  position: relative;
+  top: 4rem;
+}
+
+.adlt-send-otp:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.adlt-consent-box {
+  resize: none;
+}
+
+.adlt-checkbox-label {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -196,101 +182,68 @@ textarea {
   font-weight: 600;
   margin-top: 26px;
   color: #1a1a1a;
-  white-space: nowrap;       /* 🔑 keeps it in one line */
+  white-space: nowrap;
 }
 
-.send-otp{
-    padding: 10px 20px;
-    align-self: center;
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    background-color: #2d4f5f;
-    transition: transform 0.2s ease;
-
-      position: relative;   /* 🔑 enables local movement */
-    top: 4rem;            /* 🔥 moves ONLY this button down */
-
-}
-.send-otp:hover{
-    cursor: pointer;
-    transform: translateY(-2px);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.consent-box{
-    resize: none;
-}
-
-.checkbox-label input[type="checkbox"] {
-  width: 20px;               /* 🔑 proper visual weight */
-  height: 20px;
-  cursor: pointer;
-}
-
-.consent-highlight {
-  color: #ff0000fa;            /* 🔥 yellow emphasis */
+.adlt-consent-highlight {
+  color: #ff0000fa;
   font-weight: 700;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-.button-group {
+/* BUTTONS */
+.adlt-button-group {
   margin-top: 36px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 50%;
-  align-self: center;        /* 🔑 centers the buttons block */
+  align-self: center;
 }
 
-
-.danger-btn {
+.adlt-danger-btn,
+.adlt-cancel-btn {
   padding: 18px;
   font-size: 22px;
   font-weight: 700;
-  color: #ff0000;
-  background-color: #e8e8e8;
-  border: none;
   border-radius: 14px;
+  border: none;
   cursor: pointer;
-  transition: all 0.25s ease;
+  background-color: #e8e8e8;
 }
 
-.cancel-btn {
-  padding: 18px;
-  font-size: 22px;
-  font-weight: 700;
-  color: #1a1a1a;
-  background-color: #e8e8e8;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
+.adlt-danger-btn { color: #ff0000; }
+.adlt-cancel-btn { color: #1a1a1a; }
 
-.danger-btn:hover,
-.cancel-btn:hover {
+.adlt-danger-btn:hover,
+.adlt-cancel-btn:hover {
   background-color: #d8d8d8;
   transform: translateY(-2px);
 }
 
-/* =========================
-   POPUP
-========================= */
-.popup-overlay {
+.adlt-consent{
+  color: rgb(237, 237, 0);
+}
+
+.adlt-checkbox{
+  transform: scale(2);
+  accent-color: #ed5151;
+}
+
+.adlt-cbox-line{
+  margin-top: 8px;
+}
+
+/* POPUP */
+.adlt-popup-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
 }
 
-.popup-box {
+.adlt-popup-box {
   background: #9fb3bb;
   padding: 40px 60px;
   border-radius: 20px;
@@ -298,64 +251,16 @@ textarea {
   border: 3px solid #2d4f5f;
 }
 
-.popup-check {
+.adlt-popup-check {
   font-size: 56px;
   color: #00bb00;
   margin-bottom: 18px;
 }
 
-.popup-box h2 {
-  font-size: 24px;
-  margin-bottom: 22px;
-}
-
-/* =========================
-   RESPONSIVE SAFETY
-========================= */
-@media (max-width: 900px) {
-  .delete-inner {
-    padding: 40px 36px;
-  }
-
-  input,
-  textarea,
-  .button-group {
-    width: 100%;
-  }
-
-  .delete-header h1 {
-    font-size: 34px;
-  }
-}
-.delete-inner ul,
-.delete-inner li {
-  text-align: left;
-}
-.delete-inner ul,
-.delete-inner li {
-  text-align: left;
-}
-
-.popup-ok{
-    padding: 10px 20px;
-    align-self: center;
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    background-color: #2d4f5f;
-    transition: transform 0.2s ease;
-}
-
-.popup-ok:hover{
-    transform: translateY(-2px);
-    cursor: pointer;
-}
-
-/* 🔒 HARD disable Delete button */
-.danger-btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  transform: none !important;
-  box-shadow: none !important;
-  pointer-events: none;   /* 🔥 THIS is the real fix */
+.adlt-popup-ok {
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  background-color: #2d4f5f;
 }

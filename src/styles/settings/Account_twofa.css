@@ -1,34 +1,16 @@
-/* src/styles/settings/Account_bank.css */
+/* ---------------------------
+   Account_twofa (prefixed)
+   Prefix: a2fa
+   Values preserved exactly from your original CSS
+   --------------------------- */
 
-:root {
-  --settings-sidebar-width: 250px;
-}
-
-/* PAGE WRAPPER */
-.settings-bank-page {
-  min-height: 100vh;
-  background: #1c1c1d;
-  width: 100%;
-  overflow-x: hidden;
-  transition: padding-left 0.3s ease-in-out;
-}
-
-.settings-bank-page.settings-sidebar-open {
-  padding-left: var(--settings-sidebar-width);
-}
-
-.settings-bank-page.settings-sidebar-closed {
-  padding-left: 0;
-}
-
-/*======================================PAGE CSS========================================*/
-.tfa-page {
+.a2fa-page {
   min-height: 100vh;
   background-color: #131313;
   transition: padding-left 70ms ease 120ms;
 }
 
-.tfa-wrapper {
+.a2fa-wrapper {
   display: flex;
   justify-content: center;
   padding: 40px 24px 80px;
@@ -39,7 +21,7 @@
 /* =========================
    OUTER / INNER
 ========================= */
-.tfa-outer {
+.a2fa-outer {
   margin-top: 3rem;
   width: 100%;
   max-width: 1300px;
@@ -49,7 +31,7 @@
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
 }
 
-.tfa-inner {
+.a2fa-inner {
   background-color: #8ba5af;
   padding: 48px 60px;
   border-radius: 16px;
@@ -58,7 +40,7 @@
 /* =========================
    HEADER
 ========================= */
-.tfa-header {
+.a2fa-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,14 +50,14 @@
   text-underline-offset: 5px;
 }
 
-.tfa-header h1 {
+.a2fa-header .a2fa-title {
   font-size: 45px;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
 }
 
-.tfa-date {
+.a2fa-date {
   background-color: #ffffff;
   padding: 8px 16px;
   border-radius: 8px;
@@ -86,7 +68,7 @@
 /* =========================
    DESCRIPTION
 ========================= */
-.tfa-description {
+.a2fa-description {
   font-size: 23px;
   font-weight: 500;
   line-height: 1.6;
@@ -97,14 +79,14 @@
 /* =========================
    SECTIONS
 ========================= */
-.tfa-section {
+.a2fa-section {
   background-color: #2d4a57;
   border-radius: 14px;
   margin-bottom: 20px;
   overflow: hidden;
 }
 
-.tfa-section-header {
+.a2fa-section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -113,21 +95,21 @@
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-.tfa-section-header h3 {
+.a2fa-section-header .a2fa-section-title {
   color: #ffffff;
   font-size: 20px;
   font-weight: 600;
   margin: 0;
 }
 
-.tfa-section-controls {
+.a2fa-section-controls {
   display: flex;
   align-items: center;
   gap: 16px;
   color: #ffffff;
 }
 
-.arrow {
+.a2fa-arrow {
   font-size: 20px;
   font-weight: bold;
   transition: transform 0.3s ease;
@@ -136,7 +118,7 @@
 /* =========================
    SECTION BODY
 ========================= */
-.tfa-section-body {
+.a2fa-section-body {
   padding: 32px 28px;
   background-color: #3d5a68;
   color: #ffffff;
@@ -145,12 +127,12 @@
 /* =========================
    QR BLOCK (FIXED)
 ========================= */
-.qr-block {
+.a2fa-qr-block {
   text-align: center;
   margin-bottom: 28px;
 }
 
-.qr-box {
+.a2fa-qr-box {
   width: 160px;
   height: 160px;
   background: #ffffff;
@@ -164,7 +146,7 @@
 }
 
 /* 🔥 THIS IS THE FIX 🔥 */
-.tfa-section-body .qr-guide {
+.a2fa-section-body .a2fa-qr-guide {
   color: #ffffff;
   font-weight: 500;
   margin: 0;
@@ -173,20 +155,20 @@
 /* =========================
    INPUT ROWS
 ========================= */
-.input-row {
+.a2fa-input-row {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 20px;
 }
 
-.input-row label {
+.a2fa-input-row label {
   min-width: 220px;
   color: #ffffff;
   font-weight: 600;
 }
 
-.input-row input {
+.a2fa-input-row input {
   flex: 1;
   padding: 12px 16px;
   border-radius: 8px;
@@ -196,7 +178,7 @@
   outline: none;
 }
 
-.input-row button {
+.a2fa-input-row button {
   padding: 12px 32px;
   background-color: #4a85a3;
   border: none;
@@ -209,11 +191,11 @@
 /* =========================
    RECOVERY
 ========================= */
-.recovery-block {
+.a2fa-recovery-block {
   text-align: center;
 }
 
-.link-btn {
+.a2fa-link-btn {
   background: none;
   border: none;
   color: #4a9eff;
@@ -222,7 +204,7 @@
   font-weight: 600;
 }
 
-.recovery-code {
+.a2fa-recovery-code {
   background: #ffffff;
   width:20rem;
   margin-left: 17rem;
@@ -237,26 +219,27 @@
 /* =========================
    VERIFIED
 ========================= */
-.verified-box {
+.a2fa-verified-box {
   background-color: #c5d5db;
   padding: 24px;
   border-radius: 12px;
   text-align: center;
 }
 
-.verified-banner {
+.a2fa-verified-banner {
   background-color: #4ade80;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 800;
 }
+
 /* =========================
    BUTTON HOVER STATES
    (ONLY ADDITIONS – NO CHANGES)
 ========================= */
 
 /* Main action buttons */
-.input-row button:hover {
+.a2fa-input-row button:hover {
   background-color: #3a6583;
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
@@ -266,7 +249,7 @@
 }
 
 /* Recovery / link-style button */
-.link-btn:hover {
+.a2fa-link-btn:hover {
   color: #7dbbff;
   transform: translateY(-1px);
   transition: color 0.2s ease,
@@ -274,7 +257,7 @@
 }
 
 /* Verified success banner (subtle hover feedback) */
-.verified-banner:hover {
+.a2fa-verified-banner:hover {
   filter: brightness(0.95);
   transition: filter 0.2s ease;
 }
@@ -283,7 +266,7 @@
    ANDROID STYLE TOGGLE
 ========================= */
 
-.toggle-row {
+.a2fa-toggle-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -292,19 +275,19 @@
   color: #ffffff;
 }
 
-.android-switch {
+.a2fa-android-switch {
   position: relative;
   width: 52px;
   height: 28px;
 }
 
-.android-switch input {
+.a2fa-android-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.android-switch .slider {
+.a2fa-android-switch .a2fa-slider {
   position: absolute;
   inset: 0;
   background-color: #6b8893;
@@ -312,7 +295,7 @@
   transition: background-color 0.3s ease;
 }
 
-.android-switch .slider::before {
+.a2fa-android-switch .a2fa-slider::before {
   content: "";
   position: absolute;
   height: 22px;
@@ -324,15 +307,15 @@
   transition: transform 0.3s ease;
 }
 
-.android-switch input:checked + .slider {
+.a2fa-android-switch input:checked + .a2fa-slider {
   background-color: #4a9eff;
 }
 
-.android-switch input:checked + .slider::before {
+.a2fa-android-switch input:checked + .a2fa-slider::before {
   transform: translateX(24px);
 }
 
 /* Arrow rotation */
-.arrow.open {
+.a2fa-arrow-open {
   transform: rotate(180deg);
 }

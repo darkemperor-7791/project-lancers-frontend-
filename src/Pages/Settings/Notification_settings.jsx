@@ -39,116 +39,91 @@ export default function NotificationSettings({ isSidebarOpen }) {
         </Sidebar>
 
         <div className="content-area">
-          <div className="account-container">
+          <div className="ns-container">
 
-            {/* PROJECT & CLIENT */}
-            <section className="account-block">
-              <button className="account-header" onClick={() => toggleSection("projects")}>
+            {/* PROJECTS */}
+            <section className="ns-block">
+              <button className="ns-header" onClick={() => toggleSection("projects")}>
                 <span>Project & Client Notifications</span>
                 <ChevronDown className={openSection === "projects" ? "rotate" : ""} />
               </button>
 
               {openSection === "projects" && (
-                <div className="account-list">
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>New Project Invitations</span>
-                  </label>
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Project Deadlines & Reminders</span>
-                  </label>
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Client Messages / Chat Alerts</span>
-                  </label>
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Proposal Updates — Accepted / Rejected</span>
-                  </label>
+                <div className="ns-list">
+                  {[
+                    "New Project Invitations",
+                    "Project Deadlines & Reminders",
+                    "Client Messages / Chat Alerts",
+                    "Proposal Updates — Accepted / Rejected",
+                  ].map(text => (
+                    <label key={text} className="ns-item ns-checkbox-item">
+                      <input type="checkbox" />
+                      <span>{text}</span>
+                    </label>
+                  ))}
                 </div>
               )}
             </section>
 
             {/* PAYMENTS */}
-            <section className="account-block">
-              <button className="account-header" onClick={() => toggleSection("payments")}>
+            <section className="ns-block">
+              <button className="ns-header" onClick={() => toggleSection("payments")}>
                 <span>Payments and Transactions</span>
                 <ChevronDown className={openSection === "payments" ? "rotate" : ""} />
               </button>
 
               {openSection === "payments" && (
-                <div className="account-list">
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Payment Received — Tokens or money added to wallet</span>
-                  </label>
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Withdrawal Status Updates  — Withdrawal success or failure</span>
-                  </label>
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Token Purchase Confirmation  — when tokens are bought successfully</span>
-                  </label>
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Billing or Invoice Alerts  — when a new invoice is generated</span>
-                  </label>
+                <div className="ns-list">
+                  {[
+                    "Payment Received — Tokens or money added to wallet",
+                    "Withdrawal Status Updates — Withdrawal success or failure",
+                    "Token Purchase Confirmation",
+                    "Billing or Invoice Alerts",
+                  ].map(text => (
+                    <label key={text} className="ns-item ns-checkbox-item">
+                      <input type="checkbox" />
+                      <span>{text}</span>
+                    </label>
+                  ))}
                 </div>
               )}
             </section>
 
-            {/* ACCOUNT & SECURITY */}
-            <section className="account-block">
-              <button className="account-header" onClick={() => toggleSection("security")}>
+            {/* SECURITY */}
+            <section className="ns-block">
+              <button className="ns-header" onClick={() => toggleSection("security")}>
                 <span>Account and Security</span>
                 <ChevronDown className={openSection === "security" ? "rotate" : ""} />
               </button>
 
               {openSection === "security" && (
-                <div className="account-list">
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Password Change Confirmation — Confirmation of password update</span>
-                  </label>
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Security Alerts — login from new device, password change, etc.(New device, login)</span>
-                  </label>
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Promotional Offers — token discounts or feature trials</span>
-                  </label>
-                  <label className="account-item checkbox-item">
-                    <input type="checkbox" />
-                    <span>Weekly Summary Emails — short recap of activity and earnings</span>
-                  </label>
+                <div className="ns-list">
+                  {[
+                    "Password Change Confirmation",
+                    "Security Alerts — new device login",
+                    "Promotional Offers",
+                    "Weekly Summary Emails",
+                  ].map(text => (
+                    <label key={text} className="ns-item ns-checkbox-item">
+                      <input type="checkbox" />
+                      <span>{text}</span>
+                    </label>
+                  ))}
                 </div>
               )}
             </section>
 
-            {/* ===== STATIC NOTIFICATION SOURCES (NEW) ===== */}
-            <section className="account-block notification-sources-block">
-              <div className="notification-sources-header">
-                Notification sources :
-              </div>
+            {/* SOURCES */}
+            <section className="ns-block ns-sources-block">
+              <div className="ns-sources-header">Notification sources :</div>
 
-              <div className="notification-sources-list">
-                <label className="notification-source-item">
-                  <input type="checkbox" />
-                  <span>E-mail</span>
-                </label>
-
-                <label className="notification-source-item">
-                  <input type="checkbox" />
-                  <span>SMS</span>
-                </label>
-
-                <label className="notification-source-item">
-                  <input type="checkbox" />
-                  <span>Browser Push Notifications</span>
-                </label>
+              <div className="ns-sources-list">
+                {["E-mail", "SMS", "Browser Push Notifications"].map(src => (
+                  <label key={src} className="ns-source-item">
+                    <input type="checkbox" />
+                    <span>{src}</span>
+                  </label>
+                ))}
               </div>
             </section>
 

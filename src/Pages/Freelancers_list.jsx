@@ -20,46 +20,54 @@ export default function FreelancerList() {
   };
 
   return (
-    <div className="app-container">
-      <div className="main-card">
-        
+    <div className="frl-app-container">
+      <div className="frl-main-card">
+
         {/* Header */}
-        <div className="header">
-          <button className="btn-back" onClick={handleBack}>
-            <ArrowLeft className="icon-back" />
+        <div className="frl-header">
+          <button className="frl-btn-back" onClick={handleBack}>
+            <ArrowLeft className="frl-icon-back" />
           </button>
-          <button className="btn-filter">
-            <Filter className="icon-filter" />
-            <span className="filter-text">Filter</span>
+
+          <button className="frl-btn-filter">
+            <Filter className="frl-icon-filter" />
+            <span className="frl-filter-text">Filter</span>
           </button>
         </div>
 
         {/* List */}
-        <div className="freelancer-list">
+        <div className="frl-freelancer-list">
           {freelancers.map((freelancer) => (
-            <div key={freelancer.id} className="freelancer-item">
-              
-              {/* Left: Avatar & Name */}
-              <div className="item-left">
-                <div className="avatar"></div>
-                <div className="info-block">
-                  <span className="name-text">{freelancer.name}</span>
-                  <span className="skills-text">Skills : {freelancer.skills}</span>
+            <div key={freelancer.id} className="frl-freelancer-item">
+
+              {/* Left */}
+              <div className="frl-item-left">
+                <div className="frl-avatar"></div>
+                <div className="frl-info-block">
+                  <span className="frl-name-text">{freelancer.name}</span>
+                  <span className="frl-skills-text">
+                    Skills : {freelancer.skills}
+                  </span>
                 </div>
               </div>
 
-              {/* Right: Rating & Trash */}
-              <div className="item-right">
-                <div className="stats-block">
-                  <div className="rating-row">
+              {/* Right */}
+              <div className="frl-item-right">
+                <div className="frl-stats-block">
+                  <div className="frl-rating-row">
                     <span>Rating : {freelancer.rating}</span>
-                    <Star className="star-icon" />
+                    <Star className="frl-star-icon" />
                   </div>
-                  <span className="projects-text">Projects done : {freelancer.projects}</span>
+                  <span className="frl-projects-text">
+                    Projects done : {freelancer.projects}
+                  </span>
                 </div>
-                
-                <button className="btn-delete" onClick={() => handleDelete(freelancer.id)}>
-                  <Trash2 className="icon-trash" />
+
+                <button
+                  className="frl-btn-delete"
+                  onClick={() => handleDelete(freelancer.id)}
+                >
+                  <Trash2 className="frl-icon-trash" />
                 </button>
               </div>
 

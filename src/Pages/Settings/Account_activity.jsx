@@ -19,90 +19,89 @@ export default function AccountActivity({ isSidebarOpen }) {
           </button>
         }
       >
-          <a href="/setpf" className="sidebar-link">Profile</a>
-          <a href="/setac" className="sidebar-link active">Account Security</a>
-          <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
-          <a href="/notiset" className="sidebar-link">Notification Settings</a>
-          <a href="/appear" className="sidebar-link">Appearance</a>
-          <a href="/useranal" className="sidebar-link">User Analytics</a>
-          <a href="/support" className="sidebar-link">Support</a>
+        <a href="/setpf" className="sidebar-link">Profile</a>
+        <a href="/setac" className="sidebar-link active">Account Security</a>
+        <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
+        <a href="/notiset" className="sidebar-link">Notification Settings</a>
+        <a href="/appear" className="sidebar-link">Appearance</a>
+        <a href="/useranal" className="sidebar-link">User Analytics</a>
+        <a href="/support" className="sidebar-link">Support</a>
       </Sidebar>
 
-      {/* ===== PAGE WRAPPER (ONLY SHIFTS) ===== */}
+      {/* ===== PAGE WRAPPER ===== */}
       <div
-        className={`activity-page ${
+        className={`aa-activity-page ${
           isSidebarOpen ? "settings-sidebar-open" : "settings-sidebar-closed"
         }`}
       >
-        {/* ===== CENTERED CONTENT ===== */}
-        <div className="activity-container">
-          <div className="activity-outer-frame">
-            <div className="activity-content-box">
+        <div className="aa-activity-container">
+          <div className="aa-activity-outer-frame">
+            <div className="aa-activity-content-box">
 
-              <h2 className="activity-title">
+              <h2 className="aa-activity-title">
                 Active sessions and Login Activity
               </h2>
 
-              <p className="activity-description">
+              <p className="aa-activity-description">
                 All devices where your account is currently logged in and all the
                 sessions are shown here. Review your account activity and sign out
                 of sessions and devices you don’t recognize.
               </p>
 
-              <div className="two-column-layout">
+              <div className="aa-two-column-layout">
 
-                <div className="left-column">
-                  <h3 className="section-heading">Current Session</h3>
+                <div className="aa-left-column">
+                  <h3 className="aa-section-heading">Current Session</h3>
 
-                  <div className="current-session-card">
-                    <div className="session-info-line">Chrome on Windows 11</div>
-                    <div className="session-info-line">India · IP 103.xxx</div>
-                    <div className="session-info-line">Logged in at 12 Aug 2025</div>
-                    <span className="status-active">Active (This device)</span>
+                  <div className="aa-current-session-card">
+                    <div className="aa-session-info-line">Chrome on Windows 11</div>
+                    <div className="aa-session-info-line">India · IP 103.xxx</div>
+                    <div className="aa-session-info-line">Logged in at 12 Aug 2025</div>
+                    <span className="aa-status-active">Active (This device)</span>
                   </div>
 
-                  <div className="active-sessions-section">
-                    <h3 className="section-heading-white">Active Sessions</h3>
+                  <div className="aa-active-sessions-section">
+                    <h3 className="aa-section-heading-white">Active Sessions</h3>
 
-                    <div className="session-card">
+                    <div className="aa-session-card">
                       iPhone 14 · Safari<br />
                       Mumbai · IP xxx<br />
                       Last active: 2 mins ago
-                      <button className="session-signout-button">Sign out</button>
+                      <button className="aa-session-signout-button">Sign out</button>
                     </div>
 
-                    <div className="session-card">
+                    <div className="aa-session-card">
                       MacBook · Chrome<br />
                       Delhi · IP xxx<br />
                       Last active: 3 days ago
-                      <button className="session-signout-button">Sign out</button>
+                      <button className="aa-session-signout-button">Sign out</button>
                     </div>
                   </div>
                 </div>
 
-                <div className="right-column">
-                  <div className="login-activity-section">
-                    <h3 className="section-heading-white">Recent Login Activity</h3>
+                <div className="aa-right-column">
+                  <div className="aa-login-activity-section">
+                    <h3 className="aa-section-heading-white">Recent Login Activity</h3>
 
-                    <div className="login-entry">
-                      <div className="login-date">Aug 10 20XX</div>
-                      <div className="login-device">Chrome · Windows</div>
-                      <div className="login-status-success">Success</div>
+                    <div className="aa-login-entry">
+                      <div className="aa-login-date">Aug 10 20XX</div>
+                      <div className="aa-login-device">Chrome · Windows</div>
+                      <div className="aa-login-status-success">Success</div>
                     </div>
 
-                    <div className="login-entry">
-                      <div className="login-date">Sept 19 20XX</div>
-                      <div className="login-device">Chrome · Windows</div>
-                      <div className="login-status-failed">Failed</div>
+                    <div className="aa-login-entry">
+                      <div className="aa-login-date">Sept 19 20XX</div>
+                      <div className="aa-login-device">Chrome · Windows</div>
+                      <div className="aa-login-status-failed">Failed</div>
                     </div>
                   </div>
                 </div>
 
               </div>
 
-              <div className="bottom-actions">
-                <button className="action-button-1">Sign out of all devices</button>
-                <Link to="/acchangepass" className="action-button-2">
+              <div className="aa-bottom-actions">
+                <button className="aa-action-button-1">Sign out of all devices</button>
+                <Link to="/acchangepass" className="aa-action-button-2">
                   Change Password
                 </Link>
               </div>
@@ -112,10 +111,13 @@ export default function AccountActivity({ isSidebarOpen }) {
         </div>
 
         {showPopup && (
-          <div className="popup-overlay">
-            <div className="popup-content">
-              <div className="popup-message">Action successful</div>
-              <button className="popup-ok-button" onClick={() => setShowPopup(false)}>
+          <div className="aa-popup-overlay">
+            <div className="aa-popup-content">
+              <div className="aa-popup-message">Action successful</div>
+              <button
+                className="aa-popup-ok-button"
+                onClick={() => setShowPopup(false)}
+              >
                 OK
               </button>
             </div>

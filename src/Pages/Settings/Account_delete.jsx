@@ -1,7 +1,3 @@
-// =========================
-// PermanentlyDeleteAccount.jsx (PAGE-REFORMED & FIXED)
-// =========================
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
@@ -33,11 +29,10 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
 
   return (
     <div
-      className={`delete-page ${
+      className={`adlt-delete-page ${
         isSidebarOpen ? "settings-sidebar-open" : "settings-sidebar-closed"
       }`}
     >
-      {/* ===== SIDEBAR ===== */}
       <Sidebar
         isOpen={isSidebarOpen}
         title="Settings"
@@ -47,34 +42,32 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
           </button>
         }
       >
-          <a href="/setpf" className="sidebar-link">Profile</a>
-          <a href="/setac" className="sidebar-link active">Account Security</a>
-          <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
-          <a href="/notiset" className="sidebar-link">Notification Settings</a>
-          <a href="/appear" className="sidebar-link">Appearance</a>
-          <a href="/useranal" className="sidebar-link">User Analytics</a>
-          <a href="/support" className="sidebar-link">Support</a>
+        <a href="/setpf" className="sidebar-link">Profile</a>
+        <a href="/setac" className="sidebar-link active">Account Security</a>
+        <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
+        <a href="/notiset" className="sidebar-link">Notification Settings</a>
+        <a href="/appear" className="sidebar-link">Appearance</a>
+        <a href="/useranal" className="sidebar-link">User Analytics</a>
+        <a href="/support" className="sidebar-link">Support</a>
       </Sidebar>
 
-      <div className="delete-container">
-        <div className="delete-outer">
-          <div className="delete-inner">
+      <div className="adlt-delete-container">
+        <div className="adlt-delete-outer">
+          <div className="adlt-delete-inner">
 
-            {/* HEADER */}
-            <div className="delete-header">
+            <div className="adlt-delete-header">
               <h1>Permanently Delete your account</h1>
               <span>*mandatory</span>
             </div>
 
-            <p className="delete-danger-text">
+            <p className="adlt-delete-danger-text">
               This action can’t be undone!!!
             </p>
 
-            <p className="delete-description">
+            <p className="adlt-delete-description">
               This will permanently delete your Lancers account and all related data.
             </p>
 
-            {/* LISTS */}
             <section>
               <h3>What Will Be Deleted?</h3>
               <ul>
@@ -96,12 +89,10 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
               </ul>
             </section>
 
-            {/* WARNING */}
-            <div className="delete-warning">
+            <div className="adlt-delete-warning">
               ⚠ You must complete or cancel all active projects before deleting your account.
             </div>
 
-            {/* FORM */}
             <label>Confirm Password*</label>
             <input
               type="password"
@@ -110,24 +101,26 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
             />
 
             <label>Choose OTP method*</label>
-            <button className="send-otp">Send OTP</button>
+            <button className="adlt-send-otp">Send OTP</button>
 
-            <div className="radio-group">
+            <div className="adlt-radio-group">
               <label>
                 <input
+                className = "adlt-radio-button"
                   type="radio"
                   checked={otpMethod === "email"}
                   onChange={() => setOtpMethod("email")}
                 />
-                E-mail
+                <span className = "adlt-email">E-mail</span>
               </label>
               <label>
                 <input
+                  className = "adlt-radio-button"
                   type="radio"
                   checked={otpMethod === "phone"}
                   onChange={() => setOtpMethod("phone")}
                 />
-                Phone Number
+                <span className = "adlt-email">Phone Number</span>
               </label>
             </div>
 
@@ -138,35 +131,34 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
               onChange={(e) => setOtp(e.target.value)}
             />
 
-            <label className="confirm-text-label">
+            <label className="adlt-confirm-text-label">
               Type the confirmation sentence exactly:
-              <br />
-              “I wish to delete this account by my own will and with full responsibility of it.”
+              <br/>
+              <span className = "adlt-consent">“I wish to delete this account by my own will and with full responsibility of it.”</span>
             </label>
 
             <textarea
-              className="consent-box"
+              className="adlt-consent-box"
               value={confirmText}
               onChange={(e) => setConfirmText(e.target.value)}
             />
 
-            {/* CONSENT */}
-            <label className="checkbox-label">
+            <label className="adlt-checkbox-label">
               <input
+              className = "adlt-checkbox"
                 type="checkbox"
                 checked={isAgreed}
-                onChange={() => setIsAgreed(prev => !prev)}/>
-
-              <span>
+                onChange={() => setIsAgreed(prev => !prev)}
+              />
+              <span className="adlt-cbox-line">
                 I understand this action is
-                <span className="consent-highlight"> permanent</span>.
+                <span className="adlt-consent-highlight"> permanent</span>.
               </span>
             </label>
 
-            {/* BUTTONS */}
-            <div className="button-group">
+            <div className="adlt-button-group">
               <button
-                className="danger-btn"
+                className="adlt-danger-btn"
                 onClick={handleDelete}
                 disabled={!isConfirmationValid}
               >
@@ -174,7 +166,7 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
               </button>
 
               <button
-                className="cancel-btn"
+                className="adlt-cancel-btn"
                 onClick={() => navigate(-1)}
               >
                 Cancel
@@ -185,13 +177,17 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
         </div>
       </div>
 
-      {/* POPUP */}
       {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-box">
-            <div className="popup-check">✓</div>
+        <div className="adlt-popup-overlay">
+          <div className="adlt-popup-box">
+            <div className="adlt-popup-check">✓</div>
             <h2>Account deletion request submitted</h2>
-            <button className = "popup-ok" onClick={() => setShowPopup(false)}>OK</button>
+            <button
+              className="adlt-popup-ok"
+              onClick={() => setShowPopup(false)}
+            >
+              OK
+            </button>
           </div>
         </div>
       )}

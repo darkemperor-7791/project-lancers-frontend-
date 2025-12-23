@@ -6,6 +6,7 @@ html, body {
   padding: 0;
   background-color: #a8b5bb;
 }
+
 /* MUST MATCH SIDEBAR WIDTH */
 .settings-sidebar-open {
   padding-left: 240px;
@@ -14,10 +15,11 @@ html, body {
 .settings-sidebar-closed {
   padding-left: 0;
 }
+
 /* =========================
    CONTAINER
 ========================= */
-.activity-container {
+.aa-activity-container {
   display: flex;
   align-items: flex-start;
   min-height: 100vh;
@@ -32,7 +34,7 @@ html, body {
 /* =========================
    OUTER FRAME
 ========================= */
-.activity-outer-frame {
+.aa-activity-outer-frame {
   margin-top: 3rem;
   width: 100%;
   max-width: 1400px;
@@ -45,7 +47,7 @@ html, body {
 /* =========================
    CONTENT BOX
 ========================= */
-.activity-content-box {
+.aa-activity-content-box {
   background-color: #a5b8c0;
   padding: 48px 60px;
   border-radius: 16px;
@@ -54,18 +56,18 @@ html, body {
 /* =========================
    TITLE & DESCRIPTION
 ========================= */
-.activity-title {
-    text-decoration: underline;
-    text-underline-offset: 15px;
-    color : rgb(255, 255, 255);
+.aa-activity-title {
+  text-decoration: underline;
+  text-underline-offset: 15px;
+  color: rgb(255, 255, 255);
   font-size: 50px;
   font-weight: 800;
   letter-spacing: 0.6px;
   margin: 0 0 20px;
 }
 
-.activity-description {
-  text-align: left;  
+.aa-activity-description {
+  text-align: left;
   font-size: 23px;
   font-weight: 500;
   line-height: 1.65;
@@ -76,34 +78,34 @@ html, body {
 /* =========================
    TWO COLUMN LAYOUT
 ========================= */
-.two-column-layout {
+.aa-two-column-layout {
   display: flex;
   gap: 48px;
 }
 
-.left-column {
+.aa-left-column {
   flex: 1.2;
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-.right-column {
+.aa-right-column {
   flex: 1;
 }
 
 /* =========================
    SECTION HEADINGS
 ========================= */
-.section-heading {
-    margin-bottom: 15px;
+.aa-section-heading {
+  margin-bottom: 15px;
   font-size: 35px;
   color: #4a8499;
   font-weight: 700;
   text-decoration: underline;
 }
 
-.section-heading-white {
+.aa-section-heading-white {
   font-size: 33px;
   font-weight: 700;
   text-decoration: underline;
@@ -117,7 +119,7 @@ html, body {
 /* =========================
    CURRENT SESSION
 ========================= */
-.current-session-card {
+.aa-current-session-card {
   background-color: #dae3e7;
   padding: 24px 28px;
   border-radius: 14px;
@@ -126,13 +128,13 @@ html, body {
   border-left: 6px solid #00bb00;
 }
 
-.session-info-line {
-    font-size: 19px;
-    font-weight: 650;
+.aa-session-info-line {
+  font-size: 19px;
+  font-weight: 650;
   margin-bottom: 10px;
 }
 
-.status-active {
+.aa-status-active {
   font-size: 27px;
   font-weight: 700;
   color: #008800;
@@ -142,13 +144,13 @@ html, body {
 /* =========================
    ACTIVE SESSIONS
 ========================= */
-.active-sessions-section {
+.aa-active-sessions-section {
   background-color: #3b5d6c;
   padding: 28px 24px;
   border-radius: 16px;
 }
 
-.session-card {
+.aa-session-card {
   background-color: #d0dce1;
   padding: 20px 24px;
   border-radius: 12px;
@@ -157,7 +159,7 @@ html, body {
   font-weight: 600;
 }
 
-.session-signout-button {
+.aa-session-signout-button {
   width: 100%;
   margin-top: 14px;
   padding: 12px 0;
@@ -168,55 +170,50 @@ html, body {
   font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease background-color 0.2s ease ;
+  transition: transform 0.2s ease background-color 0.2s ease;
 }
 
-.session-signout-button:hover {
-    transform: translateY(-2px);
-    background-color: #234d5d;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+.aa-session-signout-button:hover {
+  transform: translateY(-2px);
+  background-color: #234d5d;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* =========================
    LOGIN ACTIVITY
 ========================= */
-.login-activity-section {
+.aa-login-activity-section {
   background-color: #3b5d6c;
   padding: 28px 24px;
   border-radius: 16px;
 }
 
-.login-entry {
+.aa-login-entry {
   margin-bottom: 22px;
   padding-bottom: 14px;
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
-.login-date {
-    margin-bottom: 3px;
+.aa-login-date {
+  margin-bottom: 3px;
   font-size: 20px;
   font-weight: 700;
   color: white;
 }
 
-.login-ip-label {
-  font-size: 13px;
-  color: #d5e4ea;
-}
-
-.login-device {
+.aa-login-device {
   font-size: 18px;
   font-weight: 500;
   color: white;
 }
 
-.login-status-success {
+.aa-login-status-success {
   color: #4aff4a;
   font-size: 22px;
   font-weight: 700;
 }
 
-.login-status-failed {
+.aa-login-status-failed {
   color: #ff6b6b;
   font-size: 22px;
   font-weight: 700;
@@ -225,7 +222,7 @@ html, body {
 /* =========================
    BOTTOM ACTIONS
 ========================= */
-.bottom-actions {
+.aa-bottom-actions {
   display: flex;
   justify-content: flex-end;
   gap: 24px;
@@ -234,7 +231,7 @@ html, body {
   border-top: 1px solid rgba(0,0,0,0.15);
 }
 
-.action-button-1 {
+.aa-action-button-1 {
   margin-right: 10rem;
   min-width: 260px;
   padding: 16px 40px;
@@ -247,12 +244,12 @@ html, body {
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.action-button-1:hover{
-    transform: translateY(-5px);
-    box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.3);
+.aa-action-button-1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.3);
 }
 
-.action-button-2 {
+.aa-action-button-2 {
   margin-right: 10rem;
   text-decoration: none;
   min-width: 260px;
@@ -266,15 +263,15 @@ html, body {
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.action-button-2:hover{
-    transform: translateY(-5px);
-    box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.3);
+.aa-action-button-2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.3);
 }
 
 /* =========================
    POPUP
 ========================= */
-.popup-overlay {
+.aa-popup-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
@@ -283,7 +280,7 @@ html, body {
   align-items: center;
 }
 
-.popup-content {
+.aa-popup-content {
   background-color: #a5b8c0;
   padding: 48px 60px;
   border-radius: 20px;
@@ -291,13 +288,13 @@ html, body {
   text-align: center;
 }
 
-.popup-message {
+.aa-popup-message {
   font-size: 24px;
   font-weight: 800;
   margin-bottom: 32px;
 }
 
-.popup-ok-button {
+.aa-popup-ok-button {
   padding: 14px 64px;
   font-size: 18px;
   font-weight: 700;
@@ -306,12 +303,4 @@ html, body {
   background-color: #325d6d;
   color: white;
   cursor: pointer;
-}
-/* === FIX SIDEBAR FONT WEIGHT OVERRIDE === */
-.sidebar-link {
-  font-weight: 500;
-}
-
-.sidebar-link.active {
-  font-weight: 500;
 }
