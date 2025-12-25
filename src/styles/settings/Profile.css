@@ -31,13 +31,14 @@
 }
 
 .pf-main-content {
+  margin-left: 2rem;
+  margin-top: -5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   padding: 2rem;
   width: 95%;
   max-width: 1600px;
-  margin: 0 auto;
 }
 
 @media (min-width: 768px) {

@@ -59,7 +59,8 @@ export default function Withdraw() {
         </div>
 
         <div className="bpw-minimum-limit">
-          Minimum Withdrawal Limit : {minimumWithdrawal} Tokens
+          Minimum Withdrawal Limit : {minimumWithdrawal} 
+          <img src={coinl} alt="coins" className="bpw-min-wid-coins" />
         </div>
       </div>
 

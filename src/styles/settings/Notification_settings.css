@@ -11,6 +11,7 @@
 /* ================= BLOCK ================= */
 
 .ns-block {
+  
   background: #0f2e3d;
   border-radius: 18px;
   overflow: hidden;
@@ -21,7 +22,7 @@
 
 .ns-header {
   width: 100%;
-  padding: 1.6rem 1.8rem;
+  padding: 1.6rem 1.9rem;
   background: #547f97;
   color: white;
   font-size: 1.35rem;

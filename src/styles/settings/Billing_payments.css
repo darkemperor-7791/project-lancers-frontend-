@@ -14,6 +14,7 @@
   transition: padding-left 0.3s ease;
 }
 
+
 /* ================= SIDEBAR OFFSET ================= */
 .billing-sidebar-open {
   padding-left: 240px;
@@ -106,7 +107,15 @@
   z-index: 1;
 }
 
+.bp-billing-sender-details{
+  white-space: nowrap;
+  margin-left: 6rem;
+  font-size: 27px;
+}
 
+.bp-total-amount-wd{
+  font-size: 25px;
+}
 
 /* ================= CARD ================= */
 .bp-billing-card {
@@ -131,6 +140,11 @@
   gap: 12px;
 }
 
+.bp-current-balance-line{
+  font-size: 33px;
+  font-weight: 500;
+}
+
 .bp-coin-image {
   width: 40px;
   height: 40px;
@@ -148,7 +162,6 @@
 .bp-tab-dashboard .bp-billing-tabs-wrapper {
   justify-content: center;
 }
-
 
 /*==============BUY TOKENS TAB HACK=============*/
 .bp-billing-page.bp-tab-buy .bp-billing-layout {
@@ -183,9 +196,14 @@
 }
 
 .bp-billing-positive {
+  margin-right: -10px;
   font-size: 28px;
   font-weight: 700;
   color: #00ff00;
+}
+
+.bp-coin-image-lt{
+  width: 50px;
 }
 
 /* ================= STATS ================= */
@@ -193,6 +211,11 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+}
+
+.bp-billing-statement{
+  white-space: nowrap;
+  font-size: 27px;
 }
 
 .bp-amount-details {

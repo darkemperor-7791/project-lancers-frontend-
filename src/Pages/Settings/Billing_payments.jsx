@@ -70,19 +70,19 @@ export default function BillingPayments({ isSidebarOpen }) {
             <>
               <div className="bp-billing-card">
                 <div className="bp-billing-balance-row">
-                  <span>Current Balance :</span>
+                  <span className="bp-current-balance-line">Current Balance :</span>
                   <div className="bp-billing-balance">
-                    <span className="bp-billing-value">20</span>
+                    <span className="bp-billing-value">2500</span>
                     <img className="bp-coin-image-balance" src={coin} alt="coins" />
                   </div>
                 </div>
 
                 <div className="bp-billing-divider">
                   <span className="bp-billing-statement">Last transaction :</span>
-                  <span className="bp-billing-positive">+15</span>
-                  <span>Tokens</span>
+                  <span className="bp-billing-positive">+150</span>
+                  <img className="bp-coin-image-lt" src={coin} alt="coins" />
                   <p className="bp-billing-sender-details">
-                    from : <span className="bp-biller">Sender</span>
+                    From : <span className="bp-biller">Sender</span>
                   </p>
                 </div>
               </div>
@@ -97,8 +97,8 @@ export default function BillingPayments({ isSidebarOpen }) {
                 </div>
 
                 <div className="bp-amount-details">
-                  <p>Total Amount Withdrawn :</p>
-                  <p>Pending Clearance :</p>
+                  <p className="bp-total-amount-wd">Total Amount Withdrawn :</p>
+                  <p className="bp-total-amount-wd">Pending Clearance :</p>
                 </div>
               </div>
             </>
