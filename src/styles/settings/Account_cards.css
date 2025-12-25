@@ -5,7 +5,7 @@
 }
 
 /* PAGE WRAPPER */
-.abk-settings-bank-page {
+.asc-settings-cards-page {
   min-height: 100vh;
   background: #1c1c1d;
   width: 100%;
@@ -13,18 +13,18 @@
   transition: padding-left 0.3s ease-in-out;
 }
 
-.abk-settings-bank-page.settings-sidebar-open {
+.asc-settings-cards-page.settings-sidebar-open {
   padding-left: var(--settings-sidebar-width);
 }
 
-.abk-settings-bank-page.settings-sidebar-closed {
+.asc-settings-cards-page.settings-sidebar-closed {
   padding-left: 0;
 }
 
 /* MAIN PAGE AREA */
-.abk-bank-page {
+.asc-cards-page {
   min-height: calc(100vh - 90px);
-  margin-top: 90px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -32,7 +32,7 @@
 }
 
 /* OUTER FRAME */
-.abk-bank-outer {
+.asc-cards-outer {
   width: 100%;
   max-width: 1100px;
   background-color: #204457;
@@ -41,7 +41,7 @@
 }
 
 /* INNER CONTAINER */
-.abk-bank-inner {
+.asc-cards-inner {
   background-color: #a0aeb5;
   border-radius: 24px;
   padding: 42px;
@@ -50,7 +50,7 @@
 }
 
 /* HEADER */
-.abk-bank-header {
+.asc-cards-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -58,26 +58,27 @@
   gap: 1.5rem;
 }
 
-.abk-title-group {
+.asc-title-group {
   display: flex;
   flex-direction: column;
 }
 
-.abk-page-title {
+.asc-page-title {
+  font-weight: 600;
   font-size: 3rem;
   color: #ffffff;
   font-weight: 400;
   margin-bottom: 0.25rem;
 }
 
-.abk-title-underline {
+.asc-title-underline {
   height: 3px;
-  width: 20rem;
+  width: 18rem;
   background-color: #ffffff;
 }
 
 /* BUTTON */
-.abk-add-btn {
+.asc-add-btn {
   background-color: #265166;
   color: white;
   padding: 0.75rem 1.5rem;
@@ -88,12 +89,15 @@
   transition: background-color 0.2s ease;
 }
 
-.abk-add-btn:hover {
+.asc-add-btn:hover {
   background-color: #152e3b;
 }
 
 /* DETAILS CARD */
-.abk-details-card {
+.asc-details-card {
+  display: grid;
+    grid-template-columns: 1fr;
+  row-gap: 14px;
   background-color: #466d85;
   border-radius: 18px;
   padding: 2.5rem;
@@ -104,7 +108,7 @@
 }
 
 /* CARD CONTENT */
-.abk-card-content {
+.asc-card-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -112,18 +116,60 @@
   font-size: 1.25rem;
 }
 
-.abk-info-row {
+.asc-info-row {
+  white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.abk-label {
+.asc-label {
   min-width: 220px;
 }
 
+.asc-label-value-number {
+    font-family: "Verdana";
+  margin-left: 13rem;
+  font-weight: 800;
+  color: #e5e7eb;
+  text-align: left;
+}
+
+.asc-label-value-type {
+    font-family: "Tahoma";
+  margin-left: 19rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  text-align: left;
+}
+
+.asc-label-value-name {
+  font-family: "Verdana";
+  margin-left: 12rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  text-align: left;
+}
+
+.asc-label-value-date {
+  font-size: 1.6rem;
+  font-family: "Consolas";
+  margin-left: 19rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  text-align: left;
+}
+
+.asc-label-value-cards {
+  margin-left: 16.5rem;
+  font-weight: 800;
+  color: #e5e7eb;
+  text-align: left;
+}
+
 /* LOGO BOX */
-.abk-logo-box {
+.asc-logo-box {
+  margin-left: 2rem;
   background-color: #d1d5db;
   width: 40px;
   height: 40px;
@@ -136,7 +182,7 @@
 }
 
 /* FILE BADGE */
-.abk-file-badge {
+.asc-file-badge {
   background-color: #d1d5db;
   color: black;
   padding: 0.4rem 1rem;
@@ -145,35 +191,35 @@
   font-weight: 500;
 }
 
-.abk-upload-row {
+.asc-upload-row {
   margin-top: 2rem;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .abk-bank-header {
+  .asc-cards-header {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .abk-page-title {
+  .asc-page-title {
     font-size: 2.3rem;
   }
 
-  .abk-details-card {
+  .asc-details-card {
     padding: 1.75rem;
   }
 
-  .abk-info-row {
+  .asc-info-row {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .abk-label {
+  .asc-label {
     min-width: auto;
   }
 
-  .abk-add-btn {
+  .asc-add-btn {
     width: 100%;
     text-align: center;
   }

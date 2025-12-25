@@ -21,7 +21,7 @@ import Freelancers_list from "./Pages/Freelancers_list";
 import SettingsProfile from "./Pages/Settings/Profile";
 import SettingsAccount from "./Pages/Settings/Account";
 import UPIIDsPage from "./Pages/Settings/Account_upi";
-import BankAccounts from "./Pages/Settings/Account_bank";
+import SavedCards from "./Pages/Settings/Account_cards";
 import WalletsPage from "./Pages/Settings/Account_wallet";
 import ChangePasswordForm from "./Pages/Settings/Account_changepass";
 import BackupContactsForm from "./Pages/Settings/Account_backup";
@@ -64,7 +64,7 @@ function NavBar({ onHamburgerClick }) {
           <span className="bar" />
         </button>
 
-        <div className="lance-logo">LANCE</div>
+        <div className="lance-logo">LANCERS</div>
 
         <button
           className={`icon-btn home-btn ${isLoginPage ? "disabled" : ""}`}
@@ -85,12 +85,19 @@ function NavBar({ onHamburgerClick }) {
         {!isLoginPage && (
           <div className="coin-display">
             <span className="coin-count">2500</span>
-            <img className="coin-logo" src={coin} />
+            <img className="coin-logo" src={coin} alt="coins" />
           </div>
         )}
 
         {!isLoginPage && (
-          <button className="icon-btn cart-btn" onClick={() => navigate("/bilpay")}>
+          <button
+            className="icon-btn cart-btn"
+            onClick={() =>
+              navigate("/bilpay", {
+                state: { tab: "buy" }
+              })
+            }
+          >
             <ShoppingCart size={20} />
           </button>
         )}
@@ -116,19 +123,18 @@ function NavBar({ onHamburgerClick }) {
 }
 
 /* ==================================
-   APP SHELL (BACKGROUND FIX LIVES HERE)
+   APP SHELL
 ================================== */
 function AppShell() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
 
-  /* 🔥 MANUAL STRIP COLOR MAP */
   const stripColorMap = {
     "/": "#1b3038",
     "/find-work": "#1A3342",
     "/setpf": "#1A3342",
     "/setac": "#1A3342",
-    "/acbank": "#1a1a1a",        // ✅ Bank accounts FIX
+    "/accards": "#1a1a1a",
     "/acupi": "#1a1a1a",
     "/acwallet": "#1a1a1a",
     "/bilpay": "#1a1a1a",
@@ -138,23 +144,13 @@ function AppShell() {
     "/actwofa": "#1a1a1a",
     "/acdvt": "#1a1a1a",
     "/acdlt": "#1a1a1a"
-    
   };
 
-  const stripColor =
-    stripColorMap[location.pathname] || "#1A3342";
+  const stripColor = stripColorMap[location.pathname] || "#1A3342";
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        backgroundColor: stripColor, // 🔥 behind navbar
-      }}
-    >
-      <NavBar
-        onHamburgerClick={() => setIsSidebarOpen(v => !v)}
-        bgColor={stripColor}
-      />
+    <div style={{ minHeight: "100vh", backgroundColor: stripColor }}>
+      <NavBar onHamburgerClick={() => setIsSidebarOpen(v => !v)} />
 
       <div
         className="page-content"
@@ -163,7 +159,7 @@ function AppShell() {
           height: "calc(100vh - 90px)",
           overflowY: "auto",
           overflowX: "hidden",
-          backgroundColor: stripColor, // 🔥 fake screen
+          backgroundColor: stripColor
         }}
       >
         <Routes>
@@ -175,7 +171,7 @@ function AppShell() {
           <Route path="/setpf" element={<SettingsProfile isSidebarOpen={isSidebarOpen} />} />
           <Route path="/setac" element={<SettingsAccount isSidebarOpen={isSidebarOpen} />} />
           <Route path="/acupi" element={<UPIIDsPage isSidebarOpen={isSidebarOpen} />} />
-          <Route path="/acbank" element={<BankAccounts isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/accards" element={<SavedCards isSidebarOpen={isSidebarOpen} />} />
           <Route path="/acwallet" element={<WalletsPage isSidebarOpen={isSidebarOpen} />} />
           <Route path="/acchangepass" element={<ChangePasswordForm isSidebarOpen={isSidebarOpen} />} />
           <Route path="/acbackup" element={<BackupContactsForm isSidebarOpen={isSidebarOpen} />} />

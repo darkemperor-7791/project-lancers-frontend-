@@ -80,7 +80,7 @@ export default function SettingsAccount({ isSidebarOpen }) {
 
               {openSection === "account" && (
                 <div className="accpg-list">
-                  <Link to="/acbank" className="accpg-item">Bank Accounts</Link>
+                  <Link to="/accards" className="accpg-item">Saved Cards</Link>
                   <Link to="/acupi" className="accpg-item">UPI IDs</Link>
                   <Link to="/acwallet" className="accpg-item">Saved Wallets</Link>
                 </div>

@@ -1,0 +1,351 @@
+/* Page Container */
+.bpw-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* ✅ THIS */
+  gap: 2rem;
+  padding: 2rem;
+}
+
+
+/* Balance Section */
+.bpw-balance-section {
+  background-color: #2c4a5a;
+  border-radius: 1.5rem;
+  padding: 2rem 3rem;
+
+  width: 100%;          /* ✅ fill available space */
+  max-width: 900px;     /* ✅ controlled width */
+    margin-left: 18.5rem;
+  color: white;
+}
+
+
+.bpw-conversion-rate {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.bpw-conversion-rate{
+    font-size: 30px;
+}
+
+.bpw-1rs {
+    font-size: 30px;
+}
+
+.bpw-rate-coin {
+    padding-top: 2px;
+    margin-right: px;
+  width: 2rem;
+  height: 2rem;
+}
+
+.bpw-available-balance-amount {
+    margin-left: 30px;
+}
+
+.bpw-rate-equals {
+  margin-left: 0.5rem;
+}
+
+.bpw-available-balance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.bpw-balance-text {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.bpw-balance-amount {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bpw-balance-coins {
+  width: 80px;
+  height: 80px;
+}
+
+.bpw-minimum-limit {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Form Section */
+.bpw-form-section {
+    margin-left: 8rem;
+  background-color: #2c4a5a;
+  border-radius: 1.5rem;
+  padding: 2rem 2.5rem;
+  width: 55rem;
+  color: white;
+}
+
+.bpw-token-withdraw-heading{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.bpw-methods-line{
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 26px;
+}
+
+.bpw-input-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.bpw-input-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.bpw-input-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bpw-token-input,
+.bpw-rupee-input {
+  background-color: #d1d5db;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.bpw-input-coin {
+  width: 32px;
+  height: 32px;
+}
+
+.bpw-rupee-symbol {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.bpw-input-field {
+    text-align: right;
+  border: none;
+  background: transparent;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #1f2937;
+  outline: none;
+  width: 100%;
+  min-width: 0;
+}
+
+.bpw-output-field {
+    text-align: left;
+  border: none;
+  background: transparent;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: #1f2937;
+  outline: none;
+  width: 100%;
+  min-width: 0;
+}
+
+.bpw-input-field::placeholder {
+  color: #9ca3af;
+}
+
+/* Remove spinner from number input */
+.bpw-input-field::-webkit-outer-spin-button,
+.bpw-input-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.bpw-input-field[type=number] {
+  -moz-appearance: textfield;
+}
+
+.bpw-equals {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Payout Section */
+.bpw-payout-section {
+  margin-top: 2rem;
+}
+
+.bpw-payout-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.bpw-payment-methods {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.bpw-method-btn {
+    width: 15rem;
+    height: 13rem;
+  background-color: white;
+  border: 3px solid transparent;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.bpw-method-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.bpw-method-selected {
+    border-width: 7px;
+  border-color: #ff0000;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.bpw-method-name-cdc{
+    font-size: 25px;
+}
+
+.bpw-method-name-upi{
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+.bpw-method-name-wt{
+    font-size: 25px;
+}
+
+.bpw-cards-img{
+    margin-top: -20px;
+    width: 8rem;
+    height: 9rem;
+}
+
+.bpw-upi-img{
+    width: 10rem;
+    height: 10rem;
+}
+
+
+.bpw-wallet-img{
+    width: 10rem;
+    height: 6rem;
+}
+
+.bpw-method-name-upi{
+    margin-top: 22px;
+    font-size: 25px;
+}
+
+.bpw-method-name-wt{
+    margin-top: 27px;
+    font-size: 25px;
+}
+
+.bpw-method-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.bpw-method-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.bpw-method-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+}
+
+.bpw-rupee{
+    color: black;
+    font-size: 40px;
+}
+
+.bpw-impur-coin-img{
+    width: 50px;
+    height: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bpw-balance-section,
+  .bpw-form-section {
+    max-width: 100%;
+  }
+
+  .bpw-payment-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .bpw-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bpw-balance-text {
+    font-size: 1.5rem;
+  }
+}
+
+.bpw-withdraw-btn {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.bpw-withdraw-btn:hover {
+  background-color: #2563eb;
+}
+
+.bpw-cards-image{
+    width: 90px;
+    height: 90px;
+}
