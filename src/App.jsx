@@ -33,12 +33,16 @@ import NotificationSettings from "./Pages/Settings/Notification_settings";
 import AppearanceSettings from "./Pages/Settings/Appearance";
 import BillingPayments from "./Pages/Settings/Billing_payments";
 
+/* ===================== COMPONENTS ===================== */
+import Footer from "./components/Footer";
+
 /* ===================== STYLES ===================== */
 import "./components/Navbar.css";
+import "./components/Footer.css";
 import "./App.css";
 
 /* ==================================
-   NAVBAR
+   NAVBAR (FIXED COLOR)
 ================================== */
 function NavBar({ onHamburgerClick }) {
   const location = useLocation();
@@ -56,7 +60,12 @@ function NavBar({ onHamburgerClick }) {
   };
 
   return (
-    <nav className="navbar">
+    <nav
+      className="navbar"
+      style={{
+        backgroundColor: "rgba(170, 184, 192, 0.95)" // 🔒 FIXED NAVBAR COLOR
+      }}
+    >
       <div className="navbar-left">
         <button className="hamburger-btn" onClick={onHamburgerClick}>
           <span className="bar" />
@@ -92,26 +101,18 @@ function NavBar({ onHamburgerClick }) {
         {!isLoginPage && (
           <button
             className="icon-btn cart-btn"
-            onClick={() =>
-              navigate("/bilpay", {
-                state: { tab: "buy" }
-              })
-            }
+            onClick={() => navigate("/bilpay", { state: { tab: "buy" } })}
           >
             <ShoppingCart size={20} />
           </button>
         )}
 
         {!isLoginPage && (
-          <Link to="/fl" className="icon-btn">
-            <Heart size={20} />
-          </Link>
+          <Link to="/fl" className="icon-btn"><Heart size={20} /></Link>
         )}
 
         {!isLoginPage && (
-          <Link to="/notif" className="icon-btn">
-            <Bell size={20} />
-          </Link>
+          <Link to="/notif" className="icon-btn"><Bell size={20} /></Link>
         )}
 
         {!isLoginPage && (
@@ -129,6 +130,7 @@ function AppShell() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
 
+  /* 🔥 STRIP COLOR MAP */
   const stripColorMap = {
     "/": "#1b3038",
     "/find-work": "#1A3342",
@@ -147,21 +149,28 @@ function AppShell() {
   };
 
   const stripColor = stripColorMap[location.pathname] || "#1A3342";
+  const showFooter = ["/", "/find-work"].includes(location.pathname);
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: stripColor }}>
-      <NavBar onHamburgerClick={() => setIsSidebarOpen(v => !v)} />
-
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        backgroundColor: stripColor
+      }}
+    >
+      {/* 🔥 DYNAMIC STRIP */}
       <div
-        className="page-content"
         style={{
-          marginTop: "90px",
-          height: "calc(100vh - 90px)",
-          overflowY: "auto",
-          overflowX: "hidden",
+          height: "90px",
           backgroundColor: stripColor
         }}
-      >
+      />
+
+      <NavBar onHamburgerClick={() => setIsSidebarOpen(v => !v)} />
+
+      <main style={{ flex: 1 }}>
         <Routes>
           <Route path="/" element={<AuthPages />} />
           <Route path="/find-work" element={<FindWorkPage />} />
@@ -183,7 +192,9 @@ function AppShell() {
           <Route path="/appear" element={<AppearanceSettings isSidebarOpen={isSidebarOpen} />} />
           <Route path="/bilpay" element={<BillingPayments isSidebarOpen={isSidebarOpen} />} />
         </Routes>
-      </div>
+      </main>
+
+      {showFooter && <Footer />}
     </div>
   );
 }

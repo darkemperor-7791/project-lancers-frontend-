@@ -120,6 +120,9 @@ html, body {
    CURRENT SESSION
 ========================= */
 .aa-current-session-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #dae3e7;
   padding: 24px 28px;
   border-radius: 14px;
@@ -129,12 +132,14 @@ html, body {
 }
 
 .aa-session-info-line {
+  text-align: center;
   font-size: 19px;
   font-weight: 650;
   margin-bottom: 10px;
 }
 
 .aa-status-active {
+  text-align: center;
   font-size: 27px;
   font-weight: 700;
   color: #008800;
@@ -189,6 +194,7 @@ html, body {
 }
 
 .aa-login-entry {
+  text-align: center;
   margin-bottom: 22px;
   padding-bottom: 14px;
   border-bottom: 1px solid rgba(255,255,255,0.15);
