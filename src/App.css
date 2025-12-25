@@ -1,27 +1,42 @@
+/* ROOT */
 #root {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
 
-/* Remove ALL fixed-layout scrolling logic */
-.page-content {
-  margin-top: 90px;   /* navbar height */
-  width: 100%;
-  flex: 1;
-}
-
-/* Reset defaults */
+/* HARD LOCK BODY SCROLL */
 html,
-body,
-#root {
+body {
+  height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
   background-color: #1a1a1a;
 }
 
-/* Utility leftovers (safe to keep) */
+/* APP ROOT */
+.app-root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* STRIP BEHIND NAVBAR */
+.navbar-strip {
+  height: 90px;
+  flex-shrink: 0;
+}
+
+/* MAIN SCROLL CONTAINER (CREATES THE BOUNDARY) */
+.app-scroll-container {
+  height: calc(100vh - 90px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* SAFE LEFTOVERS */
 .logo {
   height: 6em;
   padding: 1.5em;

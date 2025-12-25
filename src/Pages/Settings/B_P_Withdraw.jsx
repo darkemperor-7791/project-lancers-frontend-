@@ -10,7 +10,7 @@ import '../../styles/settings/B_P_Withdraw.css';
 export default function Withdraw() {
   const [tokenAmount, setTokenAmount] = useState('');
   const [selectedMethod, setSelectedMethod] = useState(null);
-  const [availableBalance] = useState(3200);
+  const [availableBalance] = useState(2500);
 
   const conversionRate = 4;
   const minimumWithdrawal = 800;

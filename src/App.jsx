@@ -42,7 +42,7 @@ import "./components/Footer.css";
 import "./App.css";
 
 /* ==================================
-   NAVBAR (FIXED COLOR)
+   NAVBAR (FIXED COLOR – UNCHANGED)
 ================================== */
 function NavBar({ onHamburgerClick }) {
   const location = useLocation();
@@ -62,9 +62,7 @@ function NavBar({ onHamburgerClick }) {
   return (
     <nav
       className="navbar"
-      style={{
-        backgroundColor: "rgba(170, 184, 192, 0.95)" // 🔒 FIXED NAVBAR COLOR
-      }}
+      style={{ backgroundColor: "rgba(170, 184, 192, 0.95)" }}
     >
       <div className="navbar-left">
         <button className="hamburger-btn" onClick={onHamburgerClick}>
@@ -124,16 +122,15 @@ function NavBar({ onHamburgerClick }) {
 }
 
 /* ==================================
-   APP SHELL
+   APP SHELL (CORRECT BOUNDARY LOGIC)
 ================================== */
 function AppShell() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
 
-  /* 🔥 STRIP COLOR MAP */
   const stripColorMap = {
     "/": "#1b3038",
-    "/find-work": "#1A3342",
+    "/find-work": "#1b3038",
     "/setpf": "#1A3342",
     "/setac": "#1A3342",
     "/accards": "#1a1a1a",
@@ -152,25 +149,15 @@ function AppShell() {
   const showFooter = ["/", "/find-work"].includes(location.pathname);
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: stripColor
-      }}
-    >
-      {/* 🔥 DYNAMIC STRIP */}
-      <div
-        style={{
-          height: "90px",
-          backgroundColor: stripColor
-        }}
-      />
+    <div className="app-root" style={{ backgroundColor: stripColor }}>
+      
+      {/* STRIP BEHIND NAVBAR */}
+      <div className="navbar-strip" style={{ backgroundColor: stripColor }} />
 
       <NavBar onHamburgerClick={() => setIsSidebarOpen(v => !v)} />
 
-      <main style={{ flex: 1 }}>
+      {/* 🔒 SCROLL CONTAINER (ARTIFICIAL BOUNDARY RESTORED) */}
+      <div className="app-scroll-container">
         <Routes>
           <Route path="/" element={<AuthPages />} />
           <Route path="/find-work" element={<FindWorkPage />} />
@@ -192,9 +179,9 @@ function AppShell() {
           <Route path="/appear" element={<AppearanceSettings isSidebarOpen={isSidebarOpen} />} />
           <Route path="/bilpay" element={<BillingPayments isSidebarOpen={isSidebarOpen} />} />
         </Routes>
-      </main>
 
-      {showFooter && <Footer />}
+        {showFooter && <Footer />}
+      </div>
     </div>
   );
 }

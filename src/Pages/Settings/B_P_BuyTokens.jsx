@@ -11,7 +11,7 @@ export default function BuyTokens({ isSidebarOpen }) {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedTokens, setSelectedTokens] = useState(null);
   const [selectedPayment, setSelectedPayment] = useState(null);
-  const [userBalance] = useState(25);
+  const [userBalance] = useState(2500);
 
   const tokenPackages = [
     { tokens: 25, price: 100 },
@@ -23,7 +23,7 @@ export default function BuyTokens({ isSidebarOpen }) {
   ];
 
   const transactionHistory = [
-    { id: 'ID', date: '22 October 2025', status: 'Success', mode: 'PhonePe Wallet', amount: '100', maker: '00XXX12361', receiver: 'UserID'},
+    { id: 'ID', date: '22 October 2025', status: 'Success', mode: 'PhonePe Wallet', amount: '150', maker: '00XXX12361', receiver: 'UserID'},
     { id: 'ID', date: '13 October 2025', status: 'Failed', mode: 'MasterCard', amount: '250', maker: '01XXXX3273', receiver: 'UserID' }
   ];
 

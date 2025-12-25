@@ -9,7 +9,6 @@ import BuyTokens from "./B_P_BuyTokens";
 import PaymentHistory from "./B_P_History";
 import Withdraw from "./B_P_Withdraw";
 
-
 export default function BillingPayments({ isSidebarOpen }) {
   const location = useLocation();
 
@@ -24,104 +23,112 @@ export default function BillingPayments({ isSidebarOpen }) {
   }, [location.state]);
 
   return (
-    <div
-      className={`bp-billing-page ${
-        isSidebarOpen ? "billing-sidebar-open" : "billing-sidebar-closed"
-      } bp-tab-${activeTab}`}
-    >
-      <div className="bp-billing-layout">
-        <div className="bp-billing-container">
+    <>
+      {/* ================= TABS (INDEPENDENT LAYER) ================= */}
+      <div className="bp-billing-tabs-wrapper">
+        <div className="bp-billing-tabs">
+          {["dashboard", "buy", "history", "withdraw"].map(tab => (
+            <button
+              key={tab}
+              className={`bp-billing-tab ${activeTab === tab ? "active" : ""}`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab === "dashboard"
+                ? "Dashboard"
+                : tab === "buy"
+                ? "Buy Tokens"
+                : tab === "history"
+                ? "History"
+                : "Withdraw"}
+            </button>
+          ))}
+        </div>
+      </div>
 
-          <Sidebar isOpen={isSidebarOpen} title="Settings">
-            <a href="/setpf" className="sidebar-link">Profile</a>
-            <a href="/setac" className="sidebar-link">Account Security</a>
-            <a href="/bilpay" className="sidebar-link active">Billing & Payments</a>
-            <a href="/notiset" className="sidebar-link">Notification Settings</a>
-            <a href="/appear" className="sidebar-link">Appearance</a>
-            <a href="/useranal" className="sidebar-link">User Analytics</a>
-            <a href="/support" className="sidebar-link">Support</a>
-          </Sidebar>
+      {/* ================= PAGE CONTAINER ================= */}
+      <div
+        className={`bp-billing-page ${
+          isSidebarOpen ? "billing-sidebar-open" : "billing-sidebar-closed"
+        } bp-tab-${activeTab}`}
+      >
+        <div className="bp-billing-layout">
+          <div className="bp-billing-container">
 
-          {/* TABS */}
-          <div className="bp-billing-tabs-wrapper">
-            <div className="bp-billing-tabs">
-              {["dashboard", "buy", "history", "withdraw"].map(tab => (
-                <button
-                  key={tab}
-                  className={`bp-billing-tab ${activeTab === tab ? "active" : ""}`}
-                  onClick={() => setActiveTab(tab)}
-                >
-                  {tab === "dashboard"
-                    ? "Dashboard"
-                    : tab === "buy"
-                    ? "Buy Tokens"
-                    : tab === "history"
-                    ? "History"
-                    : "Withdraw"}
+            <Sidebar isOpen={isSidebarOpen} title="Settings">
+              <a href="/setpf" className="sidebar-link">Profile</a>
+              <a href="/setac" className="sidebar-link">Account Security</a>
+              <a href="/bilpay" className="sidebar-link active">Billing & Payments</a>
+              <a href="/notiset" className="sidebar-link">Notification Settings</a>
+              <a href="/appear" className="sidebar-link">Appearance</a>
+              <a href="/useranal" className="sidebar-link">User Analytics</a>
+              <a href="/support" className="sidebar-link">Support</a>
+            </Sidebar>
 
+            {/* ================= DASHBOARD ================= */}
+            {activeTab === "dashboard" && (
+              <>
+                <div className="bp-billing-card">
+                  <div className="bp-billing-balance-row">
+                    <span className="bp-current-balance-line">Current Balance :</span>
+                    <div className="bp-billing-balance">
+                      <span className="bp-billing-value">2500</span>
+                      <img
+                        className="bp-coin-image-balance"
+                        src={coin}
+                        alt="coins"
+                      />
+                    </div>
+                  </div>
 
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* DASHBOARD */}
-          {activeTab === "dashboard" && (
-            <>
-              <div className="bp-billing-card">
-                <div className="bp-billing-balance-row">
-                  <span className="bp-current-balance-line">Current Balance :</span>
-                  <div className="bp-billing-balance">
-                    <span className="bp-billing-value">2500</span>
-                    <img className="bp-coin-image-balance" src={coin} alt="coins" />
+                  <div className="bp-billing-divider">
+                    <span className="bp-billing-statement">Last transaction :</span>
+                    <span className="bp-billing-positive">+150</span>
+                    <img
+                      className="bp-coin-image-lt"
+                      src={coin}
+                      alt="coins"
+                    />
+                    <p className="bp-billing-sender-details">
+                      From : <span className="bp-biller">Sender</span>
+                    </p>
                   </div>
                 </div>
 
-                <div className="bp-billing-divider">
-                  <span className="bp-billing-statement">Last transaction :</span>
-                  <span className="bp-billing-positive">+150</span>
-                  <img className="bp-coin-image-lt" src={coin} alt="coins" />
-                  <p className="bp-billing-sender-details">
-                    From : <span className="bp-biller">Sender</span>
-                  </p>
+                <div className="bp-billing-card">
+                  <div className="bp-billing-stat-header">
+                    <span>Total Earnings :</span>
+                    <button className="bp-filter-button">
+                      <Filter size={20} />
+                      <span className="bp-filter-button-text">Filter</span>
+                    </button>
+                  </div>
+
+                  <div className="bp-amount-details">
+                    <p className="bp-total-amount-wd">Total Amount Withdrawn :</p>
+                    <p className="bp-total-amount-wd">Pending Clearance :</p>
+                  </div>
                 </div>
-              </div>
+              </>
+            )}
 
-              <div className="bp-billing-card">
-                <div className="bp-billing-stat-header">
-                  <span>Total Earnings :</span>
-                  <button className="bp-filter-button">
-                    <Filter size={20} />
-                    <span className="bp-filter-button-text">Filter</span>
-                  </button>
-                </div>
+            {/* ================= BUY TOKENS ================= */}
+            {activeTab === "buy" && (
+              <BuyTokens isSidebarOpen={isSidebarOpen} />
+            )}
 
-                <div className="bp-amount-details">
-                  <p className="bp-total-amount-wd">Total Amount Withdrawn :</p>
-                  <p className="bp-total-amount-wd">Pending Clearance :</p>
-                </div>
-              </div>
-            </>
-          )}
+            {/* ================= HISTORY ================= */}
+            {activeTab === "history" && (
+              <PaymentHistory isSidebarOpen={isSidebarOpen} />
+            )}
 
-          {/* BUY TOKENS */}
-          {activeTab === "buy" && (
-            <BuyTokens isSidebarOpen={isSidebarOpen} />
-          )}
+            {/* ================= WITHDRAW ================= */}
+            {activeTab === "withdraw" && (
+              <Withdraw isSidebarOpen={isSidebarOpen} />
+            )}
 
-          {/* HISTORY */}
-          {activeTab === "history" && (
-            <PaymentHistory isSidebarOpen={isSidebarOpen} />
-          )}
-
-          {/* WITHDRAW */}
-          {activeTab === "withdraw" && (
-            <Withdraw isSidebarOpen={isSidebarOpen} />
-          )}
-
-
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

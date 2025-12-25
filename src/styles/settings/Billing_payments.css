@@ -26,14 +26,13 @@
 
 /* ================= TABS (ALWAYS CENTERED) ================= */
 
-/* Tabs wrapper: NEVER moves */
 /* TABS WRAPPER — GLOBAL */
 .bp-billing-tabs-wrapper {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 
@@ -159,32 +158,12 @@
   font-size: 72px;
   font-weight: 700;
 }
-.bp-tab-dashboard .bp-billing-tabs-wrapper {
-  justify-content: center;
-}
+
 
 /*==============BUY TOKENS TAB HACK=============*/
 .bp-billing-page.bp-tab-buy .bp-billing-layout {
   justify-content: flex-start;
 }
-/* ===============================
-   HISTORY TAB – FORCE CENTER (HACK)
-================================ */
-
-.bp-tab-history .bp-billing-tabs-wrapper {
-  margin-left: 18rem;
-  position: center;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.bp-tab-withdraw .bp-billing-tabs-wrapper {
-  margin-left: 18rem;
-  position: center;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 
 /* ================= DIVIDER ================= */
 .bp-billing-divider {
