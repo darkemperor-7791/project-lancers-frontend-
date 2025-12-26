@@ -19,6 +19,9 @@ import Freelancers_list from "./Pages/Freelancers_list";
 
 /* ===================== SETTINGS ===================== */
 import SettingsProfile from "./Pages/Settings/Profile";
+import ProfilePersonal from "./Pages/Settings/Profile_edit_personal";
+import ProfessionalInfoForm from "./Pages/Settings/Profile_edit_professional";
+import AccountCredentialsForm from "./Pages/Settings/Profile_edit_account";
 import SettingsAccount from "./Pages/Settings/Account";
 import UPIIDsPage from "./Pages/Settings/Account_upi";
 import SavedCards from "./Pages/Settings/Account_cards";
@@ -132,6 +135,9 @@ function AppShell() {
     "/": "#1b3038",
     "/find-work": "#1b3038",
     "/setpf": "#1A3342",
+    "/setpfps": '#1a1a1a',
+    "/setpfpro": '#1a1a1a',
+    "/setpfac": '#1a1a1a',
     "/setac": "#1A3342",
     "/accards": "#1a1a1a",
     "/acupi": "#1a1a1a",
@@ -165,6 +171,9 @@ function AppShell() {
           <Route path="/fl" element={<Freelancers_list />} />
 
           <Route path="/setpf" element={<SettingsProfile isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/setpfps" element={<ProfilePersonal isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/setpfpro" element={<ProfessionalInfoForm isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/setpfac" element={<AccountCredentialsForm isSidebarOpen={isSidebarOpen} />} />
           <Route path="/setac" element={<SettingsAccount isSidebarOpen={isSidebarOpen} />} />
           <Route path="/acupi" element={<UPIIDsPage isSidebarOpen={isSidebarOpen} />} />
           <Route path="/accards" element={<SavedCards isSidebarOpen={isSidebarOpen} />} />

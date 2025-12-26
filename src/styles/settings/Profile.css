@@ -101,9 +101,19 @@
   line-height: 2;
 }
 
+.pf-user-description{
+  margin-top: 30px;
+}
+
+.pf-about-user{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
 .pf-bio-box {
   background: var(--inner-bg);
-  margin-top: 60px;
+  margin-top: 15px;
   padding: 16px;
   border-radius: 0.5rem;
   width: 100%;
@@ -116,6 +126,10 @@
   font-family: inherit;
   overflow: hidden;
   resize: none;
+}
+
+.pf-bio{
+  color: rgb(144, 144, 144);
 }
 
 .pf-skills-row {
@@ -148,17 +162,26 @@
 }
 
 .pf-project-box {
-  background: var(--inner-bg);
-  margin-top: 40px;
-  padding: 16px;
-  border-radius: 0.5rem;
+  margin-top: 15px;
   width: 100%;
-  min-height: 180px;
-  border: 1px solid #ccc;
-  outline: none;
-  font-size: 25px;
-  font-family: inherit;
-  text-align: left;
-  overflow: hidden;
-  resize: none;
+  max-width: 1100px;
+  min-height: 120px;
+
+  background: #e5e7eb;
+  color: #1f2937;
+
+  padding: 12px;
+  border-radius: 6px;
+
+  font-size: 1rem;
+  line-height: 1.5;
+
+  white-space: pre-wrap; /* preserves line breaks */
+}
+
+.pf-project-line{
+  margin-left: 10px; 
+  font-size: 22px;
+  font-weight: 500;
+  color: rgb(167, 166, 166); 
 }

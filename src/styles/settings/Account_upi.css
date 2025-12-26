@@ -6,6 +6,7 @@
 
 /* GLOBAL — untouched */
 .settings-page {
+  margin-top: -3rem;
   margin-right: 10px;
   background: #1a1a1a;
   color: #2d2d2d;

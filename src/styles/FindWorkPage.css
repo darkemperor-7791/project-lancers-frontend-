@@ -10,7 +10,7 @@
 /* Page Container */
 .fw-page-container {
     background-color: #1b3038;
-    min-height: calc(100vh - 80px); /* Adjust based on navbar height */
+    margin-top: -3.5rem;
     padding: 2rem;
     font-family: 'Inter', sans-serif;
 }

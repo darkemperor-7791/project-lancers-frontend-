@@ -20,6 +20,7 @@ html, body {
    CONTAINER
 ========================= */
 .aa-activity-container {
+  margin-top: -40px;
   display: flex;
   align-items: flex-start;
   min-height: 100vh;

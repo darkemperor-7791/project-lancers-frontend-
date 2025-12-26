@@ -5,6 +5,8 @@
    --------------------------- */
 
 .a2fa-page {
+  margin-left: -3rem;
+  margin-top: -7rem;
   min-height: 100vh;
   background-color: #131313;
   transition: padding-left 70ms ease 120ms;

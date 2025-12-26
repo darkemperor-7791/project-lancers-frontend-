@@ -45,9 +45,9 @@ export default function SettingsProfile({ isSidebarOpen }) {
         <div className="pf-content-area">
 
           <section className="pf-card">
-            <button className="pf-edit-icon">
+            <a href="/setpfps" className="pf-edit-icon">
               <Pencil />
-            </button>
+            </a>
 
             <div className="pf-profile-header">
               <div className="pf-profile-avatar"></div>
@@ -64,14 +64,11 @@ export default function SettingsProfile({ isSidebarOpen }) {
                 </div>
               </div>
             </div>
-
-            <div>
-              <textarea
-                ref={bio.textareaRef}
-                onInput={bio.handleInput}
-                className="pf-bio-box"
-                placeholder="Tell us about yourself......"
-              />
+            <div className="pf-user-description">
+            <span className="pf-about-user">A note about user :</span>
+            <div className="pf-bio-box">
+                <span className="pf-bio">Tell us about yourself......</span>
+              </div>
             </div>
           </section>
 
@@ -99,12 +96,10 @@ export default function SettingsProfile({ isSidebarOpen }) {
             <span className="pf-skills-label">Experience :</span>
 
             <div>
-              <textarea
-                ref={project.textareaRef}
-                onInput={project.handleInput}
-                className="pf-project-box"
-                placeholder="Project 1 : ................ "
-              />
+              <div className="pf-project-box">
+                <span className="pf-project-line">Project 1 :  . . . . . . . . . . . . . . . . </span>
+                </div>
+             
             </div>
           </section>
 
