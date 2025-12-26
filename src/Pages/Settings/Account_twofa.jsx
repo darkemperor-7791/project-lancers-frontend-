@@ -93,7 +93,7 @@ export default function TwoFactorAuth({ isSidebarOpen }) {
 
                   <div className="a2fa-input-row">
                     <label>Enter 6 digit verification code :</label>
-                    <input type="number" value={authCode} onChange={e => setAuthCode(e.target.value)} />
+                    <input type="text" value={authCode} onChange={e => setAuthCode(e.target.value)} />
                     <button>Verify and enable</button>
                   </div>
 
@@ -132,13 +132,13 @@ export default function TwoFactorAuth({ isSidebarOpen }) {
 
                   <div className="a2fa-input-row">
                     <label>Phone Number :</label>
-                    <input type="number" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} />
+                    <input type="text" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} />
                     <button>Verify</button>
                   </div>
 
                   <div className="a2fa-input-row">
                     <label>Enter the OTP :</label>
-                    <input type="number" value={otp} onChange={e => setOtp(e.target.value)} />
+                    <input type="text" value={otp} onChange={e => setOtp(e.target.value)} />
                     <button onClick={() => setSmsVerified(true)}>Submit OTP</button>
                   </div>
 
@@ -184,7 +184,7 @@ export default function TwoFactorAuth({ isSidebarOpen }) {
 
                   <div className="a2fa-input-row">
                     <label>Enter the code :</label>
-                    <input type="number" value={emailCode} onChange={e => setEmailCode(e.target.value)} />
+                    <input type="text" value={emailCode} onChange={e => setEmailCode(e.target.value)} />
                     <button onClick={() => setEmailVerified(true)}>Submit Code</button>
                   </div>
 

@@ -178,11 +178,22 @@
 }
 
 .advt-field-input {
+  margin-left: 4rem;
   width: 100%;
   padding: 18px 22px;
   border-radius: 12px;
   border: none;
   font-size: 17px;
+}
+
+.advt-options{
+  cursor: pointer;
+  margin-top: 1px;
+  white-space: nowrap;
+}
+
+.advt-radio-btn{
+  transform: scale(1.5);
 }
 
 /* RADIO */

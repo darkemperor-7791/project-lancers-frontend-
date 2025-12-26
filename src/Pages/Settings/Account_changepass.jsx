@@ -1,13 +1,9 @@
+
 import React, { useState } from 'react';
-import '../../styles/settings/Account_changepass.css';
-import Sidebar from "../../components/Sidebar";
+import "../../styles/settings/Account_changepass.css";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
-export default function ChangePasswordForm({ isSidebarOpen }) {
-  const navigate = useNavigate();
-  const goBack = () => navigate(-1);
-
+export default function ChangePasswordForm() {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -15,6 +11,14 @@ export default function ChangePasswordForm({ isSidebarOpen }) {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const navigate = useNavigate();
+
+  // OTP States
+  const [otpGenerated, setOtpGenerated] = useState(false);
+  const [generatedOTP, setGeneratedOTP] = useState('');
+  const [otpInput, setOtpInput] = useState('');
+  const [otpVerified, setOtpVerified] = useState(false);
+  const [otpError, setOtpError] = useState('');
 
   const calculatePasswordStrength = (password) => {
     const len = password.length;
@@ -38,8 +42,52 @@ export default function ChangePasswordForm({ isSidebarOpen }) {
     newPassword === confirmPassword &&
     confirmPassword !== '';
 
+  const handleGenerateOTP = () => {
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    setGeneratedOTP(otp);
+    setOtpGenerated(true);
+    setOtpVerified(false);
+    setOtpInput('');
+    setOtpError('');
+    alert(`Your OTP is: ${otp}\n(This is for demo purposes. In production, this would be sent to your registered email/phone)`);
+  };
+
+  const handleOTPInputChange = (e) => {
+    const value = e.target.value.replace(/\D/g, '').slice(0, 6);
+    setOtpInput(value);
+    setOtpError('');
+  };
+
+  const handleVerifyOTP = () => {
+    if (!otpInput) {
+      setOtpError('Please enter the OTP code');
+      return;
+    }
+    if (otpInput !== generatedOTP) {
+      setOtpError('Invalid OTP. Please try again.');
+      return;
+    }
+    setOtpVerified(true);
+    setOtpError('');
+    alert('OTP verified successfully! You can now update your password.');
+  };
+
+  const handleResendOTP = () => {
+    handleGenerateOTP();
+  };
+
   const handleUpdatePassword = () => {
-    if (isPasswordValid()) setShowSuccessPopup(true);
+    if (isPasswordValid() && otpVerified) {
+      setShowSuccessPopup(true);
+    } else if (!otpVerified) {
+      alert('Please verify OTP before updating password');
+    }
+  };
+
+  const handleOKClick = () => {
+    setShowSuccessPopup(false);
+    navigate("/setac")
+    alert('Redirecting to Account Security page...');
   };
 
   const getCircleColor = (index) => {
@@ -55,26 +103,6 @@ export default function ChangePasswordForm({ isSidebarOpen }) {
           <h1 className="acp-form-title">Change Password</h1>
 
           <div className="acp-form-content">
-
-            {/* SIDEBAR */}
-            <Sidebar
-              isOpen={isSidebarOpen}
-              title="Settings"
-              footer={
-                <button className="btn-logout" onClick={() => navigate("/")}>
-                  Log out
-                </button>
-              }
-            >
-              <a href="/setpf" className="sidebar-link">Profile</a>
-              <a href="/setac" className="sidebar-link active">Account Security</a>
-              <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
-              <a href="/notiset" className="sidebar-link">Notification Settings</a>
-              <a href="/appear" className="sidebar-link">Appearance</a>
-              <a href="/useranal" className="sidebar-link">User Analytics</a>
-              <a href="/support" className="sidebar-link">Support</a>
-            </Sidebar>
-
             {/* CURRENT PASSWORD */}
             <div className="acp-field-wrapper">
               <div className="acp-field-row">
@@ -89,11 +117,15 @@ export default function ChangePasswordForm({ isSidebarOpen }) {
                   <button
                     onClick={() => setShowCurrentPassword(!showCurrentPassword)}
                     className="acp-eye-button"
-                  >👁</button>
+                  >
+                    👁
+                  </button>
                 </div>
               </div>
               <div className="acp-forgot-password-wrapper">
-                <a href="#" className="acp-forgot-password-link">Forgot Password?</a>
+                <a href="#" className="acp-forgot-password-link">
+                  Forgot Password?
+                </a>
               </div>
             </div>
 
@@ -111,7 +143,9 @@ export default function ChangePasswordForm({ isSidebarOpen }) {
                   <button
                     onClick={() => setShowNewPassword(!showNewPassword)}
                     className="acp-eye-button"
-                  >👁</button>
+                  >
+                    👁
+                  </button>
                 </div>
               </div>
             </div>
@@ -130,7 +164,9 @@ export default function ChangePasswordForm({ isSidebarOpen }) {
                   <button
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     className="acp-eye-button"
-                  >👁</button>
+                  >
+                    👁
+                  </button>
                 </div>
               </div>
 
@@ -149,54 +185,104 @@ export default function ChangePasswordForm({ isSidebarOpen }) {
                     className="acp-strength-dot"
                     style={{
                       backgroundColor: index < strength ? getCircleColor(index) : '#8a9a9a',
-                      boxShadow: index < strength ? '0 0 5px rgba(0,0,0,0.3)' : 'none'
+                      boxShadow: index < strength ? '0 0 5px rgba(0,0,0,0.3)' : 'none',
                     }}
                   />
                 ))}
               </div>
             </div>
 
+            {/* OTP GENERATION BUTTON */}
+            {isPasswordValid() && !otpVerified && (
+              <div className="acp-otp-generate-section">
+                <button
+                  onClick={handleGenerateOTP}
+                  className="acp-generate-otp-button"
+                  disabled={otpGenerated}
+                  style={{
+                    backgroundColor: otpGenerated ? '#9a9a9a' : '#4a9dbf',
+                    cursor: otpGenerated ? 'not-allowed' : 'pointer',
+                    opacity: otpGenerated ? 0.7 : 1,
+                  }}
+                >
+                  {otpGenerated ? 'OTP Sent' : 'Generate OTP'}
+                </button>
+              </div>
+            )}
+
+            {/* OTP VERIFICATION SECTION */}
+            {otpGenerated && !otpVerified && (
+              <div className="acp-otp-verification-section">
+                <div className="acp-otp-box">
+                  <p className="acp-otp-instruction">
+                    Enter the 6-digit OTP sent to your registered email/phone
+                  </p>
+
+                  <div className="acp-otp-input-row">
+                    <input
+                      type="text"
+                      value={otpInput}
+                      onChange={handleOTPInputChange}
+                      placeholder="Enter 6-digit OTP"
+                      maxLength="6"
+                      className="acp-otp-input"
+                    />
+                    <button onClick={handleVerifyOTP} className="acp-verify-otp-button">
+                      Verify OTP
+                    </button>
+                  </div>
+
+                  {otpError && <div className="acp-otp-error">{otpError}</div>}
+
+                  <button onClick={handleResendOTP} className="acp-resend-otp-button">
+                    Resend OTP
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* OTP VERIFIED MESSAGE */}
+            {otpVerified && (
+              <div className="acp-otp-verified-message">
+                <span className="acp-verified-checkmark">✓</span>
+                <span className="acp-verified-text">OTP Verified Successfully</span>
+              </div>
+            )}
+
             {/* BUTTONS */}
             <div className="acp-button-container">
               <button
                 onClick={handleUpdatePassword}
-                disabled={!isPasswordValid()}
+                disabled={!isPasswordValid() || !otpVerified}
                 className="acp-form-button acp-update-button"
                 style={{
-                  backgroundColor: !isPasswordValid() ? '#9a9a9a' : '#d4dbd9',
-                  color: !isPasswordValid() ? '#666666' : '#000000',
-                  cursor: !isPasswordValid() ? 'not-allowed' : 'pointer',
-                  opacity: !isPasswordValid() ? 0.6 : 1
+                  backgroundColor: !isPasswordValid() || !otpVerified ? '#9a9a9a' : '#d4dbd9',
+                  color: !isPasswordValid() || !otpVerified ? '#666666' : '#000000',
+                  cursor: !isPasswordValid() || !otpVerified ? 'not-allowed' : 'pointer',
+                  opacity: !isPasswordValid() || !otpVerified ? 0.6 : 1,
                 }}
               >
                 Update Password
               </button>
 
-              <button className="acp-form-button" onClick={goBack}>
+              <button className="acp-form-button" onClick={() => alert('Cancelled')}>
                 Cancel
               </button>
             </div>
-
           </div>
         </div>
       </div>
 
-      {/* POPUP */}
+      {/* SUCCESS POPUP */}
       {showSuccessPopup && (
         <div className="acp-popup-overlay">
           <div className="acp-popup-box">
             <div className="acp-popup-checkmark">✓</div>
-            <h2 className="acp-popup-title">Password updated successfully</h2>
-            <Link
-              to="/setac"
-              onClick={() => setShowSuccessPopup(false)}
-              className="acp-popup-button"
-            >
+            <h2 className="acp-popup-title">Password changed successfully</h2>
+            <button onClick={handleOKClick} className="acp-popup-button" useNavigate>
               OK
-            </Link>
+            </button>
           </div>
         </div>
+      )}</div>
       )}
-    </div>
-  );
-}

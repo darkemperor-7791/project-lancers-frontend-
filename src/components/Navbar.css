@@ -160,6 +160,11 @@ body,
   pointer-events: none;
 }
 
+.support-agent{
+  width: 50px;
+  height: 50px;
+}
+
 /* ========================= COIN DISPLAY (NEW) ========================= */
 
 .coin-display {

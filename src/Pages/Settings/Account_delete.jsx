@@ -90,7 +90,7 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
             </section>
 
             <div className="adlt-delete-warning">
-              ⚠ You must complete or cancel all active projects before deleting your account.
+              ⚠️ You must complete or cancel all active projects before deleting your account.
             </div>
 
             <label>Confirm Password*</label>
@@ -125,11 +125,31 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
             </div>
 
             <label>Enter OTP*</label>
-            <input
-              type="number"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-            />
+                 <input
+                  type="text"
+                  inputMode="numeric"
+                  autoComplete="one-time-code"
+                  maxLength={6}
+                  placeholder="Enter 6-digit OTP"
+                  value={otp}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/[^0-9]/g, "");
+                    setOtp(value);
+                  }}
+                  onKeyDown={(e) => {
+                    if (
+                      !/[0-9]/.test(e.key) &&
+                      e.key !== "Backspace" &&
+                      e.key !== "Delete" &&
+                      e.key !== "ArrowLeft" &&
+                      e.key !== "ArrowRight" &&
+                      e.key !== "Tab"
+                    ) {
+                      e.preventDefault();
+                    }
+                  }}
+                  required
+                />
 
             <label className="adlt-confirm-text-label">
               Type the confirmation sentence exactly:

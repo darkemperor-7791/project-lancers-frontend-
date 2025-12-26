@@ -1,199 +1,373 @@
-:root {
-  --settings-sidebar-width: 250px;
-}
-
 .acp-container {
-  margin-top: -50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 90px);
-  padding-top: 90px;
-  background-color: #1a1a1a;
-  font-family: Arial, sans-serif;
-  padding-left: 20px;
-  padding-right: 20px;
-}
+          margin-top: -50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: calc(100vh - 90px);
+          padding-top: 90px;
+          background-color: #1a1a1a;
+          font-family: Arial, sans-serif;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
 
-.acp-outer-box {
-  background-color: #2c3e50;
-  padding: 25px;
-  border-radius: 15px;
-}
+        .acp-outer-box {
+          background-color: #2c3e50;
+          padding: 25px;
+          border-radius: 15px;
+        }
 
-.acp-form-box {
-  background-color: #a8b5b8;
-  padding: 45px 55px;
-  border-radius: 10px;
-  border: 3px solid #4a9dbf;
-  width: 680px;
-  box-sizing: border-box;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
+        .acp-form-box {
+          background-color: #a8b5b8;
+          padding: 45px 55px;
+          border-radius: 10px;
+          border: 3px solid #4a9dbf;
+          width: 680px;
+          box-sizing: border-box;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
 
-.acp-form-title {
-  font-size: 44px;
-  font-weight: bold;
-  color: #ffffff;
-  margin-top: 0;
-  margin-bottom: 15px;
-  border-bottom: 3px solid #ffffff;
-  padding-bottom: 12px;
-  letter-spacing: 1px;
-}
+        .acp-form-title {
+          font-size: 44px;
+          font-weight: bold;
+          color: #ffffff;
+          margin-top: 0;
+          margin-bottom: 15px;
+          border-bottom: 3px solid #ffffff;
+          padding-bottom: 12px;
+          letter-spacing: 1px;
+        }
 
-.acp-form-content {
-  margin-top: 50px;
-}
+        .acp-form-content {
+          margin-top: 50px;
+        }
 
-.acp-field-wrapper {
-  margin-bottom: 30px;
-}
+        .acp-field-wrapper {
+          margin-bottom: 30px;
+        }
 
-.acp-field-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
+        .acp-field-row {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+        }
 
-.acp-field-label {
-  font-size: 22px;
-  color: #000000;
-  font-weight: normal;
-  min-width: 220px;
-}
+        .acp-field-label {
+          font-size: 22px;
+          color: #000000;
+          font-weight: normal;
+          min-width: 220px;
+        }
 
-.acp-input-container {
-  position: relative;
-  flex: 1;
-}
+        .acp-input-container {
+          position: relative;
+          flex: 1;
+        }
 
-.acp-password-input {
-  background-color: #d4dbd9;
-  border: none;
-  border-radius: 25px;
-  padding: 13px 50px 13px 22px;
-  font-size: 18px;
-  width: 100%;
-  box-sizing: border-box;
-  outline: none;
-}
+        .acp-password-input {
+          background-color: #d4dbd9;
+          border: none;
+          border-radius: 25px;
+          padding: 13px 50px 13px 22px;
+          font-size: 18px;
+          width: 100%;
+          box-sizing: border-box;
+          outline: none;
+        }
 
-.acp-eye-button {
-  position: absolute;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  color: #666;
-  padding: 5px;
-}
+        .acp-eye-button {
+          position: absolute;
+          right: 18px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 20px;
+          color: #666;
+          padding: 5px;
+        }
 
-.acp-forgot-password-wrapper {
-  text-align: right;
-  margin-top: 8px;
-}
+        .acp-forgot-password-wrapper {
+          text-align: right;
+          margin-top: 8px;
+        }
 
-.acp-forgot-password-link {
-  color: #000000;
-  font-size: 15px;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+        .acp-forgot-password-link {
+          color: #000000;
+          font-size: 15px;
+          text-decoration: none;
+          transition: color 0.3s;
+        }
 
-.acp-error-message {
-  color: #ff0000;
-  font-size: 15px;
-  margin-top: 10px;
-  text-align: right;
-  font-weight: 500;
-}
+        .acp-error-message {
+          color: #ff0000;
+          font-size: 15px;
+          margin-top: 10px;
+          text-align: right;
+          font-weight: 500;
+        }
 
-.acp-strength-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-top: 25px;
-  margin-bottom: 60px;
-}
+        .acp-strength-indicator {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          margin-top: 25px;
+          margin-bottom: 30px;
+        }
 
-.acp-strength-label {
-  font-size: 20px;
-  color: #000000;
-  margin-right: 18px;
-}
+        .acp-strength-label {
+          font-size: 20px;
+          color: #000000;
+          margin-right: 18px;
+        }
 
-.acp-strength-dots {
-  display: flex;
-  gap: 6px;
-}
+        .acp-strength-dots {
+          display: flex;
+          gap: 6px;
+        }
 
-.acp-strength-dot {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-}
+        .acp-strength-dot {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+        }
 
-.acp-button-container {
-  text-align: center;
-}
+        /* OTP GENERATION SECTION */
+        .acp-otp-generate-section {
+          text-align: center;
+          margin: 30px 0;
+        }
 
-.acp-form-button {
-  background-color: #d4dbd9;
-  border: none;
-  border-radius: 30px;
-  padding: 16px 40px;
-  font-size: 24px;
-  color: #000000;
-  cursor: pointer;
-  width: 540px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+        .acp-generate-otp-button {
+          background-color: #4a9dbf;
+          border: none;
+          border-radius: 25px;
+          padding: 14px 40px;
+          font-size: 20px;
+          color: #ffffff;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        }
 
-.acp-popup-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
+        .acp-generate-otp-button:hover:not(:disabled) {
+          background-color: #3a8aaf;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+        }
 
-.acp-popup-box {
-  background-color: #a8b5b8;
-  padding: 40px 50px;
-  border-radius: 10px;
-  border: 3px solid #4a9dbf;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  min-width: 400px;
-}
+        /* OTP VERIFICATION SECTION */
+        .acp-otp-verification-section {
+          margin: 30px 0;
+          animation: slideDown 0.3s ease-out;
+        }
 
-.acp-popup-checkmark {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
-.acp-popup-title {
-  font-size: 28px;
-  color: #000000;
-  margin-bottom: 30px;
-  font-weight: bold;
-}
+        .acp-otp-box {
+          background-color: #8fa5aa;
+          border: 2px solid #4a9dbf;
+          border-radius: 10px;
+          padding: 25px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
-.acp-popup-button {
-  text-decoration: none;
-  background-color: #d4dbd9;
-  border-radius: 30px;
-  padding: 14px 50px;
-  font-size: 20px;
-  color: #000000;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+        .acp-otp-instruction {
+          color: #000000;
+          font-size: 16px;
+          margin-bottom: 20px;
+          text-align: center;
+          font-weight: 500;
+        }
+
+        .acp-otp-input-row {
+          display: flex;
+          gap: 15px;
+          margin-bottom: 15px;
+        }
+
+        .acp-otp-input {
+          flex: 1;
+          background-color: #d4dbd9;
+          border: 2px solid #6a8a8f;
+          border-radius: 25px;
+          padding: 12px 20px;
+          font-size: 20px;
+          font-weight: 600;
+          letter-spacing: 0.4em;
+          text-align: center;
+          outline: none;
+          transition: border-color 0.3s;
+        }
+
+        .acp-otp-input:focus {
+          border-color: #4a9dbf;
+          box-shadow: 0 0 8px rgba(74, 157, 191, 0.4);
+        }
+
+        .acp-otp-input::placeholder {
+          letter-spacing: normal;
+          font-size: 16px;
+          font-weight: normal;
+        }
+
+        .acp-verify-otp-button {
+          background-color: #4a9dbf;
+          border: none;
+          border-radius: 25px;
+          padding: 12px 30px;
+          font-size: 18px;
+          color: #ffffff;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          white-space: nowrap;
+        }
+
+        .acp-verify-otp-button:hover {
+          background-color: #3a8aaf;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .acp-otp-error {
+          color: #ff0000;
+          font-size: 15px;
+          text-align: center;
+          margin-bottom: 15px;
+          font-weight: 600;
+          animation: shake 0.3s;
+        }
+
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-5px); }
+          75% { transform: translateX(5px); }
+        }
+
+        .acp-resend-otp-button {
+          background-color: transparent;
+          border: 2px solid #4a9dbf;
+          border-radius: 20px;
+          padding: 8px 25px;
+          font-size: 15px;
+          color: #000000;
+          font-weight: 500;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: block;
+          margin: 0 auto;
+        }
+
+        .acp-resend-otp-button:hover {
+          background-color: #4a9dbf;
+          color: #ffffff;
+        }
+
+        /* OTP VERIFIED MESSAGE */
+        .acp-otp-verified-message {
+          background-color: #44ff44;
+          border: 2px solid #2eb82e;
+          border-radius: 10px;
+          padding: 15px;
+          text-align: center;
+          margin: 30px 0;
+          animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        .acp-verified-checkmark {
+          font-size: 28px;
+          color: #ffffff;
+          font-weight: bold;
+          margin-right: 10px;
+        }
+
+        .acp-verified-text {
+          font-size: 20px;
+          color: #000000;
+          font-weight: 600;
+        }
+
+        .acp-button-container {
+          text-align: center;
+          margin-top: 40px;
+        }
+
+        .acp-form-button {
+          background-color: #d4dbd9;
+          border: none;
+          border-radius: 30px;
+          padding: 16px 40px;
+          font-size: 24px;
+          color: #000000;
+          cursor: pointer;
+          width: 540px;
+          margin-bottom: 20px;
+          transition: all 0.3s ease;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .acp-popup-overlay {
+          position: fixed;
+          inset: 0;
+          background-color: rgba(0, 0, 0, 0.6);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+        }
+
+        .acp-popup-box {
+          background-color: #a8b5b8;
+          padding: 40px 50px;
+          border-radius: 10px;
+          border: 3px solid #4a9dbf;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+          text-align: center;
+          min-width: 400px;
+        }
+
+        .acp-popup-checkmark {
+          font-size: 48px;
+          margin-bottom: 20px;
+        }
+
+        .acp-popup-title {
+          font-size: 28px;
+          color: #000000;
+          margin-bottom: 30px;
+          font-weight: bold;
+        }
+
+        .acp-popup-button {
+          background-color: #d4dbd9;
+          border: none;
+          border-radius: 30px;
+          padding: 14px 50px;
+          font-size: 20px;
+          color: #000000;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+
+        .acp-popup-button:hover {
+          background-color: #c4cbc9;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }

@@ -128,29 +128,50 @@ export default function AccountDeactivate({ isSidebarOpen }) {
                   <label className="advt-radio-label">
                     <input
                       type="radio"
+                      className="advt-radio-btn"
                       checked={otpMethod === "email"}
                       onChange={() => setOtpMethod("email")}
                     />
-                    E-mail
+                    <div className="advt-options">E-mail</div>
                   </label>
                   <label className="advt-radio-label">
                     <input
+                      className="advt-radio-btn"
                       type="radio"
                       checked={otpMethod === "phone"}
                       onChange={() => setOtpMethod("phone")}
                     />
-                    Phone Number
+                    <div className="advt-options">Phone Number</div>
                   </label>
                 </div>
               </div>
 
               <div className="advt-form-row">
                 <label className="advt-field-label">Enter OTP*</label>
-                <input
-                  type="number"
+                 <input
                   className="advt-field-input"
+                  type="text"
+                  inputMode="numeric"
+                  autoComplete="one-time-code"
+                  maxLength={6}
+                  placeholder="Enter 6-digit OTP"
                   value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/[^0-9]/g, "");
+                    setOtp(value);
+                  }}
+                  onKeyDown={(e) => {
+                    if (
+                      !/[0-9]/.test(e.key) &&
+                      e.key !== "Backspace" &&
+                      e.key !== "Delete" &&
+                      e.key !== "ArrowLeft" &&
+                      e.key !== "ArrowRight" &&
+                      e.key !== "Tab"
+                    ) {
+                      e.preventDefault();
+                    }
+                  }}
                   required
                 />
               </div>

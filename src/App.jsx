@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import coin from "./assets/coin.png";
+import sa from "./assets/support-agent.png";
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,7 +9,6 @@ import {
   useLocation,
   useNavigate
 } from "react-router-dom";
-
 import { Bell, Heart, Home, ShoppingCart } from "lucide-react";
 
 /* ===================== PAGES ===================== */
@@ -23,6 +23,7 @@ import ProfilePersonal from "./Pages/Settings/Profile_edit_personal";
 import ProfessionalInfoForm from "./Pages/Settings/Profile_edit_professional";
 import AccountCredentialsForm from "./Pages/Settings/Profile_edit_account";
 import SettingsAccount from "./Pages/Settings/Account";
+import BillingPayments from "./Pages/Settings/Billing_payments";
 import UPIIDsPage from "./Pages/Settings/Account_upi";
 import SavedCards from "./Pages/Settings/Account_cards";
 import WalletsPage from "./Pages/Settings/Account_wallet";
@@ -34,7 +35,8 @@ import DeactivateAccount from "./Pages/Settings/Account_deactivate";
 import PermanentlyDeleteAccount from "./Pages/Settings/Account_delete";
 import NotificationSettings from "./Pages/Settings/Notification_settings";
 import AppearanceSettings from "./Pages/Settings/Appearance";
-import BillingPayments from "./Pages/Settings/Billing_payments";
+import SupportPage from "./Pages/Settings/Support";
+
 
 /* ===================== COMPONENTS ===================== */
 import Footer from "./components/Footer";
@@ -44,9 +46,7 @@ import "./components/Navbar.css";
 import "./components/Footer.css";
 import "./App.css";
 
-/* ==================================
-   NAVBAR (FIXED COLOR – UNCHANGED)
-================================== */
+/* ================================== NAVBAR (FIXED COLOR – UNCHANGED) ================================== */
 function NavBar({ onHamburgerClick }) {
   const location = useLocation();
   const navigate = useNavigate();
@@ -77,11 +77,19 @@ function NavBar({ onHamburgerClick }) {
         <div className="lance-logo">LANCERS</div>
 
         <button
+        title="Home"
           className={`icon-btn home-btn ${isLoginPage ? "disabled" : ""}`}
           onClick={() => !isLoginPage && navigate("/find-work")}
           disabled={isLoginPage}
         >
           <Home size={20} />
+        </button>
+
+        <button
+          className="icon-btn"
+          title="Support"
+          onClick={() => navigate("/support")}>
+            <img className = "support-agent" src={sa}/>
         </button>
 
         {(isLoginPage || isFindWorkPage) && (
@@ -101,6 +109,7 @@ function NavBar({ onHamburgerClick }) {
 
         {!isLoginPage && (
           <button
+            title="Buy Tokens"
             className="icon-btn cart-btn"
             onClick={() => navigate("/bilpay", { state: { tab: "buy" } })}
           >
@@ -133,6 +142,7 @@ function AppShell() {
 
   const stripColorMap = {
     "/": "#1b3038",
+    "/fl": "#1b3038",
     "/find-work": "#1b3038",
     "/setpf": "#1A3342",
     "/setpfps": '#1a1a1a',
@@ -148,11 +158,13 @@ function AppShell() {
     "/acactivity": "#1a1a1a",
     "/actwofa": "#1a1a1a",
     "/acdvt": "#1a1a1a",
-    "/acdlt": "#1a1a1a"
+    "/acdlt": "#1a1a1a",
+    "/support": "#8fa5b8"
   };
 
   const stripColor = stripColorMap[location.pathname] || "#1A3342";
-  const showFooter = ["/", "/find-work"].includes(location.pathname);
+  const showFooter = location.pathname === "/";
+
 
   return (
     <div className="app-root" style={{ backgroundColor: stripColor }}>
@@ -166,7 +178,7 @@ function AppShell() {
       <div className="app-scroll-container">
         <Routes>
           <Route path="/" element={<AuthPages />} />
-          <Route path="/find-work" element={<FindWorkPage />} />
+          <Route path="/find-work" element={<FindWorkPage isSidebarOpen={isSidebarOpen}/>} />
           <Route path="/notif" element={<Notifications />} />
           <Route path="/fl" element={<Freelancers_list />} />
 
@@ -187,6 +199,7 @@ function AppShell() {
           <Route path="/notiset" element={<NotificationSettings isSidebarOpen={isSidebarOpen} />} />
           <Route path="/appear" element={<AppearanceSettings isSidebarOpen={isSidebarOpen} />} />
           <Route path="/bilpay" element={<BillingPayments isSidebarOpen={isSidebarOpen} />} />
+          <Route path="/support" element={<SupportPage isSidebarOpen={isSidebarOpen} />} />
         </Routes>
 
         {showFooter && <Footer />}
