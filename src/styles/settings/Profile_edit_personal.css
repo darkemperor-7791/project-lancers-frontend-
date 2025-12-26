@@ -1,0 +1,204 @@
+/* ================= PAGE ================= */
+.pfep-profile-page {
+    min-height: 100vh;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================= CARD ================= */
+.pfep-profile-card {
+    margin-top: 5vw;
+    width: 80vw;
+    background: #6b7280;
+    border-radius: 18px;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= HEADER ================= */
+.pfep-profile-header {
+    padding: 24px 24px 16px;
+    color: white;
+}
+
+.pfep-profile-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.pfep-profile-header p {
+    font-size: 0.875rem;
+    color: #e5e7eb;
+    margin-top: 4px;
+}
+
+.pfep-mandatory-note {
+    display: block;
+    text-align: right;
+    margin-top: 8px;
+    font-size: 0.875rem;
+    color: #e5e7eb;
+}
+
+/* ================= FORM ================= */
+.pfep-profile-form {
+    background: #334155;
+    margin: 0 24px 24px;
+    padding: 32px;
+    border-radius: 8px;
+}
+
+/* ================= FORM ROW ================= */
+.pfep-form-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+/* LABELS */
+.pfep-form-row label {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.pfep-display-name {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: white;
+}
+
+/* ================= INPUT CONTAINERS ================= */
+.pfep-inline-inputs {
+    display: flex;
+    gap: 16px;
+}
+
+.pfep-name-boxes{
+    background-color: #cccccc;
+}
+
+.pfep-textarea-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= INPUTS ================= */
+input,
+textarea {
+    width: 100%;
+    max-width: 700px;
+    background: #e5e7eb;
+    color: #1f2937;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+}
+
+.pfep-inline-inputs input {
+    max-width: 340px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #6b7280;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #60a5fa;
+}
+
+/* ================= PROFILE PICTURE ================= */
+.pfep-profile-picture-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.pfep-profile-pic-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.pfep-profile-pic-circle {
+    margin-left: 15.7rem;
+    width: 96px;
+    height: 96px;
+    background: #cccccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.pfep-profile-pic-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pfep-profile-pic-circle span {
+    font-size: 0.75rem;
+    color: #6b7280;
+    text-align: center;
+    padding: 0 8px;
+}
+
+/* ================= TEXTAREA ================= */
+.pfep-textarea-row {
+    align-items: flex-start;
+}
+
+.pfep-textarea-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    font-size: 0.875rem;
+    color: #d1d5db;
+}
+
+/* ================= BUTTON ================= */
+.pfep-continue-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    }
+
+.pfep-continue-wrapper button {
+    padding: 8px 32px;
+    background: #1A3240;
+    color: #ffffff;
+    border-radius: 6px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.pfep-continue-wrapper button:hover {
+    transform: translateY(-2px);
+    background: #4a7ecb;
+}
+
+.pfep-profile-picture-label{
+    color: white;
+    font-size: 24px;
+}
+
+.pfep-desc-box{
+    background-color: #cccccc;
+    resize: none;
+}
+
+.pfep-profile-header .pfep-heading{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+}
