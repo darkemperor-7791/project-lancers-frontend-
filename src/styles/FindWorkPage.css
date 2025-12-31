@@ -258,45 +258,72 @@
     position: relative;
 }
 
+/* Carousel */
+.fw-carousel-section {
+    position: relative;
+    background-color: #2c4a58;
+    border-radius: 12px;
+    padding: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fw-images-container {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.fw-image-box {
+    flex: 1;
+    height: 180px;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* ================= ARROWS (FIXED PROPERLY) ================= */
+
 .fw-arrow-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255,255,255,0.2);
-    border: none;
-    color: white;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.45),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-}
-.fw-arrow-left { left: 0.5rem; }
-.fw-arrow-right { right: 0.5rem; }
 
-/* Icons Overlay on Image */
-.fw-image-actions {
-    position: absolute;
-    bottom: 0.5rem;
-    left: 0.5rem;
-    background-color: var(--color-bg-dark);
-    padding: 0.4rem 0.6rem;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--color-text-dark); /* Icon color */
+    cursor: pointer;
+    z-index: 5;
+    padding: 0;
 }
-.fw-image-actions svg {
-    color: #000; /* As per design dark icons */
+
+.fw-arrow-left {
+    left: 12px;
 }
-.fw-divider {
-    width: 1px;
-    height: 12px;
-    background-color: #000;
+
+.fw-arrow-right {
+    right: 12px;
 }
+
+.fw-arrow-btn svg {
+    stroke: #ffffff;
+    stroke-width: 3;
+    fill: none;
+}
+
 
 /* Card Footer */
 .fw-card-footer {
@@ -312,7 +339,7 @@
     gap: 0.75rem;
 }
 
-.fw-btn-tokens, .fw-btn-apply {
+ .fw-btn-apply {
     border: none;
     padding: 0.6rem 1.25rem;
     border-radius: 8px;
@@ -322,12 +349,25 @@
     cursor: pointer;
 }
 
+.fw-btn-tokens{
+        border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
 .fw-btn-tokens {
     background-color: var(--color-bg-dark); /* Lighter dark */
 }
 
 .fw-btn-apply {
     background-color: #383838; /* Darker button for Apply */
+}
+
+.fw-btn-apply:hover {
+    background-color: #4f4e4e; /* Darker button for Apply */
 }
 
 .fw-posted-time {

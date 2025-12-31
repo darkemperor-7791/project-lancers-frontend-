@@ -118,6 +118,7 @@
 }
 
 .accpg-item:hover {
+  color: default;
   background: rgba(164, 188, 199, 1);
   padding-left: 2.6rem;
 }

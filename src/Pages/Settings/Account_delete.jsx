@@ -12,6 +12,7 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
   const [confirmText, setConfirmText] = useState("");
   const [isAgreed, setIsAgreed] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [otpSent, setOtpSent] = useState(false); // ADDED
 
   const expectedText =
     "I wish to delete this account by my own will and with full responsibility of it.";
@@ -21,6 +22,20 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
     otp.trim() !== "" &&
     confirmText.trim() === expectedText &&
     isAgreed;
+
+  // ADDED
+  const handleSendOTP = () => {
+    const generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+    setOtpSent(true);
+    alert(`OTP sent to your ${otpMethod}: ${generatedOTP}\n(This is for demo purposes)`);
+  };
+
+  // ADDED
+  const handleResendOTP = () => {
+    const generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+    setOtp('');
+    alert(`New OTP sent to your ${otpMethod}: ${generatedOTP}\n(This is for demo purposes)`);
+  };
 
   const handleDelete = () => {
     if (!isConfirmationValid) return;
@@ -61,7 +76,7 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
             </div>
 
             <p className="adlt-delete-danger-text">
-              This action can’t be undone!!!
+              This action can't be undone!!!
             </p>
 
             <p className="adlt-delete-description">
@@ -101,60 +116,83 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
             />
 
             <label>Choose OTP method*</label>
-            <button className="adlt-send-otp">Send OTP</button>
-
-            <div className="adlt-radio-group">
-              <label>
-                <input
-                className = "adlt-radio-button"
-                  type="radio"
-                  checked={otpMethod === "email"}
-                  onChange={() => setOtpMethod("email")}
-                />
-                <span className = "adlt-email">E-mail</span>
-              </label>
-              <label>
-                <input
-                  className = "adlt-radio-button"
-                  type="radio"
-                  checked={otpMethod === "phone"}
-                  onChange={() => setOtpMethod("phone")}
-                />
-                <span className = "adlt-email">Phone Number</span>
-              </label>
+            {/* UPDATED THIS SECTION */}
+            <div className="adlt-otp-method-container">
+              <div className="adlt-radio-group">
+                <label>
+                  <input
+                    className="adlt-radio-button"
+                    type="radio"
+                    checked={otpMethod === "email"}
+                    onChange={() => setOtpMethod("email")}
+                  />
+                  <span className="adlt-email">E-mail</span>
+                </label>
+                <label>
+                  <input
+                    className="adlt-radio-button"
+                    type="radio"
+                    checked={otpMethod === "phone"}
+                    onChange={() => setOtpMethod("phone")}
+                  />
+                  <span className="adlt-email">Phone Number
+                    
+                  </span>
+                </label>
+                <button 
+                  type="button"
+                  className="adlt-send-otp"
+                  onClick={handleSendOTP}
+                  disabled={otpSent}
+                >
+                  {otpSent ? 'OTP Sent' : 'Send OTP'}
+                </button>
+              </div>
+              <div className="adlt-otp-buttons-group">
+                
+                {otpSent && (
+                  <button 
+                    type="button"
+                    className="adlt-resend-otp"
+                    onClick={handleResendOTP}
+                  >
+                    Resend OTP
+                  </button>
+                )}
+              </div>
             </div>
 
             <label>Enter OTP*</label>
-                 <input
-                  type="text"
-                  inputMode="numeric"
-                  autoComplete="one-time-code"
-                  maxLength={6}
-                  placeholder="Enter 6-digit OTP"
-                  value={otp}
-                  onChange={(e) => {
-                    const value = e.target.value.replace(/[^0-9]/g, "");
-                    setOtp(value);
-                  }}
-                  onKeyDown={(e) => {
-                    if (
-                      !/[0-9]/.test(e.key) &&
-                      e.key !== "Backspace" &&
-                      e.key !== "Delete" &&
-                      e.key !== "ArrowLeft" &&
-                      e.key !== "ArrowRight" &&
-                      e.key !== "Tab"
-                    ) {
-                      e.preventDefault();
-                    }
-                  }}
-                  required
-                />
+            <input
+              type="text"
+              inputMode="numeric"
+              autoComplete="one-time-code"
+              maxLength={6}
+              placeholder="Enter 6-digit OTP"
+              value={otp}
+              onChange={(e) => {
+                const value = e.target.value.replace(/[^0-9]/g, "");
+                setOtp(value);
+              }}
+              onKeyDown={(e) => {
+                if (
+                  !/[0-9]/.test(e.key) &&
+                  e.key !== "Backspace" &&
+                  e.key !== "Delete" &&
+                  e.key !== "ArrowLeft" &&
+                  e.key !== "ArrowRight" &&
+                  e.key !== "Tab"
+                ) {
+                  e.preventDefault();
+                }
+              }}
+              required
+            />
 
             <label className="adlt-confirm-text-label">
               Type the confirmation sentence exactly:
               <br/>
-              <span className = "adlt-consent">“I wish to delete this account by my own will and with full responsibility of it.”</span>
+              <span className="adlt-consent">"I wish to delete this account by my own will and with full responsibility of it."</span>
             </label>
 
             <textarea
@@ -165,7 +203,7 @@ export default function PermanentlyDeleteAccount({ isSidebarOpen }) {
 
             <label className="adlt-checkbox-label">
               <input
-              className = "adlt-checkbox"
+                className="adlt-checkbox"
                 type="checkbox"
                 checked={isAgreed}
                 onChange={() => setIsAgreed(prev => !prev)}

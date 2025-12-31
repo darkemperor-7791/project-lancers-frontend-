@@ -133,6 +133,7 @@ html, body {
 }
 
 .aa-session-info-line {
+  color: black;
   text-align: center;
   font-size: 19px;
   font-weight: 650;
@@ -157,6 +158,7 @@ html, body {
 }
 
 .aa-session-card {
+  color: black;
   background-color: #d0dce1;
   padding: 20px 24px;
   border-radius: 12px;
@@ -257,6 +259,7 @@ html, body {
 }
 
 .aa-action-button-2 {
+  color: black;
   margin-right: 10rem;
   text-decoration: none;
   min-width: 260px;
@@ -271,6 +274,7 @@ html, body {
 }
 
 .aa-action-button-2:hover {
+  color: black;
   transform: translateY(-5px);
   box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.3);
 }

@@ -85,6 +85,59 @@ textarea:focus {
   box-shadow: 0 0 0 2px #60a5fa;
 }
 
+/* Toolbar */
+.pfepro-editor-toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pfepro-editor-toolbar button {
+  background: #e5e7eb;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pfepro-editor-toolbar button:hover {
+  background: #d1d5db;
+}
+/* Fix bullet clipping inside project editor */
+.pfepro-project-box ul,
+.pfepro-project-box ol {
+  padding-left: 20px;     /* keeps bullets inside box */
+  margin: 8px 0;
+}
+
+.pfepro-project-box li {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* Editable project box */
+.pfepro-project-box {
+  color: black;
+  min-height: 120px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+  font-size: 14px;
+  line-height: 1.5;
+
+  overflow: hidden;
+  resize: none;
+}
+
+/* Placeholder for contenteditable */
+.pfepro-project-box:empty::before {
+  content: attr(placeholder);
+  color: #9ca3af;
+}
+
+
 /* ================= BUTTONS ================= */
 .pfepro-btn {
   padding: 8px 14px;

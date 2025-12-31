@@ -4,13 +4,9 @@ import { Pencil } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 import Sidebar from "../../components/Sidebar";
-import useAutoResizeTextarea from "../../hooks/useAutoResizeTextarea";
 
 export default function SettingsProfile({ isSidebarOpen }) {
 
-  const bio = useAutoResizeTextarea();
-  const project = useAutoResizeTextarea();
-  const navigate = useNavigate();
 
   return (
     <div

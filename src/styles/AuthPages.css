@@ -281,13 +281,22 @@ body {
   color: #2c4a58;
 }
 
+.aup-reveal-btn svg{
+  background-color: auto;
+  margin-top: -15px;
+  width: 1px;
+  height: 0px;
+}
+
 .aup-input-icon {
+  margin-top: -14px;
+  display: flex;
   position: absolute;
   right: 20px;
   top: 50%;
-  transform: translateY(-50%);
+  background: none;
   font-size: 20px;
-  color: #2c4a58;
+  color: #060d11;
   background-color: #d4dfe3;
   border: none;
 }

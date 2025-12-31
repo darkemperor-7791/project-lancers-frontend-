@@ -16,11 +16,12 @@ import AuthPages from "./Pages/AuthPages";
 import FindWorkPage from "./Pages/FindWorkPage";
 import Notifications from "./Pages/notifications";
 import Freelancers_list from "./Pages/Freelancers_list";
+import ProjectOverviewPage from "./Pages/Project_page.jsx";
 
 /* ===================== SETTINGS ===================== */
 import SettingsProfile from "./Pages/Settings/Profile";
 import ProfilePersonal from "./Pages/Settings/Profile_edit_personal";
-import ProfessionalInfoForm from "./Pages/Settings/Profile_edit_professional";
+import ProfessionalInfoForm from "./Pages/Settings/Profile_edit_professional.jsx";
 import AccountCredentialsForm from "./Pages/Settings/Profile_edit_account";
 import SettingsAccount from "./Pages/Settings/Account";
 import BillingPayments from "./Pages/Settings/Billing_payments";
@@ -76,14 +77,20 @@ function NavBar({ onHamburgerClick }) {
 
         <div className="lance-logo">LANCERS</div>
 
+        {!isLoginPage && (
         <button
-        title="Home"
-          className={`icon-btn home-btn ${isLoginPage ? "disabled" : ""}`}
-          onClick={() => !isLoginPage && navigate("/find-work")}
-          disabled={isLoginPage}
+          className="icon-btn home-btn"
+          title="Home"
+          onClick={(e) => {
+            e.currentTarget.blur();
+            navigate("/find-work");
+          }}
         >
-          <Home size={20} />
+          <Home size={22} strokeWidth={2.4} />
         </button>
+      )}
+
+
 
         <button
           className="icon-btn"
@@ -144,6 +151,7 @@ function AppShell() {
     "/": "#1b3038",
     "/fl": "#1b3038",
     "/find-work": "#1b3038",
+    "/project-page": 'rgb(149, 149, 149)',
     "/setpf": "#1A3342",
     "/setpfps": '#1a1a1a',
     "/setpfpro": '#1a1a1a',
@@ -181,7 +189,7 @@ function AppShell() {
           <Route path="/find-work" element={<FindWorkPage isSidebarOpen={isSidebarOpen}/>} />
           <Route path="/notif" element={<Notifications />} />
           <Route path="/fl" element={<Freelancers_list />} />
-
+          <Route path="/project-page" element={<ProjectOverviewPage isSidebarOpen={isSidebarOpen} />} />
           <Route path="/setpf" element={<SettingsProfile isSidebarOpen={isSidebarOpen} />} />
           <Route path="/setpfps" element={<ProfilePersonal isSidebarOpen={isSidebarOpen} />} />
           <Route path="/setpfpro" element={<ProfessionalInfoForm isSidebarOpen={isSidebarOpen} />} />

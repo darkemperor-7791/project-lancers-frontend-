@@ -26,7 +26,13 @@ export default function FreelancerList() {
         {/* Header */}
         <div className="frl-header">
           <button className="frl-btn-back" onClick={handleBack}>
-            <ArrowLeft className="frl-icon-back" />
+  <ArrowLeft
+    className="frl-icon-back"
+    size={28}
+    strokeWidth={3}
+  />
+
+
           </button>
 
           <button className="frl-btn-filter">

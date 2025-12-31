@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowLeft, Filter, Trash2 } from 'lucide-react';
+import React, { useState } from "react";
+import { ArrowLeft, Filter, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Notifications.css";
 
@@ -18,42 +18,29 @@ export default function Notifications() {
   ]);
 
   return (
-    <div style={styles.page}>
-      <div style={styles.card}>
+    
+    <div className="ntf-page">
+      <div className="ntf-card">
 
         {/* HEADER */}
-        <div style={styles.header}>
-          <button
-            className="ntf-btn-back"
-            style={styles.backBtn}
-            onClick={goBack}
-          >
-            <ArrowLeft strokeWidth={3} />
+        <div className="ntf-header">
+          <button className="ntf-btn-back" onClick={goBack}>
+            <ArrowLeft size={22} strokeWidth={3} />
           </button>
 
-          <button
-            className="ntf-btn-filter"
-            style={styles.filterBtn}
-          >
+          <button className="ntf-btn-filter">
             <Filter size={16} />
             <span>Filter</span>
           </button>
         </div>
 
         {/* LIST */}
-        <div style={styles.list}>
-          {notifications.map(note => (
-            <div
-              key={note.id}
-              className="ntf-notification-item"
-              style={styles.item}
-            >
-              <span style={styles.text}>{note.text}</span>
+        <div className="ntf-list">
+          {notifications.map((note) => (
+            <div key={note.id} className="ntf-notification-item">
+              <span className="ntf-text">{note.text}</span>
 
-              <button
-                className="ntf-btn-delete"
-                style={styles.deleteBtn}
-              >
+              <button className="ntf-btn-delete">
                 <Trash2 className="ntf-icon-trash" size={22} />
               </button>
             </div>
@@ -64,84 +51,3 @@ export default function Notifications() {
     </div>
   );
 }
-
-/* ================== INLINE JS STYLES (INTENTIONALLY KEPT) ================== */
-
-const styles = {
-  page: {
-    minHeight: "100vh",
-    backgroundColor: "#1A3342",
-    paddingTop: "110px",
-    display: "flex",
-    justifyContent: "center",
-  },
-
-  card: {
-    width: "100%",
-    maxWidth: "56rem",
-    border: "5px solid #D1DCE2",
-    backgroundColor: "#1A3342",
-    padding: "1rem",
-  },
-
-  header: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "1.5rem",
-  },
-
-  backBtn: {
-    width: "2.5rem",
-    height: "2.5rem",
-    borderRadius: "50%",
-    backgroundColor: "#8DAAB9",
-    border: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    cursor: "pointer",
-  },
-
-  filterBtn: {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    padding: "0.3rem 1rem",
-    backgroundColor: "#C1D1D9",
-    borderRadius: "9999px",
-    border: "none",
-    cursor: "pointer",
-    fontWeight: 500,
-  },
-
-  list: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "0.75rem",
-  },
-
-  item: {
-    backgroundColor: "#7F9BAA",
-    borderRadius: "1rem",
-    padding: "1rem 1.5rem",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    cursor: "pointer",
-  },
-
-  text: {
-    color: "white",
-    fontSize: "1.25rem",
-    fontWeight: 500,
-  },
-
-  deleteBtn: {
-    background: "transparent",
-    border: "none",
-    cursor: "pointer",
-    color: "#364652",
-    opacity: 0.85,
-  },
-};

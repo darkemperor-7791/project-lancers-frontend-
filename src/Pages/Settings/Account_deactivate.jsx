@@ -9,8 +9,21 @@ export default function AccountDeactivate({ isSidebarOpen }) {
   const [reasonOther, setReasonOther] = useState("");
   const [otpMethod, setOtpMethod] = useState("email");
   const [otp, setOtp] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
 
   const handleCancel = () => navigate(-1);
+
+  const handleSendOTP = () => {
+    const generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+    setOtpSent(true);
+    alert(`OTP sent to your ${otpMethod}: ${generatedOTP}\n(This is for demo purposes)`);
+  };
+
+  const handleResendOTP = () => {
+    const generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+    setOtp(''); // Clear previous OTP input
+    alert(`New OTP sent to your ${otpMethod}: ${generatedOTP}\n(This is for demo purposes)`);
+  };
 
   const handleDeactivate = (e) => {
     e.preventDefault();
@@ -60,7 +73,7 @@ export default function AccountDeactivate({ isSidebarOpen }) {
                 <li className="advt-happens-item">Your profile is hidden</li>
                 <li className="advt-happens-item">Your projects & bids are paused</li>
                 <li className="advt-happens-item">Messages are preserved</li>
-                <li className="advt-happens-item">You won’t receive emails</li>
+                <li className="advt-happens-item">You won't receive emails</li>
                 <li className="advt-happens-item advt-happens-item-green">
                   You can always log back in to reactivate
                 </li>
@@ -124,25 +137,46 @@ export default function AccountDeactivate({ isSidebarOpen }) {
 
               <div className="advt-form-row">
                 <span className="advt-field-label">Choose method for OTP generation*</span>
-                <div className="advt-radio-group">
-                  <label className="advt-radio-label">
-                    <input
-                      type="radio"
-                      className="advt-radio-btn"
-                      checked={otpMethod === "email"}
-                      onChange={() => setOtpMethod("email")}
-                    />
-                    <div className="advt-options">E-mail</div>
-                  </label>
-                  <label className="advt-radio-label">
-                    <input
-                      className="advt-radio-btn"
-                      type="radio"
-                      checked={otpMethod === "phone"}
-                      onChange={() => setOtpMethod("phone")}
-                    />
-                    <div className="advt-options">Phone Number</div>
-                  </label>
+                <div className="advt-otp-method-container">
+                  <div className="advt-radio-group">
+                    <label className="advt-radio-label">
+                      <input
+                        type="radio"
+                        className="advt-radio-btn"
+                        checked={otpMethod === "email"}
+                        onChange={() => setOtpMethod("email")}
+                      />
+                      <div className="advt-options">E-mail</div>
+                    </label>
+                    <label className="advt-radio-label">
+                      <input
+                        className="advt-radio-btn"
+                        type="radio"
+                        checked={otpMethod === "phone"}
+                        onChange={() => setOtpMethod("phone")}
+                      />
+                      <div className="advt-options">Phone Number</div>
+                    </label>
+                  </div>
+                  <div className="advt-otp-buttons-group">
+                    <button 
+                      type="button" 
+                      className="advt-send-otp-button"
+                      onClick={handleSendOTP}
+                      disabled={otpSent}
+                    >
+                      {otpSent ? 'OTP Sent' : 'Send OTP'}
+                    </button>
+                    {otpSent && (
+                      <button 
+                        type="button" 
+                        className="advt-resend-otp-button"
+                        onClick={handleResendOTP}
+                      >
+                        Resend OTP
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
 

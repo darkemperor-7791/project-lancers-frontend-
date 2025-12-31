@@ -8,6 +8,7 @@
 
 /* PAGE */
 .advt-deactivate-page {
+  margin-left: 25px;
   margin-top: 2rem;
   min-height: 100vh;
   width: 100%;
@@ -186,27 +187,94 @@
   font-size: 17px;
 }
 
-.advt-options{
+.advt-options {
   cursor: pointer;
   margin-top: 1px;
   white-space: nowrap;
 }
 
-.advt-radio-btn{
+.advt-radio-btn {
   transform: scale(1.5);
+}
+
+/* OTP METHOD CONTAINER */
+.advt-otp-method-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 10px;
 }
 
 /* RADIO */
 .advt-radio-group {
   display: flex;
   gap: 36px;
-  margin-top: 10px;
 }
 
 .advt-radio-label {
   display: flex;
   gap: 10px;
   font-size: 20px;
+}
+
+/* SEND OTP BUTTON */
+.advt-send-otp-button {
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  background-color: #2d4f5f;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.advt-send-otp-button:hover:not(:disabled) {
+  background-color: #1a3a47;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.advt-send-otp-button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.advt-send-otp-button:disabled {
+  background-color: #6b8a98;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* RESEND OTP BUTTON */
+.advt-resend-otp-button {
+  padding: 12px 32px;
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 2px solid #2d4f5f;
+  background-color: #2d4f5f;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.advt-resend-otp-button:hover {
+  background-color: #2d4f5f;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.advt-resend-otp-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* BUTTONS */
@@ -225,6 +293,7 @@
   border-radius: 14px;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .advt-deactivate-button {
@@ -232,7 +301,98 @@
   background-color: #e8e8e8;
 }
 
+.advt-deactivate-button:hover {
+  background-color: #d0d0d0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
 .advt-cancel-button {
   color: #1a1a1a;
   background-color: #e8e8e8;
+}
+
+.advt-cancel-button:hover {
+  background-color: #d0d0d0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* OTP METHOD CONTAINER */
+.adlt-otp-method-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* OTP BUTTONS GROUP */
+.adlt-otp-buttons-group {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* SEND OTP BUTTON */
+.adlt-send-otp {
+  margin-top: -6rem;
+  margin-left: 3rem;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  background-color: #2d4f5f;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.adlt-send-otp:hover:not(:disabled) {
+  background-color: #1a3a47;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.adlt-send-otp:disabled {
+  background-color: #6b8a98;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* RESEND OTP BUTTON */
+.adlt-resend-otp {
+  margin-bottom: -2.7rem;
+  padding: 12px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 2px solid #2d4f5f;
+  background-color: transparent;
+  color: #2d4f5f;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.adlt-resend-otp:hover {
+  background-color: #2d4f5f;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

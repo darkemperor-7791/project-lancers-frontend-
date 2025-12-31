@@ -1,13 +1,4 @@
-.lance-logo {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: 4px;
-  color: #1A3342;
-  margin-left: 0.75rem;
-  margin-right: 0.5rem;
-  user-select: none;
-  font-family: 'Arial Black', sans-serif;
-}
+
 
 /* ========================= LOGIN/FIND WORK BUTTON SHIFT (NEW) ========================= */
 
@@ -97,11 +88,15 @@ body,
 /* ========================= LANCE LOGO (NEW) ========================= */
 
 .lance-logo {
-  font-size: 37px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  line-height: 1;
+  padding: 0px 0px; 
+  font-size: 41px;
+    text-shadow: 
+    0.6px 0 currentColor,
+   -0.6px 0 currentColor;
+  letter-spacing: 1px;
   color: #ffffff;
-  margin-left: 0.75rem;
+  margin-left: 0.5rem;
   margin-right: 0.5rem;
   user-select: none;
   font-family: 'Jersey 25', sans-serif;
@@ -129,7 +124,7 @@ body,
 }
 
 .nav-link:hover {
-  color: rgb(8, 0, 247);
+  color: rgb(0, 0, 0);
   background-color: #fdfdfd3f;
   transform: translateY(-2px);
 }
@@ -148,11 +143,16 @@ body,
 
   cursor: pointer;
   transition: transform 0.2s, background-color 0.2s;
+  outline: none;
+}
+
+.icon-btn:focus {
+  outline: none;
 }
 
 .icon-btn:hover {
-  background-color: rgba(255,255,255,0.2);
-  transform: scale(1.1);
+  color: #1A3342;
+  transform: scale(1.2);
 }
 
 .icon-btn.disabled {
@@ -241,3 +241,69 @@ body,
 .coin-count {
   font-size: 22px;
 }
+
+/* ========================= HOME AND CART BUTTON FIX ========================= */
+
+.navbar .icon-btn.home-btn,
+.navbar-left .icon-btn.home-btn,
+.icon-btn.home-btn,
+.navbar .icon-btn.cart-btn,
+.icon-btn.cart-btn {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.navbar .home-btn svg,
+.navbar-left .home-btn svg,
+.home-btn svg,
+.home-btn svg *,
+.navbar .cart-btn svg,
+.cart-btn svg,
+.cart-btn svg * {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #1A3342 !important;
+  stroke: #1A3342 !important;
+  stroke-width: 2.5 !important;
+  fill: none !important;
+  background: none !important;
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  
+}
+
+.navbar .home-btn svg,
+.navbar-left .home-btn svg,
+.home-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+}
+
+.navbar .cart-btn svg,
+.cart-btn svg {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
+}
+
+/* HOVER EFFECT */
+.icon-btn.home-btn:hover,
+.icon-btn.cart-btn:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+  transform: scale(1.1);
+}
+
+/* ACTIVE / PRESS FEEDBACK */
+.icon-btn.home-btn:active,
+.icon-btn.cart-btn:active {
+  transform: scale(1.05);
+}
+

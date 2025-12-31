@@ -136,7 +136,7 @@ export default function SupportPage({ isSidebarOpen }) {
         </button>
 
         <div className="supp-header-actions">
-          <button className="supp-header-btn">Go to Lancers</button>
+          <button onClick={() => navigate("/find-work")} className="supp-header-btn">Go to Lancers</button>
           <button className="supp-header-btn">My Request</button>
         </div>
       </header>

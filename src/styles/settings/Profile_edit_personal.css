@@ -193,12 +193,66 @@ textarea:focus {
     font-size: 24px;
 }
 
-.pfep-desc-box{
-    background-color: #cccccc;
-    resize: none;
+.pfep-desc-box {
+  width: 100%;
+  line-height: 1.6;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  transition: border-color 0.2s ease;
 }
+
+.pfep-desc-box:focus {
+  outline: none;
+  border-color: #64748b;
+}
+
 
 .pfep-profile-header .pfep-heading{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
+}
+
+.pfep-dob-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Calendar icon inside input */
+.dob-calendar-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+
+  color: #1f2937;
+}
+
+/* Add right padding so text doesn't overlap icon */
+.pfep-dob-input {
+    color: black;
+  padding-right: 44px; /* IMPORTANT */
+}
+
+
+
+/* Chrome / Edge / Safari */
+input[type="date"]::-webkit-calendar-picker-indicator {
+filter: brightness(0) saturate(100%);
+  cursor: pointer;
+}
+
+
+/* make native calendar look minimal */
+.pfep-dob-calendar-popup input[type="date"] {
+  border: none;
+  font-size: 14px;
 }

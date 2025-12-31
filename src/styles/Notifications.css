@@ -1,44 +1,72 @@
-/* ================= DELETE BUTTON HOVER ================= */
+/* ================= PAGE ================= */
 
-.ntf-btn-delete {
-  padding: 0.35rem;
-  border-radius: 8px;
-  background: transparent;
+.ntf-page {
+  min-height: 100vh;
+  background-color: #1A3342;
+  display: flex;
+  justify-content: center;
+}
+
+/* ================= CARD ================= */
+
+.ntf-card {
+  width: 100%;
+  max-width: 56rem;
+  border: 5px solid #D1DCE2;
+  background-color: #1A3342;
+  padding: 1rem;
+}
+
+/* ================= HEADER ================= */
+
+.ntf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ================= BACK BUTTON ================= */
+
+.ntf-btn-back {
+  width: 48px;
+  height: 48px;
+
+  padding: 0;              /* 🔴 important */
+  border-radius: 50%;
+
+  background-color: #9FBBC9;
   border: none;
+
+  display: inline-flex;    /* 🔴 inline-flex avoids stretch */
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
-  transition:
-    background-color 0.25s ease,
-    transform 0.25s ease;
+  transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
-.ntf-btn-delete:hover {
-  background-color: rgba(0, 0, 0, 0.15);
-  transform: scale(1.05);
-}
-
-/* icon inside delete button */
-.ntf-icon-trash {
-  width: 1.75rem;
-  height: 1.75rem;
-  color: #364652;
-  opacity: 0.75;
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease,
-    color 0.25s ease;
-}
-
-/* icon hover effect */
-.ntf-btn-delete:hover .ntf-icon-trash {
-  opacity: 1;
-  transform: scale(1.15);
-  color: #1f2933;
-}
-
-/* header buttons */
 .ntf-btn-back:hover {
-  background-color: #A3BFCF;
+  background-color: #AFC9D6;
   transform: scale(1.08);
+}
+
+
+/* ================= FILTER BUTTON ================= */
+
+.ntf-btn-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.3rem 1rem;
+  background-color: #C1D1D9;
+  border-radius: 9999px;
+  border: none;
+
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
 .ntf-btn-filter:hover {
@@ -46,19 +74,74 @@
   transform: scale(1.06);
 }
 
-/* notification item hover */
+/* ================= LIST ================= */
+
+.ntf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ================= ITEM ================= */
+
+.ntf-notification-item {
+  background-color: #7F9BAA;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
 .ntf-notification-item:hover {
   background-color: #8CA8B7;
   transform: translateX(4px);
 }
 
-/* svg hover */
-.ntf-btn-delete:hover svg {
-  opacity: 1;
-  transform: scale(1.1);
+/* ================= TEXT ================= */
+
+.ntf-text {
+  color: black;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
 
-/* global button transition */
+/* ================= DELETE BUTTON ================= */
+
+.ntf-btn-delete {
+  padding: 0.35rem;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.ntf-btn-delete:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+/* delete icon */
+.ntf-icon-trash {
+  color: #364652;
+  opacity: 0.75;
+  transition: transform 0.25s ease, opacity 0.25s ease, color 0.25s ease;
+}
+
+.ntf-btn-delete:hover .ntf-icon-trash {
+  opacity: 1;
+  transform: scale(1.15);
+  color: #1f2933;
+}
+
+/* ================= GLOBAL BUTTON NORMALIZATION ================= */
+
 button {
-  transition: all 0.25s ease;
+  color: black;
 }

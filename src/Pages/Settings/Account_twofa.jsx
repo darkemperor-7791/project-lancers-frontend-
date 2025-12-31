@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import '../../styles/settings/Account_twofa.css';
 import { ChevronDown } from "lucide-react";
 import Sidebar from "../../components/Sidebar";
+import { useNavigate } from "react-router-dom";
 
 export default function TwoFactorAuth({ isSidebarOpen }) {
+  const navigate = useNavigate();
 
   const [authAppExpanded, setAuthAppExpanded] = useState(false);
   const [smsExpanded, setSmsExpanded] = useState(false);
@@ -22,29 +24,158 @@ export default function TwoFactorAuth({ isSidebarOpen }) {
   const [smsVerified, setSmsVerified] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
 
+  // OTP generation and verification states
+  const [generatedSmsOtp, setGeneratedSmsOtp] = useState('');
+  const [generatedEmailOtp, setGeneratedEmailOtp] = useState('');
+  const [smsOtpSent, setSmsOtpSent] = useState(false);
+  const [emailOtpSent, setEmailOtpSent] = useState(false);
+
+  // Popup states
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showOtpSentPopup, setShowOtpSentPopup] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [otpSentMessage, setOtpSentMessage] = useState('');
+
+  // Validation functions
+  const isValidEmail = (email) => {
+    return email.trim().endsWith('@gmail.com') && email.trim().length > 10;
+  };
+
+  const isValidPhone = (phone) => {
+    return /^\d{10}$/.test(phone);
+  };
+
+  const isValidOtp = (otp) => {
+    return /^\d{6}$/.test(otp);
+  };
+
+  const generateOtp = () => {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+  };
+
+  // SMS handlers
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setPhoneNumber(value);
+    if (smsOtpSent) {
+      setSmsOtpSent(false);
+      setOtp('');
+      setGeneratedSmsOtp('');
+    }
+  };
+
+  const handleVerifySms = () => {
+    if (isValidPhone(phoneNumber)) {
+      const otpCode = generateOtp();
+      setGeneratedSmsOtp(otpCode);
+      setSmsOtpSent(true);
+      setOtpSentMessage('OTP has been sent to your phone number');
+      setShowOtpSentPopup(true);
+      console.log('SMS OTP:', otpCode);
+    } else {
+      alert('Please enter a valid 10-digit phone number');
+    }
+  };
+
+  const handleSmsOtpChange = (e) => {
+    const value = e.target.value.replace(/\D/g, '').slice(0, 6);
+    setOtp(value);
+  };
+
+  const handleSubmitSmsOtp = () => {
+    if (!isValidOtp(otp)) {
+      alert('Please enter a valid 6-digit OTP');
+      return;
+    }
+    
+    if (otp === generatedSmsOtp) {
+      setSmsVerified(true);
+      setSuccessMessage(`${phoneNumber} has been verified successfully.`);
+      setShowSuccessPopup(true);
+    } else {
+      alert('Invalid OTP. Please try again.');
+    }
+  };
+
+  // Email handlers
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmailId(value);
+    if (emailOtpSent) {
+      setEmailOtpSent(false);
+      setEmailCode('');
+      setGeneratedEmailOtp('');
+    }
+  };
+
+  const handleVerifyEmail = () => {
+    if (isValidEmail(emailId)) {
+      const otpCode = generateOtp();
+      setGeneratedEmailOtp(otpCode);
+      setEmailOtpSent(true);
+      setOtpSentMessage('OTP has been sent to your email');
+      setShowOtpSentPopup(true);
+      console.log('Email OTP:', otpCode);
+    } else {
+      alert('Please enter a valid Gmail address (must end with @gmail.com)');
+    }
+  };
+
+  const handleEmailCodeChange = (e) => {
+    const value = e.target.value.replace(/\D/g, '').slice(0, 6);
+    setEmailCode(value);
+  };
+
+  const handleSubmitEmailCode = () => {
+    if (!isValidOtp(emailCode)) {
+      alert('Please enter a valid 6-digit OTP');
+      return;
+    }
+    
+    if (emailCode === generatedEmailOtp) {
+      setEmailVerified(true);
+      setSuccessMessage(`${emailId} has been verified successfully.`);
+      setShowSuccessPopup(true);
+    } else {
+      alert('Invalid OTP. Please try again.');
+    }
+  };
+
+  // Auth App code handler
+  const handleAuthCodeChange = (e) => {
+    const value = e.target.value.replace(/\D/g, '').slice(0, 6);
+    setAuthCode(value);
+  };
+
+  const handleCloseSuccessPopup = () => {
+    setShowSuccessPopup(false);
+    setSuccessMessage('');
+  };
+
+  const handleCloseOtpSentPopup = () => {
+    setShowOtpSentPopup(false);
+    setOtpSentMessage('');
+  };
+
   return (
     <div className="a2fa-page" style={{ paddingLeft: isSidebarOpen ? '240px' : '0' }}>
       <Sidebar
-              isOpen={isSidebarOpen}
-              title="Settings"
-              footer={
-                <button className="btn-logout" onClick={() => navigate("/")}>
-                  Log out
-                </button>
-              }
-            >
-              <a href="/setpf" className="sidebar-link">Profile</a>
-              <a href="/setac" className="sidebar-link active">Account Security</a>
-              <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
-              <a href="/notiset" className="sidebar-link">Notification Settings</a>
-              <a href="/appear" className="sidebar-link">Appearance</a>
-              <a href="/useranal" className="sidebar-link">User Analytics</a>
-              <a href="/support" className="sidebar-link">Support</a>
-            </Sidebar>
         isOpen={isSidebarOpen}
         title="Settings"
-        footer={<button className="btn-logout">Log out</button>}
-      
+        footer={
+          <button className="btn-logout" onClick={() => navigate("/")}>
+            Log out
+          </button>
+        }
+      >
+        <a href="/setpf" className="sidebar-link">Profile</a>
+        <a href="/setac" className="sidebar-link active">Account Security</a>
+        <a href="/bilpay" className="sidebar-link">Billing & Payments</a>
+        <a href="/notiset" className="sidebar-link">Notification Settings</a>
+        <a href="/appear" className="sidebar-link">Appearance</a>
+        <a href="/useranal" className="sidebar-link">User Analytics</a>
+        <a href="/support" className="sidebar-link">Support</a>
+      </Sidebar>
 
       <div className="a2fa-wrapper">
         <div className="a2fa-outer">
@@ -93,7 +224,15 @@ export default function TwoFactorAuth({ isSidebarOpen }) {
 
                   <div className="a2fa-input-row">
                     <label>Enter 6 digit verification code :</label>
-                    <input type="text" value={authCode} onChange={e => setAuthCode(e.target.value)} />
+                    <input
+                      className='a2fa-code-input'
+                      type="text"
+                      maxLength={6}
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      value={authCode}
+                      onChange={handleAuthCodeChange}
+                    />
                     <button>Verify and enable</button>
                   </div>
 
@@ -132,14 +271,36 @@ export default function TwoFactorAuth({ isSidebarOpen }) {
 
                   <div className="a2fa-input-row">
                     <label>Phone Number :</label>
-                    <input type="text" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} />
-                    <button>Verify</button>
+                    <input
+                      maxLength={10}
+                      type="text"
+                      value={phoneNumber}
+                      onChange={handlePhoneChange}
+                      disabled={smsVerified}
+                    />
+                    <button 
+                      onClick={handleVerifySms}
+                      disabled={smsVerified}
+                    >
+                      Verify
+                    </button>
                   </div>
 
                   <div className="a2fa-input-row">
                     <label>Enter the OTP :</label>
-                    <input type="text" value={otp} onChange={e => setOtp(e.target.value)} />
-                    <button onClick={() => setSmsVerified(true)}>Submit OTP</button>
+                    <input
+                      maxLength={6}
+                      type="text"
+                      value={otp}
+                      onChange={handleSmsOtpChange}
+                      disabled={!smsOtpSent || smsVerified}
+                    />
+                    <button 
+                      onClick={handleSubmitSmsOtp}
+                      disabled={!smsOtpSent || smsVerified}
+                    >
+                      Submit
+                    </button>
                   </div>
 
                   {smsVerified && (
@@ -178,14 +339,35 @@ export default function TwoFactorAuth({ isSidebarOpen }) {
 
                   <div className="a2fa-input-row">
                     <label>Email Id :</label>
-                    <input type="email" value={emailId} onChange={e => setEmailId(e.target.value)} />
-                    <button>Verify</button>
+                    <input 
+                      type="text" 
+                      value={emailId} 
+                      onChange={handleEmailChange}
+                      disabled={emailVerified}
+                    />
+                    <button 
+                      onClick={handleVerifyEmail}
+                      disabled={emailVerified}
+                    >
+                      Verify
+                    </button>
                   </div>
 
                   <div className="a2fa-input-row">
                     <label>Enter the code :</label>
-                    <input type="text" value={emailCode} onChange={e => setEmailCode(e.target.value)} />
-                    <button onClick={() => setEmailVerified(true)}>Submit Code</button>
+                    <input
+                      maxLength={6}
+                      type="text"
+                      value={emailCode}
+                      onChange={handleEmailCodeChange}
+                      disabled={!emailOtpSent || emailVerified}
+                    />
+                    <button 
+                      onClick={handleSubmitEmailCode}
+                      disabled={!emailOtpSent || emailVerified}
+                    >
+                      Submit Code
+                    </button>
                   </div>
 
                   {emailVerified && (
@@ -200,6 +382,38 @@ export default function TwoFactorAuth({ isSidebarOpen }) {
           </div>
         </div>
       </div>
+
+      {/* OTP Sent Popup */}
+      {showOtpSentPopup && (
+        <div className="a2fa-popup-overlay">
+          <div className="a2fa-popup-box">
+            <div className="a2fa-popup-checkmark">📧</div>
+            <h2 className="a2fa-popup-title">{otpSentMessage}</h2>
+            <button 
+              className="a2fa-popup-button"
+              onClick={handleCloseOtpSentPopup}
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Success Popup */}
+      {showSuccessPopup && (
+        <div className="a2fa-popup-overlay">
+          <div className="a2fa-popup-box">
+            <div className="a2fa-popup-checkmark">✓</div>
+            <h2 className="a2fa-popup-title">{successMessage}</h2>
+            <button 
+              className="a2fa-popup-button"
+              onClick={handleCloseSuccessPopup}
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

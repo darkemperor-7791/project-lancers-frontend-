@@ -180,6 +180,11 @@
   outline: none;
 }
 
+.a2fa-input-row input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .a2fa-input-row button {
   padding: 12px 32px;
   background-color: #4a85a3;
@@ -188,6 +193,11 @@
   color: #ffffff;
   font-weight: 600;
   cursor: pointer;
+}
+
+.a2fa-input-row button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* =========================
@@ -241,7 +251,7 @@
 ========================= */
 
 /* Main action buttons */
-.a2fa-input-row button:hover {
+.a2fa-input-row button:hover:not(:disabled) {
   background-color: #3a6583;
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
@@ -320,4 +330,72 @@
 /* Arrow rotation */
 .a2fa-arrow-open {
   transform: rotate(180deg);
+}
+
+.a2fa-code-input{
+  
+}
+
+/* =========================
+   POPUP STYLES (ADD-ON)
+========================= */
+
+/* Popup Overlay */
+.a2fa-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup Box */
+.a2fa-popup-box {
+  background-color: #9db3ba;
+  padding: 45px 60px;
+  border-radius: 18px;
+  border: 3px solid #2c4a57;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  min-width: 420px;
+}
+
+/* Popup Checkmark */
+.a2fa-popup-checkmark {
+  font-size: 52px;
+  margin-bottom: 22px;
+  color: #44ff44;
+}
+
+/* Popup Title */
+.a2fa-popup-title {
+  font-size: 26px;
+  color: #1e3844;
+  margin-top: 0;
+  margin-bottom: 34px;
+  font-weight: bold;
+}
+
+/* Popup Button */
+.a2fa-popup-button {
+  background-color: #dce4e7;
+  border: none;
+  border-radius: 28px;
+  padding: 14px 60px;
+  font-size: 19px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+.a2fa-popup-button:hover {
+  background-color: #ccd4d7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }

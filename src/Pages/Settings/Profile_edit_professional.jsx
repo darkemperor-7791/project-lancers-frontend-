@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../../styles/settings/Profile_edit_professional.css";
-import useAutoResizeTextarea from "../../hooks/useAutoResizeTextarea";
+import { useNavigate } from "react-router-dom";
 
 
 export default function ProfessionalInfoForm() {
@@ -8,7 +8,9 @@ export default function ProfessionalInfoForm() {
   const [skills, setSkills] = useState([{ skill: "", level: "" }]);
   const [projects, setProjects] = useState("");
   const [resume, setResume] = useState(null);
-  const pjt = useAutoResizeTextarea();
+  const projectsRef = useRef(null);
+  const navigate = useNavigate();
+
 
   const degreeOptions = ["High School", "Associate", "Bachelor", "Master", "PhD", "Other"];
   const yearOptions = Array.from({ length: 50 }, (_, i) =>
@@ -82,6 +84,7 @@ export default function ProfessionalInfoForm() {
     }
 
     alert("Professional information submitted successfully!");
+    navigate('/setpf');
   };
 
   return (
@@ -204,15 +207,42 @@ export default function ProfessionalInfoForm() {
           {/* PROJECTS */}
           <section className="pfepro-section">
             <h2 className="pfepro-section-title">Projects</h2>
-            <textarea
-              ref={pjt.textareaRef}
-              onInput={pjt.handleInput}
-              rows={6}
-              value={projects}
-              onChange={(e) => setProjects(e.target.value)}
+
+            {/* Toolbar */}
+            <div className="pfepro-editor-toolbar">
+              <button type="button" onClick={() => document.execCommand("bold")}>
+                <b>B</b>
+              </button>
+              <button type="button" onClick={() => document.execCommand("italic")}>
+                <i>I</i>
+              </button>
+              <button type="button" onClick={() => document.execCommand("underline")}>
+                <u>U</u>
+              </button>
+              <button type="button" onClick={() => document.execCommand("insertUnorderedList")}>
+                • List
+              </button>
+            </div>
+
+            {/* Editable box */}
+            <div
+              ref={projectsRef}
+              className="pfepro-project-box"
+              contentEditable
+              suppressContentEditableWarning
               placeholder="Tell us about your projects you have built so far..."
+              onInput={(e) => {
+                const el = projectsRef.current;
+
+                // auto-resize
+                el.style.height = "auto";
+                el.style.height = el.scrollHeight + "px";
+
+                setProjects(el.innerHTML);
+              }}
             />
           </section>
+
 
           {/* RESUME */}
           <section className="pfepro-section pfepro-resume">

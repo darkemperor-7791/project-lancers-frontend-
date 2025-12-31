@@ -9,6 +9,7 @@
 
 /* Main Card */
 .frl-main-card {
+  margin-top: -8rem;
   width: 100%;
   max-width: 50rem;
   background-color: #707070;
@@ -29,30 +30,41 @@
 }
 
 /* Back Button */
+/* ================= BACK BUTTON (FIXED) ================= */
+
 .frl-btn-back {
-  width: 3rem;
-  height: 3rem;
+  width: 48px;
+  height: 48px;
+
+  padding: 0;              /* 🔴 critical */
+  margin: 0;
+
   background-color: #92B0BE;
+  border: none;
   border-radius: 50%;
-  display: flex;
+
+  display: inline-flex;    /* 🔴 inline-flex prevents stretch */
   align-items: center;
   justify-content: center;
-  border: none;
+
   cursor: pointer;
-  transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .frl-btn-back:hover {
   background-color: #A3C1D1;
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
+/* ================= ICON (ISOLATED & NEUTRAL) ================= */
+
 .frl-icon-back {
-  width: 1.75rem;
-  height: 1.75rem;
-  color: black;
-  stroke-width: 3px;
+  display: block;          /* 🔴 kills baseline spacing */
+  line-height: 1;          /* 🔴 avoids font-metric distortion */
 }
 
 /* Filter Button */
