@@ -116,6 +116,7 @@
 /* ===== CARD ===== */
 
 .aupi-card {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.611);
   background: #5a7b8c;
   padding: 24px 32px;
   border-radius: 18px;
@@ -124,6 +125,11 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.aupi-card:hover{
+  transform: translateY(-3px);
 }
 
 /* ===== INFO ===== */

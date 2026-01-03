@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import google from "../assets/Google-logo.png";
 import '../styles/AuthPages.css';
 
 const AuthPages = () => {
@@ -11,7 +12,7 @@ const AuthPages = () => {
 
   const showLogin = () => setIsLogin(true);
   const showRegister = () => setIsLogin(false);
-
+console.log(google)
   return (
     <>
       <div className="aup-main-container" style={{ paddingTop: "120px" }}>
@@ -56,6 +57,11 @@ const AuthPages = () => {
               <button className="aup-btn-submit" onClick={showRegister}>Register</button>
 
               <button className="aup-btn-google">
+              <img
+                className="aup-google-logo"
+                src={google}
+                alt="Google"
+              />
                 Login with Google
               </button>
             </div>
@@ -113,7 +119,12 @@ const AuthPages = () => {
               <button className="aup-btn-submit" onClick={showLogin}>Login</button>
 
               <button className="aup-btn-google">
-                Login with Google
+              <img
+                className="aup-google-logo"
+                src={google}
+                alt="Google"
+              />
+               <span>Login with Google</span> 
               </button>
             </div>
           </div>

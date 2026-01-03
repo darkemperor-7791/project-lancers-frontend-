@@ -115,6 +115,7 @@
 }
 
 .bpw-input-label {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   font-size: 1.1rem;
   font-weight: 500;
 }
@@ -127,6 +128,7 @@
 
 .bpw-token-input,
 .bpw-rupee-input {
+    box-shadow: 0 6px 16px rgb(0, 0, 0);
   background-color: #d1d5db;
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
@@ -212,6 +214,7 @@
 }
 
 .bpw-method-btn {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
     width: 15rem;
     height: 13rem;
   background-color: white;

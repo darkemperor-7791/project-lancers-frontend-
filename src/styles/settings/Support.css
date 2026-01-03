@@ -14,6 +14,7 @@
 }
 
 .supp-back-btn {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.797);
   width: 42px;
   height: 42px;
   border-radius: 100%;
@@ -38,6 +39,7 @@
 }
 
 .supp-header-btn {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.732);
   margin-top: 10px;
   padding: 10px 24px;
   background: rgba(255, 255, 255, 0.9);
@@ -70,7 +72,9 @@
 
 /* ================= SEARCH ================= */
 .supp-search {
-  max-width: 600px;
+  border-radius: 30px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.442);
+  max-width: 700px;
   margin: 0 auto;
   position: relative;
 }
@@ -148,6 +152,7 @@
 }
 
 .supp-category-card {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.767);
   min-width: 280px;
   background: rgba(255, 255, 255, 0.4);
   border-radius: 12px;
@@ -221,6 +226,7 @@
 }
 
 .supp-popular-box {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.66);
     display: flex;
     justify-self: center;
   max-width: 900px;

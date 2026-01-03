@@ -89,6 +89,7 @@
 
 /* Table Container - Centered */
 .bph-table-container {
+  box-shadow: 0 6px 16px rgb(0, 0, 0);
   width: 67rem;
   max-width: 80rem;
   background: #2c566f;
@@ -99,6 +100,7 @@
 }
 
 .bph-table-inner {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   background-color: #e5e7eb;
   border-radius: 1rem;
   padding: 0.25rem;
@@ -106,6 +108,7 @@
 
 /* Table Header */
 .bph-table-header {
+  box-shadow: 0 6px 16px rgb(0, 0, 0);
   background-color: #334155;
   border-radius: 1rem 1rem 0 0;
   padding: 1rem 1.5rem;
@@ -123,12 +126,14 @@
 
 /* Table Body */
 .bph-table-body {
+  box-shadow: 0 6px 16px rgb(0, 0, 0);
   background-color: white;
   border-radius: 0 0 1rem 1rem;
   overflow: hidden;
 }
 
 .bph-table-row {
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.729);
   background-color: #9ca3af;
   margin: 0.5rem 0.25rem;
   border-radius: 0.75rem;
@@ -137,7 +142,12 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
   align-items: center;
-  border: 2px solid white;
+  transition: transform 0.2s ease;
+}
+
+.bph-table-row:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgb(0, 0, 0);
 }
 
 .bph-empty-row {

@@ -94,10 +94,15 @@
 
 /* WALLET CARD */
 .awall-card {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.734);
   background: #4d6f7e;
   padding: 24px 28px;
   border-radius: 16px;
-  border: 2px solid #5a8aa3;
+  transition: transform 0.2s ease;
+}
+
+.awall-card:hover{
+  transform: translateY(-3px);
 }
 
 .awall-row {

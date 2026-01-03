@@ -81,6 +81,7 @@
 }
 
 .pf-profile-avatar {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.421);
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
@@ -112,6 +113,7 @@
 }
 
 .pf-bio-box {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.427);
   background: var(--inner-bg);
   margin-top: 15px;
   padding: 16px;
@@ -155,13 +157,20 @@
 }
 
 .pf-tag {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.54);
   background: #e8e8e8;
   padding: 0.3rem 1.2rem;
   border-radius: 9999px;
   font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.pf-tag:hover{
+  transform: translateY(-3px);
 }
 
 .pf-project-box {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.429);
   margin-top: 15px;
   width: 100%;
   max-width: 1100px;

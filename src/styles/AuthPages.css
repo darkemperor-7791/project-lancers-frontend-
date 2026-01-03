@@ -238,6 +238,10 @@ body {
   width: 100%;
 }
 
+.aup-google-logo{
+  width: 45px;
+  height: 30px;
+}
 
 .aup-auth-box {
   background-color: #d4dfe3;
@@ -249,6 +253,7 @@ body {
 }
 
 .aup-auth-form {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.786);
   background-color: #4d6b78;
   border-radius: 20px;
   padding: 40px;

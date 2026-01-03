@@ -1,9 +1,9 @@
 /* --- Color Variables based on your palette --- */
 :root {
-    --color-bg-dark: #4d6b78;       /* The dark teal background */
-    --color-bg-light: #d4dfe3;      /* The light grey/blue for cards/bars */
-    --color-accent: #8fa5ae;        /* The medium grey/blue for borders/placeholders */
-    --color-text-dark: #2c4a58;     /* The very dark teal text */
+    --color-bg-dark: #4d6b78;
+    --color-bg-light: #d4dfe3;
+    --color-accent: #8fa5ae;
+    --color-text-dark: #2c4a58;
     --color-text-white: #ffffff;
 }
 
@@ -20,15 +20,24 @@
     gap: 1.5rem;
     max-width: 1400px;
     margin: 0 auto;
+    height: calc(100vh - 4rem);
+    transition: padding-left 0.3s ease;
 }
 
-/* --- Sidebar Styles --- */
-.fw-sidebar {
+.fw-layout.sidebar-open {
+    padding-left: 0;
+}
+
+/* --- Sidebar Styles (FIXED) --- */
+.fw-filter-section {
     width: 250px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
 }
 
 .fw-filter-btn {
@@ -44,13 +53,19 @@
     color: var(--color-text-dark);
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+
+.fw-filter-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .fw-category-section {
     background-color: var(--color-bg-light);
     border-radius: 12px;
     padding: 1.5rem;
-    min-height: 400px; /* To match the long vertical look in design */
+    min-height: 400px;
 }
 
 .fw-category-title {
@@ -59,7 +74,6 @@
     font-weight: 700;
     color: var(--color-text-dark);
     margin-bottom: 1rem;
-    text-transform: lowercase; /* Matches "category" in design */
 }
 
 .fw-category-list {
@@ -74,7 +88,9 @@
     opacity: 0.8;
     cursor: pointer;
     font-weight: 500;
+    transition: all 0.2s;
 }
+
 .fw-category-list li:hover {
     opacity: 1;
     font-weight: 700;
@@ -82,25 +98,28 @@
 
 /* --- Main Content Styles --- */
 .fw-main-content {
+    margin-top: 70px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    overflow: hidden;
 }
 
-/* Search Bar */
+/* Search Bar (FIXED) */
 .fw-search-bar-container {
     background-color: var(--color-bg-light);
-    border-radius: 20px; /* Highly rounded as in design */
+    border-radius: 20px;
     padding: 0.75rem 1.5rem;
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-shrink: 0;
 }
 
 .fw-search-input-wrapper {
     height: 1px;
-    flex-grow:1;
+    flex-grow: 1;
     position: relative;
     display: flex;
     align-items: center;
@@ -124,6 +143,11 @@
     outline: none;
 }
 
+.fw-search-input::placeholder {
+    color: var(--color-text-dark);
+    opacity: 0.5;
+}
+
 .fw-sort-btn {
     background-color: var(--color-accent);
     border: none;
@@ -132,17 +156,41 @@
     color: var(--color-text-dark);
     font-weight: 600;
     cursor: pointer;
-}
-.btn-sort:hover {
-  transform: translateY(-1px);                    /* same lift */
-  box-shadow: 0px 10px 20px rgba(0,0,0,0.40);     /* same shadow */
+    transition: all 0.2s;
 }
 
-/* Job Feed */
+.fw-sort-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.40);
+}
+
+/* Job Feed (SCROLLABLE) */
 .fw-job-feed {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
+    flex: 1;
+}
+
+.fw-job-feed::-webkit-scrollbar {
+    width: 8px;
+}
+
+.fw-job-feed::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.fw-job-feed::-webkit-scrollbar-thumb {
+    background: #4d6b78;
+    border-radius: 10px;
+}
+
+.fw-job-feed::-webkit-scrollbar-thumb:hover {
+    background: #3d5a68;
 }
 
 /* --- Card Styles --- */
@@ -154,12 +202,20 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    flex-shrink: 0;
+}
+
+.fw-coin {
+    margin-bottom: -5px;
+    width: 30px;
+    height: 30px;
 }
 
 /* Card Header */
 .fw-card-header {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.625);
     background-color: var(--color-bg-dark);
-    border-radius: 12px; /* Inner rounding */
+    border-radius: 12px;
     padding: 0.75rem 1rem;
     display: flex;
     justify-content: space-between;
@@ -191,6 +247,7 @@
 }
 
 .fw-tag {
+    box-shadow: 0 5px 24px rgba(0, 0, 0, 0.651); 
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
     font-size: 0.85rem;
@@ -206,11 +263,9 @@
 }
 
 .fw-tag-loyalty {
-    background-color: var(--color-bg-light);
-    color: var(--color-text-dark);
-    /* In the design, this tag looks darker grey/white mix, simplified here */
-    background-color: #d4dfe3; 
+    background-color: #d4dfe3;
     border: 1px solid #fff;
+    color: var(--color-text-dark);
 }
 
 /* Card Body */
@@ -234,32 +289,7 @@
 
 /* Carousel */
 .fw-carousel-section {
-    position: relative;
-    background-color: #2c4a58; /* Dark framing for images */
-    border-radius: 12px;
-    padding: 1rem 3rem; /* Space for arrows */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.fw-images-container {
-    display: flex;
-    gap: 1rem;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.fw-image-box {
-    flex: 1;
-    height: 180px;
-    background-color: #d9d9d9; /* Grey placeholder */
-    border-radius: 8px;
-    position: relative;
-}
-
-/* Carousel */
-.fw-carousel-section {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.552);
     position: relative;
     background-color: #2c4a58;
     border-radius: 12px;
@@ -267,24 +297,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.fw-images-wrapper {
+    width: 100%;
+    overflow: hidden;
 }
 
 .fw-images-container {
     display: flex;
     gap: 1rem;
-    width: 100%;
+    transition: transform 0.3s ease;
 }
 
 .fw-image-box {
-    flex: 1;
+    min-width: calc(50% - 0.5rem);
     height: 180px;
     background-color: #d9d9d9;
     border-radius: 8px;
     position: relative;
+    flex-shrink: 0;
 }
 
-/* ================= ARROWS (FIXED PROPERLY) ================= */
-
+/* ================= ARROWS ================= */
 .fw-arrow-btn {
     position: absolute;
     top: 50%;
@@ -292,22 +328,28 @@
     width: 38px;
     height: 38px;
     border-radius: 50%;
-
     background-color: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(4px);
-
     border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow:
-        0 6px 14px rgba(0, 0, 0, 0.45),
-        inset 0 0 0 1px rgba(255,255,255,0.08);
-
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45),
+                inset 0 0 0 1px rgba(255,255,255,0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-
     cursor: pointer;
     z-index: 5;
     padding: 0;
+    transition: all 0.2s;
+}
+
+.fw-arrow-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.fw-arrow-btn:not(:disabled):hover {
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
 }
 
 .fw-arrow-left {
@@ -324,7 +366,6 @@
     fill: none;
 }
 
-
 /* Card Footer */
 .fw-card-footer {
     display: flex;
@@ -339,7 +380,8 @@
     gap: 0.75rem;
 }
 
- .fw-btn-apply {
+.fw-btn-apply {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     border: none;
     padding: 0.6rem 1.25rem;
     border-radius: 8px;
@@ -347,27 +389,34 @@
     font-size: 0.9rem;
     color: #fff;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
-.fw-btn-tokens{
-        border: none;
+.fw-btn-tokens {
+    box-shadow: 0 2px 24px rgb(0, 0, 0);
+    border: none;
     padding: 0.6rem 1.25rem;
     border-radius: 8px;
     font-weight: 600;
     font-size: 0.9rem;
     color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .fw-btn-tokens {
-    background-color: var(--color-bg-dark); /* Lighter dark */
+    background-color: var(--color-bg-dark);
 }
 
 .fw-btn-apply {
-    background-color: #383838; /* Darker button for Apply */
+    background-color: #383838;
 }
 
 .fw-btn-apply:hover {
-    background-color: #4f4e4e; /* Darker button for Apply */
+    background-color: #4f4e4e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .fw-posted-time {
@@ -379,19 +428,70 @@
 @media (max-width: 768px) {
     .fw-layout {
         flex-direction: column;
+        height: auto;
     }
-    .fw-sidebar {
+
+    .fw-filter-section {
         width: 100%;
-        flex-direction: row;
-        overflow-x: auto;
+        position: relative;
+        top: 0;
     }
+
     .fw-category-section {
         min-height: auto;
     }
-    .fw-images-container {
-        flex-direction: column;
+
+    .fw-main-content {
+        overflow: visible;
     }
-    .fw-image-box {
+
+    .fw-job-feed {
+        overflow: visible;
+    }
+
+    .fw-images-wrapper {
         width: 100%;
     }
+
+    .fw-images-container {
+        flex-direction: row;
+    }
+
+    .fw-image-box {
+        min-width: 100%;
+    }
+
+    .fw-card-footer {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+    }
+
+    .fw-footer-actions {
+        width: 100%;
+    }
+
+    .fw-btn-apply,
+    .fw-btn-tokens {
+        flex: 1;
+    }
+}
+
+/* ================= SIDEBAR PAGE SHIFT ================= */
+
+/* default */
+.fw-layout {
+  transition: transform 0.3s ease;
+}
+
+/* when app sidebar is open */
+.fw-layout.sidebar-open {
+  transform: translateX(var(--settings-sidebar-width));
+}
+.page-find-fw .navbar {
+  z-index: 900;
+}
+
+.page-find-fw .sidebar {
+  z-index: 1100;
 }

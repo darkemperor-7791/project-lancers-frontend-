@@ -84,6 +84,7 @@
 
 
 .bp-billing-tab.active {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.937);
   background-color: #b8c7ce;
   color: #1a1a1a;
 }

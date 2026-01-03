@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import coin from "./assets/coin.png";
 import sa from "./assets/support-agent.png";
+import { Outlet } from "react-router-dom";
 import {
   BrowserRouter as Router,
   Routes,
@@ -17,6 +18,10 @@ import FindWorkPage from "./Pages/FindWorkPage";
 import Notifications from "./Pages/notifications";
 import Freelancers_list from "./Pages/Freelancers_list";
 import ProjectOverviewPage from "./Pages/Project_page.jsx";
+
+/* ===================== CLIENT ===================== */
+import ClientScreen from "./Pages/Client/FindFreelancerpage.jsx";
+import FreelancerProfile from "./Pages/Client/Freelancerprofile.jsx";
 
 /* ===================== SETTINGS ===================== */
 import SettingsProfile from "./Pages/Settings/Profile";
@@ -91,7 +96,6 @@ function NavBar({ onHamburgerClick }) {
       )}
 
 
-
         <button
           className="icon-btn"
           title="Support"
@@ -99,11 +103,16 @@ function NavBar({ onHamburgerClick }) {
             <img className = "support-agent" src={sa}/>
         </button>
 
-        {(isLoginPage || isFindWorkPage) && (
-          <button className="nav-link login-findwork-btn" onClick={handleSwitch}>
-            {isLoginPage ? "Find Work" : "Login"}
-          </button>
-        )}
+        <button 
+          className = "find-work"
+          title = "Find Work"
+          onClick={() => navigate("/find-work")}>Find Work</button>
+
+        <button 
+          className = "find-freelancer"
+          title = "Find Freelancer"
+          onClick={() => navigate("/client-find-fl")}>Find Freelancer</button>
+
       </div>
 
       <div className="navbar-right">
@@ -150,6 +159,8 @@ function AppShell() {
   const stripColorMap = {
     "/": "#1b3038",
     "/fl": "#1b3038",
+    "/client-find-fl": "#ffffff",
+    "/client-fl-prof": "#e5e7eb",
     "/find-work": "#1b3038",
     "/project-page": 'rgb(149, 149, 149)',
     "/setpf": "#1A3342",
@@ -187,6 +198,8 @@ function AppShell() {
         <Routes>
           <Route path="/" element={<AuthPages />} />
           <Route path="/find-work" element={<FindWorkPage isSidebarOpen={isSidebarOpen}/>} />
+          <Route path="/client-find-fl" element={<ClientScreen isSidebarOpen={isSidebarOpen}/>} />
+          <Route path="/client-fl-prof" element={<FreelancerProfile isSidebarOpen={isSidebarOpen}/>} />
           <Route path="/notif" element={<Notifications />} />
           <Route path="/fl" element={<Freelancers_list />} />
           <Route path="/project-page" element={<ProjectOverviewPage isSidebarOpen={isSidebarOpen} />} />
@@ -209,7 +222,7 @@ function AppShell() {
           <Route path="/bilpay" element={<BillingPayments isSidebarOpen={isSidebarOpen} />} />
           <Route path="/support" element={<SupportPage isSidebarOpen={isSidebarOpen} />} />
         </Routes>
-
+      <Outlet />
         {showFooter && <Footer />}
       </div>
     </div>

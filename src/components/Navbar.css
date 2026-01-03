@@ -31,11 +31,6 @@
   text-align: center;
 }
 
-/* ========================= SHOPPING CART (NEW) ========================= */
-
-
-
-
 /* ========================= GLOBAL BACKGROUND FIX ========================= */
 
 html,
@@ -165,9 +160,44 @@ body,
   height: 50px;
 }
 
+.find-freelancer{
+    margin-left: 30px;
+  font-family: "Lexend Deca";
+  background: transparent;
+  border : none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #153c53;
+  transition: transform 0.2s ease ;
+}
+
+.find-freelancer:hover{
+  text-shadow: rgb(0, 0, 0);
+  transform: translateY(-1px);
+  color: #327da8;
+}
+
+.find-work{
+  margin-left: 30px;
+  font-family: "Lexend Deca";
+  background: transparent;
+  border : none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #153c53;
+  transition: transform 0.2s ease ;
+}
+
+.find-work:hover{
+  text-shadow: rgb(0, 0, 0);
+  transform: translateY(-1px);
+  color: #327da8;
+}
+
 /* ========================= COIN DISPLAY (NEW) ========================= */
 
 .coin-display {
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.622);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -242,6 +272,14 @@ body,
   font-size: 22px;
 }
 
+.fw-job-feed{
+  margin-top: -12px;
+}
+
+.fw-filter-btn{
+  margin-top: 2px;
+}
+
 /* ========================= HOME AND CART BUTTON FIX ========================= */
 
 .navbar .icon-btn.home-btn,
@@ -306,4 +344,3 @@ body,
 .icon-btn.cart-btn:active {
   transform: scale(1.05);
 }
-
